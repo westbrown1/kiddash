@@ -1,0 +1,61 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('dashboards', ['uses' => 'DashboardController@index', 'as' => 'dashboards.index']);
+Route::get('dashboards/create', ['uses' => 'DashboardController@create', 'as' => 'dashboards.create']);
+Route::get('dashboards/{id}', ['uses' => 'DashboardController@show', 'as' => 'dashboards.show']);
+Route::post('dashboards/{user_id}', ['uses' => 'DashboardController@store', 'as' => 'dashboards.store']);
+Route::put('dashboards/{id}', ['uses' => 'DashboardController@update', 'as' => 'dashboards.update']);
+Route::get('dashboards/{id}/edit', ['uses' => 'DashboardController@edit', 'as' => 'dashboards.edit']);
+Route::get('dashboards/{id}/delete', ['uses' => 'DashboardController@destroy', 'as' => 'dashboards.destroy']);
+
+Route::get('photos', ['uses' => 'PhotoController@index', 'as' => 'photos.index']);
+Route::get('photos/create', ['uses' => 'PhotoController@create', 'as' => 'photos.create']);
+Route::post('photos/{user_id}', ['uses' => 'PhotoController@store', 'as' => 'photos.store']);
+Route::put('photos/{id}', ['uses' => 'PhotoController@update', 'as' => 'photos.update']);
+Route::get('photos/{id}/edit', ['uses' => 'PhotoController@edit', 'as' => 'photos.edit']);
+Route::get('photos/{id}', ['uses' => 'PhotoController@show', 'as' => 'photos.show']);
+Route::get('photos/{id}/delete', ['uses' => 'PhotoController@destroy', 'as' => 'photos.destroy']);
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Users / Follow
+Route::get('/users', 'FollowController@index');
+Route::post('/follow', 'FollowController@store');
+Route::delete('/follow/{follow}', 'FollowController@destroy');
+
+// Tasks
+Route::get('/tasks', 'TaskController@index');
+Route::post('/task', 'TaskController@store');
+Route::delete('/task/{task}', 'TaskController@destroy');
+
+// News Feed
+Route::get('/feed', 'NewsFeedController@index');
+
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
