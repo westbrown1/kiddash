@@ -1,9 +1,20 @@
 @extends('layouts.app')
 
-@section('title', '')
+@section('title', 'Dashboard')
 
 @section('content')
+<style>
+	
+.row{
+    overflow: hidden; 
+}
 
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+</style>
 <!-- container -->
 <div class="container">
 
@@ -12,30 +23,34 @@
 			<h2 class="text-center">{{ $user->name }}'s Dashboard</h2>
 		</div>
 	</div>
-
+	<br><br>
 	<div class="row">
 		<div class="col-md-12">
-			<a href="{{ route('dashboards.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Create Link</a
+			<a href="{{ route('dashboards.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Create Link</a>
+			<a href="{{ route('dashboards.links') }}" class="btn btn-warning" style="margin-bottom: 15px;">Edit Links</a>
 		</div>
 	</div>	 			
 		
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-4">
 			<table class="table">
 				<tbody> 				
 			 		@foreach($dashboards as $dashboard)
-			 		@if($user->id == $dashboard->user_id)
-			 			 <tr> 		 		
-			 				<td><h4><a href="{{ $dashboard->url }}" target="_blank">{{ $dashboard->name }}</a></h4></td>
-			 				<td><a href="{{ route('dashboards.edit', $dashboard->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
-			 				<td><a href="{{ route('dashboards.destroy', $dashboard->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td>
-				 		 </tr> 
-			 		@endif
+				 		@if($user->id == $dashboard->user_id)
+				 			 <tr> 		 		
+				 				<td><h4><a href="{{ $dashboard->url }}" target="_blank">{{ $dashboard->name }}</a></h4></td>
+					 				{{-- <td><a href="{{ route('dashboards.edit', $dashboard->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
+					 				<td><a href="{{ route('dashboards.destroy', $dashboard->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td> --}}
+							</td>
+					 		 </tr> 
+				 		@endif
 			 		@endforeach
-			 		</div>		 	
+			 				 	
 			 	 </tbody> 
 		 	</table>  
-		</div>
+		
+	</div>
+
 		<div class="col-md-6 col-md-offset-1">
 			<!-- Current Tasks -->
         @if (count($activities) > 0)
@@ -49,7 +64,7 @@
                         <thead>
                             <th>Time</th>
                             <th>Vendor</th>
-                            <th>Special</th>
+                            <th>News</th>
                         </thead>
                         <tbody>
                             @foreach ($activities as $activity)
@@ -68,11 +83,12 @@
         @endif
 		</div>
 
-	</div>
+	</div><br>
 
 	<div class="row">
 		<div class='col-md-12'>
 			<a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Upload Image</a>
+			<a href="{{ route('videos.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Upload Video</a> 
 		</div>
 	</div>
 
@@ -82,28 +98,53 @@
 		 <div class="col-md-12">
 		 <table class="table">
 		 	<tbody>
-			@foreach($photos as $photo)
-			@if($user->id == $photo->user_id)
+		 	<h3>Your Images</h3>
+				@foreach($photos as $photo)
+					@if($user->id == $photo->user_id)
+				 			<td>
+				 				@if(!empty($photo->name))
+									<h4>{{ $photo->name }}</h4>
+								@endif								
 
-		 			<td>
-		 			@if(!empty($photo->name))
-						<h4>{{ $photo->name }}</h4>
-					@endif
-
-					<a href="{{ route('photos.destroy', $photo->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Photo</a>
-
-					@if(!empty($photo->image))
-						<img src="{{asset('/images/' . $photo->image)}}" width="300" height="200" />
-					@endif
-		 			</td>
-
-		 	@endif
-			@endforeach
+								@if(!empty($photo->image))
+									<img src="{{asset('/images/' . $photo->image)}}" width="300" height="200" />
+								@endif
+								<br><br>
+								<a href="{{ route('photos.destroy', $photo->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Photo</a>						
+				 			</td>
+				 	@endif
+				@endforeach
 		 	</tbody>
 		 </table>
 
 		 </div><!-- /col-md-12 -->
 	</div><!-- /row -->
-</div><!-- /container -->
 
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<tbody>
+					<h3>Your Videos</h3>	
+					@foreach($videos as $video)
+						@if($user->id == $video->user_id)
+							<td>
+								@if(!empty($video->name))
+									<h4>{{ $video->name }}</h4>
+								@endif
+
+								@if(!empty($video->file))
+									<video width="320" height="auto" controls>
+										<source src="{{ asset('images/' . $video->file) }}" type="video/mp4">
+									</video><br>
+									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a>								
+								@endif
+							</td>
+
+						@endif
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div><!-- /container -->
 @stop

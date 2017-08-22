@@ -4,20 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Photo;
+use App\News_Feed;
 use App\User;
 use App\Dashboard;
 use Image;
 use Auth;
 use Storage;
-
+use Response;
+use Illuminate\Support\Facades\Input;
 
 class PhotoController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         //
@@ -28,6 +42,7 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
        $user = Auth::user();
@@ -40,25 +55,26 @@ class PhotoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request, $user_id)
     {
         $user = Auth::user();
         $photo = new Photo;
         $photo->name = $request->name;
         $photo->user()->associate($user);
-
+        
         if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/' . $filename);
-          Image::make($image)->resize(300, 200)->save($location);
-
+          $location = public_path().'/images/';
+          $image->move($location, $filename);
+          /*Image::make($image)->resize(300, 200)->save($location);*/       
           $photo->image = $filename;
         }
-
         $photo->save();
         return redirect()->route('dashboards.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -66,6 +82,7 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -77,6 +94,7 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         //
@@ -89,6 +107,7 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
@@ -100,6 +119,7 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         $user = Auth::user();

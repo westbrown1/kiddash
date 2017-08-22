@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
+@section('title', 'Add News')
+
 @section('content')
     <div class="container">
         <div class="col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    New Special
+                    News to Add
                 </div>
 
                 <div class="panel-body">
@@ -18,10 +20,10 @@
 
                         <!-- Task Name -->
                         <div class="form-group">
-                            <label for="task-name" class="col-sm-3 control-label">Special</label>
+                            <label for="task-name" class="col-sm-3 control-label">News</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}">
+                                <textarea type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}"></textarea>
                             </div>
                         </div>
 
@@ -29,7 +31,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-btn fa-plus"></i>Add Special
+                                    <i class="fa fa-btn fa-plus"></i>Add News
                                 </button><br>
    
                             </div>
@@ -41,13 +43,13 @@
             @if (count($tasks) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Current Specials
+                        Current News
                     </div>
 
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
-                                <th>Special</th>
+                                <th>News</th>
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
@@ -87,7 +89,7 @@
                     <table class="table table-striped task-table">
                         <thead>
                             <th>Vendor</th>
-                            <th>Special</th>
+                            <th>News</th>
                         </thead>
                         <tbody>
                             @foreach ($activities as $activity)

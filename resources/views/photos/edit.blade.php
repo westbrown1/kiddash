@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Edit Photos')
+
 @section('title', '| Edit Image')
 
 @section('content')

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '')
+@section('title', 'Edit Links')
 
 @section('content')
 <!-- container -->
@@ -21,8 +21,4 @@
 	 	</div>
 	 </div>
 </div><!-- /container -->
-
-
-
-
 @stop

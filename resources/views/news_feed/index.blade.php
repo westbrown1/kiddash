@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'News Feed')
+
 @section('content')
     <div class="container">
         <!-- Current Tasks -->
@@ -14,7 +16,7 @@
                         <thead>
                             <th>Time</th>
                             <th>Vendor</th>
-                            <th>Special</th>
+                            <th>News</th>
                         </thead>
                         <tbody>
                             @foreach ($activities as $activity)

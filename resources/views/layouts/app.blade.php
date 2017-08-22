@@ -8,10 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Kiddash</title>
+    <title>Kiddash | @yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('stylesheets')
 </head>
 <body>
     <div id="app">
@@ -46,8 +47,9 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            <li><a href="{{ route('dashboards.index') }}">Dashboard</a></li>
                             <li><a href="{{ url('users') }}">Follow</a></li>
-                            <li><a href="{{ url('tasks') }}">Tasks</a></li>
+                            <li><a href="{{ url('tasks') }}">Add News</a></li>
                             <li><a href="{{ url('feed') }}">News Feed</a></li>
 
                             <li class="dropdown">
@@ -62,7 +64,7 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-                                        <a href="{{ route('dashboards.index') }}">Dashboard</a>
+                                        
                                         <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
                                         <li><a href="/messages/create">Create New Message</a></li>
 
@@ -83,5 +85,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

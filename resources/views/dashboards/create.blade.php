@@ -12,6 +12,7 @@
 	 <h3 class="text-center">Create a Link</h3>
 	 	<div class="col-md-6 col-md-offset-3">
 	 		{!! Form::open(['route' => ['dashboards.store', $user->id], 'method' => 'post', 'files' => true]) !!}
+
 				{{ Form::label('name', 'Name of Link:') }}
 				{{ Form::text('name', null, ['class' => 'form-control']) }}
 

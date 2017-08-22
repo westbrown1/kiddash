@@ -9,10 +9,22 @@ use App\User;
 use App\Task;
 use App\Photo;
 use Auth;
+use App\Video;
 use Storage;
+
 
 class DashboardController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
      /**
      * Display a listing of the resource.
@@ -20,19 +32,22 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {    
+    {          
+        $user = Auth::user();
         // Get your timeline:
         $feed = \FeedManager::getNewsFeeds($request->user()->id)['timeline'];
 
         // Get your timeline activities from Stream:
         $activities = $feed->getActivities(0,25)['results'];
 
+
+        $videos = Video::all();
         $photos = Photo::all();
         $dashboards = Dashboard::all();
-        $user = Auth::user();
+
         return view('dashboards.index', [
             'activities' => $activities,
-        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos);
+        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos);
     }
     /**
      * Display a listing of the resource.
@@ -87,11 +102,10 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+   public function edit($id)
     {
         $dashboard = Dashboard::find($id);
         return view('dashboards.edit')->withDashboard($dashboard);
-
     }
 
     /**
@@ -109,6 +123,13 @@ class DashboardController extends Controller
 
         $dashboard->save();
         return redirect()->route('dashboards.index', $dashboard->user->id);
+    }
+
+    public function links()
+    {
+        $dashboards = Dashboard::all();
+        $user = Auth::user();
+        return view('dashboards.links')->withDashboards($dashboards)->withUser($user);
     }
 
     /**

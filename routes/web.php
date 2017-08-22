@@ -24,6 +24,7 @@ Route::post('dashboards/{user_id}', ['uses' => 'DashboardController@store', 'as'
 Route::put('dashboards/{id}', ['uses' => 'DashboardController@update', 'as' => 'dashboards.update']);
 Route::get('dashboards/{id}/edit', ['uses' => 'DashboardController@edit', 'as' => 'dashboards.edit']);
 Route::get('dashboards/{id}/delete', ['uses' => 'DashboardController@destroy', 'as' => 'dashboards.destroy']);
+Route::get('links', ['uses' => 'DashboardController@links', 'as' => 'dashboards.links']);
 
 Route::get('photos', ['uses' => 'PhotoController@index', 'as' => 'photos.index']);
 Route::get('photos/create', ['uses' => 'PhotoController@create', 'as' => 'photos.create']);
@@ -32,6 +33,12 @@ Route::put('photos/{id}', ['uses' => 'PhotoController@update', 'as' => 'photos.u
 Route::get('photos/{id}/edit', ['uses' => 'PhotoController@edit', 'as' => 'photos.edit']);
 Route::get('photos/{id}', ['uses' => 'PhotoController@show', 'as' => 'photos.show']);
 Route::get('photos/{id}/delete', ['uses' => 'PhotoController@destroy', 'as' => 'photos.destroy']);
+
+Route::get('videos', ['uses' => 'VideoController@index', 'as' => 'videos.index']);
+Route::get('videos/create', ['uses' => 'VideoController@create', 'as' => 'videos.create']);
+Route::post('videos/{user_id}', ['uses' => 'VideoController@store', 'as' => 'videos.store']);
+Route::get('videos/{id}', ['uses' => 'VideoController@show', 'as' => 'videos.show']);
+Route::get('videos/{id}/delete', ['uses' => 'VideoController@destroy', 'as' => 'videos.destroy']);
 
 Route::get('/home', 'HomeController@index')->name('home');
 

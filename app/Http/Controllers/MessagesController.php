@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use App\Follow;
+use App\Video;
 
 class MessagesController extends Controller
 {
@@ -97,6 +98,7 @@ class MessagesController extends Controller
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
+                'file'      => $input['message'],
             ]
         );
 
