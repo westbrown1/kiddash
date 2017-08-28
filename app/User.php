@@ -70,4 +70,13 @@ class User extends Authenticatable
         return $this->hasMany(Video::class);
     }
 
+    public function teams()
+    {
+        return $this->hasMany(Team::class);
+    }
+
+    public function joins()
+    {
+        return $this->hasMany(Join::class);
+    }
 }

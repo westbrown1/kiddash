@@ -65,4 +65,20 @@ Route::group(['prefix' => 'messages'], function () {
 
 Auth::routes();
 
+Route::get('teams', ['uses' => 'TeamController@index', 'as' => 'teams.index']);
+Route::get('teams/create', ['uses' => 'TeamController@create', 'as' => 'teams.create']);
+Route::post('teams/{user_id}', ['uses' => 'TeamController@store', 'as' => 'teams.store']);
+Route::put('teams/{id}', ['uses' => 'TeamController@update', 'as' => 'teams.update']);
+Route::get('teams/{id}/edit', ['uses' => 'TeamController@edit', 'as' => 'teams.edit']);
+Route::get('teams/{id}', ['uses' => 'TeamController@show', 'as' => 'teams.show']);
+Route::get('teams/{id}/delete', ['uses' => 'TeamController@destroy', 'as' => 'teams.destroy']);
+
+Route::get('joins', ['uses' => 'JoinController@index', 'as' => 'joins.index']);
+Route::get('joins/create', ['uses' => 'JoinController@create', 'as' => 'joins.create']);
+Route::post('joins/{user_id}', ['uses' => 'JoinController@store', 'as' => 'joins.store']);
+Route::put('joins/{id}', ['uses' => 'JoinController@update', 'as' => 'joins.update']);
+Route::get('joins/{id}/edit', ['uses' => 'JoinController@edit', 'as' => 'joins.edit']);
+Route::get('joins/{id}', ['uses' => 'JoinController@show', 'as' => 'joins.show']);
+Route::get('joins/{id}/delete', ['uses' => 'JoinController@destroy', 'as' => 'joins.destroy']);
+
 Route::get('/home', 'HomeController@index')->name('home');

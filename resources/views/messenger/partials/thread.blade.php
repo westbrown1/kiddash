@@ -5,14 +5,12 @@
         <a href="{{ route('messages.show', $thread->id) }}">{{ $thread->subject }}</a>
         ({{ $thread->userUnreadMessagesCount(Auth::id()) }} unread)</h4>
     <p>
-
-        {{ $thread->latestMessage->body }}
-
+         {{ $thread->latestMessage->body }} 
     </p>
     <p>
-        <small><strong>Creator:</strong> {{ $thread->creator()->name }}</small>
+        <small><strong>Creator:</strong>  {{ $thread->creator()->name }} </small>
     </p>
     <p>
-        <small><strong>Participants:</strong> {{ $thread->participantsString(Auth::id()) }}</small>
+        <small><strong>Participants:</strong>  {{ $thread->participantsString(Auth::id()) }} </small>
     </p>
 </div>

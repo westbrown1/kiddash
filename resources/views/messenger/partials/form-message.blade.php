@@ -5,7 +5,7 @@
         
     <!-- Message Form Input -->
     <div class="form-group">
-        <textarea name="message" class="form-control" required>{{ old('message') }}</textarea>
+        <textarea name="message" class="form-control">{{ old('message') }}</textarea>
     </div>
 
     @if($users->count() > 0)

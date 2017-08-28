@@ -22,6 +22,27 @@
 		<div class="col-md-12">
 			<h2 class="text-center">{{ $user->name }}'s Dashboard</h2>
 		</div>
+	</div><br>
+		<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<table class="table">
+				<tbody> 				
+			 		@foreach($joins as $join)
+				 		@if($user->id == $join->user_id)
+				 			 <tr> 
+				 			 @if(!empty($join->team))		 		
+				 				<td class="text-center"><h4>{{ $join->team }}</h4></td>
+				 			 @endif
+					 				{{-- <td><a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
+					 				<td><a href="{{ route('teams.destroy', $team->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td> --}}
+							</td>
+					 		 </tr> 
+				 		@endif
+			 		@endforeach
+			 				 	
+			 	 </tbody> 
+		 	</table>
+		</div>
 	</div>
 	<br><br>
 	<div class="row">
@@ -146,5 +167,6 @@
 			</table>
 		</div>
 	</div>
+
 </div><!-- /container -->
 @stop

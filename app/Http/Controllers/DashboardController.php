@@ -8,6 +8,8 @@ use App\Dashboard;
 use App\User;
 use App\Task;
 use App\Photo;
+use App\Team;
+use App\Join;
 use Auth;
 use App\Video;
 use Storage;
@@ -43,11 +45,13 @@ class DashboardController extends Controller
 
         $videos = Video::all();
         $photos = Photo::all();
+        $teams = Team::all();
+        $joins = Join::all();
         $dashboards = Dashboard::all();
 
         return view('dashboards.index', [
             'activities' => $activities,
-        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos);
+        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos)->withTeams($teams)->withJoins($joins);
     }
     /**
      * Display a listing of the resource.
