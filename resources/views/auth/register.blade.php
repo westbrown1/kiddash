@@ -42,7 +42,7 @@
 
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Your Website Url</label>
+                            <label for="email" class="col-md-4 control-label">Your Website Url (Include http://)</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="url" class="form-control" name="email" value="{{ old('email') }}" required>

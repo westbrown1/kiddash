@@ -19,7 +19,7 @@
 				{{ Form::label('state', 'State Name', ['style' => 'margin-top: 20px;']) }}
 				{{ Form::text('state', null, ['class' => 'form-control']) }}
 				
-				{{ Form::label('country', 'County Name', ['style' => 'margin-top: 20px;']) }}
+				{{ Form::label('country', 'Country Name', ['style' => 'margin-top: 20px;']) }}
 				{{ Form::text('country', null, ['class' => 'form-control']) }}
 
 				{{ Form::label('sport', 'Sport Name', ['style' => 'margin-top: 20px;']) }}

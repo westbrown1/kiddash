@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '| Create Image')
+@section('title', 'Create Image')
 
 @section('content')
 

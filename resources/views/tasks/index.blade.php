@@ -88,7 +88,7 @@
                 <div class="panel-body">
                     <table class="table table-striped task-table">
                         <thead>
-                            <th>Vendor</th>
+                            <th>Member</th>
                             <th>News</th>
                         </thead>
                         <tbody>

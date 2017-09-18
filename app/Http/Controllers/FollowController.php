@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Follow;
+use App\Join;
+use Auth;
 use App\Repositories\UserRepository;
 
 class FollowController extends Controller
@@ -78,7 +80,7 @@ class FollowController extends Controller
      */
     public function index(Request $request)
     {
-            return view('users.index', [
+        return view('users.index', [
             'users' => $this->users->forUser($request->user()),
     ]);
     }

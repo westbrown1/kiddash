@@ -48,7 +48,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li><a href="{{ route('dashboards.index') }}">Dashboard</a></li>
-                            <li><a href="{{ route('teams.index') }}">Teams</a></li>
+                            <li><a href="{{ route('joins.create') }}">Teams</a></li>
                             <li><a href="{{ url('users') }}">Follow</a></li>
                             <li><a href="{{ url('tasks') }}">Add News</a></li>
                             <li><a href="{{ url('feed') }}">News Feed</a></li>

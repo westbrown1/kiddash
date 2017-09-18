@@ -15,7 +15,7 @@
                     <table class="table table-striped task-table">
                         <thead>
                             <th>Time</th>
-                            <th>Vendor</th>
+                            <th>Member</th>
                             <th>News</th>
                         </thead>
                         <tbody>

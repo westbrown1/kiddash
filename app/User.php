@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'name', 'email', 'password', 'site', 'contact',
+       'name', 'email', 'password', 'site', 'contact', 'team',
     ];
 
     /**
@@ -77,6 +77,6 @@ class User extends Authenticatable
 
     public function joins()
     {
-        return $this->hasMany(Join::class);
+        return $this->hasMany('App\Join');
     }
 }

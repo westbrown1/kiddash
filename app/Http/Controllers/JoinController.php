@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Join;
 use App\Team;
+use App\User;
 use Auth;
+use DB;
 
 class JoinController extends Controller
 {
@@ -26,7 +28,11 @@ class JoinController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $users = User::all();      
+        $joins = Join::all();
+
+        return view('joins.index')->withJoins($joins)->withUsers($users)->withUser($user);
     }
 
     /**
@@ -37,8 +43,8 @@ class JoinController extends Controller
     public function create()
     {
         $user = Auth::user();
-
-        return view('joins.create')->withUser($user);
+        $teams = Team::all();
+        return view('joins.create')->withUser($user)->withTeams($teams);
     }
 
     /**
@@ -53,9 +59,13 @@ class JoinController extends Controller
         $join = new Join;
 
         $join->team = $request->team;
+        $user->team = $request->team;
         $join->user_id = $request->user_id;
 
         $join->save();
+
+        if(empty($user->team))
+        $user->save();
 
         return redirect()->route('dashboards.index')->withJoin($join);
     }
@@ -68,7 +78,7 @@ class JoinController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -102,6 +112,11 @@ class JoinController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Auth::user();
+        $join = Join::find($id);
+
+        $join->delete();
+
+        return redirect()->route('dashboards.index', [$user->id]);
     }
 }

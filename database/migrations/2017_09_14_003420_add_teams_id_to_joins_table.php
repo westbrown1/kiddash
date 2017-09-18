@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFollowIdToMessagesTable extends Migration
+class AddTeamsIdToJoinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddFollowIdToMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->integer('follow_id')->unsigned();
-            });
+        Schema::table('joins', function (Blueprint $table) {
+            $table->integer('team_id')->nullable()->unsigned();
+        });
     }
 
     /**
@@ -25,8 +25,8 @@ class AddFollowIdToMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->dropColumn('follow_id');
+        Schema::table('joins', function (Blueprint $table) {
+            $table->dropColumn('team_id');
         });
     }
 }

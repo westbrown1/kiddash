@@ -17,7 +17,7 @@
                         <table class="table table-striped task-table">
                             <thead>
                                 <th>User</th>
-                                <th>Vendor Url</th>
+                                <th>Member Url</th>
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
@@ -25,7 +25,7 @@
                                     <tr>
                                     <td clphpass="table-text">{{ $user->name }}</td> 
                                     <td clphpass="table-text"><a href="{{ $user->email }}" target="_blank">{{ $user->email }}</a></td>
-                                    
+
                                         <!-- Unfollow Button -->
                                         <td>
                                             <form action="{{url('follow/' . $user->follow_id)}}" method="POST">
@@ -37,13 +37,14 @@
                                                 </button>
                                             </form>
                                         </td>
-                                    </tr>
+                                    </tr>                                
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             @endif
+
         </div>
         <div class="col-sm-offset-2 col-sm-8">
 

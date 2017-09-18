@@ -2,7 +2,7 @@
 
 @section('title', 'Edit Photos')
 
-@section('title', '| Edit Image')
+@section('title', 'Edit Image')
 
 @section('content')
 <!-- container -->

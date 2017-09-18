@@ -8,8 +8,7 @@
 		<div class="row">
 			<div class="col-md-12"><h1>Edit Links</h1><a href="{{ route('dashboards.index') }}" class="btn btn-success" style="margin-bottom: 15px;">Back</a><br>
 				<table class="table">
-					 <tbody> 	
-					 
+					 <tbody>					 
 					 	@foreach($dashboards as $dashboard)
 					 		@if($user->id == $dashboard->user_id)
 					 			 <tr> 		 		

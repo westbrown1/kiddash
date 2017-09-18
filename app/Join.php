@@ -15,8 +15,9 @@ class Join extends Model
        'team', 'user_id',
     ];
 
-    public function user()
+    public function users()
     {
     	return $this->belongsTo('App\User');
     }
+
 }

@@ -22,7 +22,7 @@
 		<div class="col-md-12">
 			<h2 class="text-center">{{ $user->name }}'s Dashboard</h2>
 		</div>
-	</div><br>
+	</div>
 		<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<table class="table">
@@ -32,6 +32,7 @@
 				 			 <tr> 
 				 			 @if(!empty($join->team))		 		
 				 				<td class="text-center"><h4>{{ $join->team }}</h4></td>
+				 				<td><a href="{{ route('joins.destroy', $join->id) }}" class="btn btn-danger btn-xs" style="margin-top: 9px;">Delete Team</a></td>
 				 			 @endif
 					 				{{-- <td><a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
 					 				<td><a href="{{ route('teams.destroy', $team->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td> --}}
@@ -72,7 +73,7 @@
 		
 	</div>
 
-		<div class="col-md-6 col-md-offset-1">
+		<div class="col-md-6 col-md-offset-2">
 			<!-- Current Tasks -->
         @if (count($activities) > 0)
             <div class="panel panel-default">
@@ -84,7 +85,7 @@
                     <table class="table table-striped task-table">
                         <thead>
                             <th>Time</th>
-                            <th>Vendor</th>
+                            <th>Member</th>
                             <th>News</th>
                         </thead>
                         <tbody>
@@ -109,7 +110,7 @@
 	<div class="row">
 		<div class='col-md-12'>
 			<a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Upload Image</a>
-			<a href="{{ route('videos.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Upload Video</a> 
+			<a href="{{ route('videos.create') }}" class="btn btn-warning" style="margin-bottom: 15px;">Upload Video</a> 
 		</div>
 	</div>
 
@@ -154,7 +155,7 @@
 								@endif
 
 								@if(!empty($video->file))
-									<video width="320" height="auto" controls>
+									<video width="320" height="auto" style='margin-bottom: 10px;' controls>
 										<source src="{{ asset('images/' . $video->file) }}" type="video/mp4">
 									</video><br>
 									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a>								
