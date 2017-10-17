@@ -11,6 +11,9 @@
 	 <h3 class="text-center">Join The Team</h3>
 	 	<div class="col-md-6 col-md-offset-3">
 	 		{!! Form::open(['route' => ['joins.store', $user->id], 'method' => 'post']) !!}
+				
+				{{ Form::label('name', 'Username:') }}
+				{{ Form::text('name', $user->name, ['class' => 'form-control']) }}
 
 	 			{{ Form::label('name', 'Team Name:') }}
                 <select class="form-control" name="team">

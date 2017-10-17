@@ -80,8 +80,14 @@ class FollowController extends Controller
      */
     public function index(Request $request)
     {
+ 
         return view('users.index', [
             'users' => $this->users->forUser($request->user()),
     ]);
+        
     }
 }
+
+
+
+

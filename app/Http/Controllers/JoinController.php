@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Follow;
 use App\Join;
 use App\Team;
 use App\User;
 use Auth;
 use DB;
+use App\Repositories\UserRepository;
+
 
 class JoinController extends Controller
 {
@@ -29,10 +33,11 @@ class JoinController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $users = User::all();      
-        $joins = Join::all();
 
-        return view('joins.index')->withJoins($joins)->withUsers($users)->withUser($user);
+        /*$users = User::where('team', '=', Auth::user()->team)->get();*/   //Eloquent
+
+        $users = DB::table('users')->whereIn('team', [Auth::user()->team])->get();   //Query Builder
+        return view('joins.index')->withUsers($users)->withUser($user);
     }
 
     /**
@@ -56,15 +61,18 @@ class JoinController extends Controller
     public function store(Request $request, $user_id)
     {
         $user = Auth::user();
+ 
         $join = new Join;
 
+        $result = value($request->team);
+
+        $join->name = $request->name;
         $join->team = $request->team;
-        $user->team = $request->team;
+        $user->team = $result . ', ' . $user->team;
         $join->user_id = $request->user_id;
 
         $join->save();
 
-        if(empty($user->team))
         $user->save();
 
         return redirect()->route('dashboards.index')->withJoin($join);

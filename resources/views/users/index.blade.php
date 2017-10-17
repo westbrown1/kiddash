@@ -3,12 +3,20 @@
 @section('title', 'Follow')
 
 @section('content')
+<script src="https://use.fontawesome.com/242766c07a.js"></script>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+
         <div class="col-sm-offset-2 col-sm-8">
 
             <!-- Following -->
             @if (count($users['following']) > 0)
                 <div class="panel panel-default">
+
                     <div class="panel-heading">
                         Following
                     </div>
@@ -21,6 +29,7 @@
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
+
                                 @foreach ($users['following'] as $user)
                                     <tr>
                                     <td clphpass="table-text">{{ $user->name }}</td> 
@@ -39,6 +48,7 @@
                                         </td>
                                     </tr>                                
                                 @endforeach
+                         
                             </tbody>
                         </table>
                     </div>
@@ -64,8 +74,7 @@
                                     <tbody>
                                         @foreach ($users['not_following'] as $user)
                                             <tr>
-                                                <td clphpass="table-text"><div>{{ $user->name }}</div></td>
-
+                                                <td clphpass="table-text"><div>{{ $user->name }}</div></td>                                                
                                                 <!-- User Follow Button -->
                                                 <td>
                                                     <form action="{{url('follow') }}" method="POST">
