@@ -81,6 +81,7 @@ Route::get('joins/{id}/edit', ['uses' => 'JoinController@edit', 'as' => 'joins.e
 Route::get('joins/{id}', ['uses' => 'JoinController@show', 'as' => 'joins.show']);
 Route::get('joins/{id}/delete', ['uses' => 'JoinController@destroy', 'as' => 'joins.destroy']);
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();

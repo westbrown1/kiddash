@@ -32,12 +32,23 @@ class JoinController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $member = Auth::user();
 
         /*$users = User::where('team', '=', Auth::user()->team)->get();*/   //Eloquent
 
-        $users = DB::table('users')->whereIn('team', [Auth::user()->team])->get();   //Query Builder
-        return view('joins.index')->withUsers($users)->withUser($user);
+        $users = DB::table('users')->where('team', [$member->team])->get();
+        $users2 = DB::table('users')->where('team', [$member->team2])->get();
+        $users3 = DB::table('users')->where('team', [$member->team3])->get();
+
+        $users4 = DB::table('users')->where('team2', [$member->team])->get();
+        $users5 = DB::table('users')->where('team2', [$member->team2])->get();
+        $users6 = DB::table('users')->where('team2', [$member->team3])->get();
+
+        $users7 = DB::table('users')->where('team3', [$member->team])->get();
+        $users8 = DB::table('users')->where('team3', [$member->team2])->get();
+        $users9 = DB::table('users')->where('team3', [$member->team3])->get();
+
+        return view('joins.index')->withUsers($users)->withUsers2($users2)->withUsers3($users3)->withUsers4($users4)->withUsers5($users5)->withUsers6($users6)->withUsers7($users7)->withUsers8($users8)->withUsers9($users9)->withMember($member);
     }
 
     /**
@@ -68,14 +79,23 @@ class JoinController extends Controller
 
         $join->name = $request->name;
         $join->team = $request->team;
-        $user->team = $result . ', ' . $user->team;
+
+        if(empty($user->team))
+        $user->team = $request->team;
+        elseif(empty($user->team2))
+        $user->team2 = $request->team;
+        else
+        $user->team3 = $request->team;
+
         $join->user_id = $request->user_id;
 
         $join->save();
 
         $user->save();
 
-        return redirect()->route('dashboards.index')->withJoin($join);
+        return redirect()->route('dashboards.index')->withJoin($join);        
+
+
     }
 
     /**
@@ -112,6 +132,7 @@ class JoinController extends Controller
         //
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -124,6 +145,17 @@ class JoinController extends Controller
         $join = Join::find($id);
 
         $join->delete();
+
+        if($join->team == $user->team)
+        $user->team = null;
+
+        if($join->team == $user->team2)
+        $user->team2 = null;
+
+        if($join->team == $user->team3)
+        $user->team3 = null;
+
+        $user->save();
 
         return redirect()->route('dashboards.index', [$user->id]);
     }

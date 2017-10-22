@@ -12,12 +12,12 @@ class Join extends Model
      * @var array
      */
     protected $fillable = [
-       'team', 'user_id',
+       'team', 'user_id', 'name',
     ];
 
     public function users()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\User', 'user_id');
     }
 
 }

@@ -4,7 +4,7 @@
 
 @section('content')
 <style>
-	
+
 .row{
     overflow: hidden; 
 }
@@ -31,12 +31,12 @@
 				 		@if($user->id == $join->user_id)
 				 			 <tr> 
 				 			 @if(!empty($join->team))		 		
-				 				<td class="text-center"><a href="{{ route('joins.index') }}"><h4>{{ $join->team }}</h4></a></td>
+				 				<td class="text-center"><a href="{{ route('joins.index') }}" name="team"><h4>{{ $join->team }}</h4></a></td>
 				 				<td><a href="{{ route('joins.destroy', $join->id) }}" class="btn btn-danger btn-xs" style="margin-top: 9px;">Delete Team</a></td>
 				 			 @endif
 					 				{{-- <td><a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
 					 				<td><a href="{{ route('teams.destroy', $team->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td> --}}
-							</td>
+								</td>
 					 		 </tr> 
 				 		@endif
 			 		@endforeach
