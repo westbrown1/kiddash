@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use App\Follow;
 use App\Video;
+use DB;
+
 
 class MessagesController extends Controller
 {
@@ -72,7 +74,9 @@ class MessagesController extends Controller
      */
     public function create()
     {
+
         $users = User::where('id', '!=', Auth::id())->get();
+
 
         return view('messenger.create', compact('users'));
     }

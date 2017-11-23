@@ -23,7 +23,7 @@
                             <label for="task-name" class="col-sm-3 control-label">News</label>
 
                             <div class="col-sm-6">
-                                <textarea type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}"></textarea>
+                                <textarea type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}"></textarea>                                
                             </div>
                         </div>
 
@@ -32,8 +32,7 @@
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-success">
                                     <i class="fa fa-btn fa-plus"></i>Add News
-                                </button><br>
-   
+                                </button><br>   
                             </div>
                         </div>
                     </form>              

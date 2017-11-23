@@ -40,8 +40,6 @@ Route::post('videos/{user_id}', ['uses' => 'VideoController@store', 'as' => 'vid
 Route::get('videos/{id}', ['uses' => 'VideoController@show', 'as' => 'videos.show']);
 Route::get('videos/{id}/delete', ['uses' => 'VideoController@destroy', 'as' => 'videos.destroy']);
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 // Users / Follow
 Route::get('/users', 'FollowController@index');
 Route::post('/follow', 'FollowController@store');
@@ -80,9 +78,6 @@ Route::put('joins/{id}', ['uses' => 'JoinController@update', 'as' => 'joins.upda
 Route::get('joins/{id}/edit', ['uses' => 'JoinController@edit', 'as' => 'joins.edit']);
 Route::get('joins/{id}', ['uses' => 'JoinController@show', 'as' => 'joins.show']);
 Route::get('joins/{id}/delete', ['uses' => 'JoinController@destroy', 'as' => 'joins.destroy']);
-
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

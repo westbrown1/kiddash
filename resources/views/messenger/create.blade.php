@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h1>Create a new message</h1>
+            <h3 class="text-center">Create a New Message</h3>
     <form action="{{ route('messages.store') }}" method="post">
         {{ csrf_field() }}
 
@@ -22,10 +22,13 @@
                 <label class="control-label">Message</label>
                 <textarea name="message" class="form-control">{{ old('message') }}</textarea>
             </div>
+            
 
-            @if($users->count() > 0)
+
+           @if($users->count() > 0) 
 
                 <div class="checkbox">
+                    
                     @foreach($users as $user)
                         <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
                                                                 value="{{ $user->id }}">{!!$user->name!!}</label>

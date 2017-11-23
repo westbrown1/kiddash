@@ -57,7 +57,7 @@ class TaskController extends Controller
 
     public function create()
     {
-       $user = Auth::user();
+       $user = Auth::user();       
        return view('tasks.create')->withUser($user);
     }
 
@@ -80,9 +80,7 @@ class TaskController extends Controller
             'photo' => $request->photo,
             'url' => $request->url,
             'display_name' => $request->user()->name,
-
         ]);
-
 
         if ($request->hasFile('photo')) {
           $image = $request->file('photo');
@@ -91,16 +89,14 @@ class TaskController extends Controller
           Image::make($image)->resize(300, 200)->save($location);
 
           $task->photo = $filename;
+          $task->save();
         }
 
         //$task->save();
         return redirect('/tasks');
     }
 
-            public function activityExtraData()
-        {
-            return array('new_image'=>$this->new_image);
-        }
+
     /**
      * Destroy the given task.
      *

@@ -11,7 +11,7 @@ use App\User;
 use Auth;
 use DB;
 use App\Repositories\UserRepository;
-
+use Session;
 
 class JoinController extends Controller
 {
@@ -79,15 +79,22 @@ class JoinController extends Controller
 
         $join->name = $request->name;
         $join->team = $request->team;
+        $join->user_id = $request->user_id;        
+        if(!empty($user->team) && !empty($user->team2) && !empty($user->team3)) {
+            Session::flash('sorry', 'Sorry you may only join 3 teams');
+            return redirect()->route('dashboards.index');
+        }
+        if(empty($user->team)) {
+            $user->team = $request->team;
+        }        
+        elseif(empty($user->team2)) {
+            $user->team2 = $request->team;
+        }        
+        else {
+           $user->team3 = $request->team; 
+        }         
 
-        if(empty($user->team))
-        $user->team = $request->team;
-        elseif(empty($user->team2))
-        $user->team2 = $request->team;
-        else
-        $user->team3 = $request->team;
 
-        $join->user_id = $request->user_id;
 
         $join->save();
 

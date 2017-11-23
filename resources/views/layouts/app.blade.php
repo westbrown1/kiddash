@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="shortcut icon" href="{{ asset('images/1502495512.JPG') }}">
     <title>Kiddash | @yield('title')</title>
 
     <!-- Styles -->
@@ -48,7 +48,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li><a href="{{ route('dashboards.index') }}">Dashboard</a></li>
-                            <li><a href="{{ route('joins.create') }}">Teams</a></li>
+                            <li><a href="{{ route('joins.create') }}">Teams to Join</a></li>
                             <li><a href="{{ url('users') }}">Follow</a></li>
                             <li><a href="{{ url('tasks') }}">Add News</a></li>
                             <li><a href="{{ url('feed') }}">News Feed</a></li>
@@ -68,7 +68,7 @@
                                         
                                         <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
                                         <li><a href="/messages/create">Create New Message</a></li>
-                                        <li><a href="{{ route('teams.create') }}">Create a Team</a></li>
+                                        <li><a href="{{ route('teams.create') }}">Create New Team</a></li>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </nav>
-
+@include('partials._messages')
         @yield('content')
     </div>
 

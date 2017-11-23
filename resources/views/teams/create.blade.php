@@ -7,7 +7,7 @@
 <!-- container -->
 <div class="container">
 	 <div class="row">
-	 <h3 class="text-center">Create a Team</h3>
+	 <h3 class="text-center">Create a New Team</h3>
 	 	<div class="col-md-6 col-md-offset-3">
 	 		{!! Form::open(['route' => ['teams.store', $user->id], 'method' => 'post']) !!}
 				{{ Form::label('name', 'Name for Team:') }}
@@ -25,7 +25,7 @@
 				{{ Form::label('sport', 'Sport Name', ['style' => 'margin-top: 20px;']) }}
 				{{ Form::text('sport', null, ['class' => 'form-control']) }}
 
-				{{Form::submit('Create Team', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;'])}}
+				{{Form::submit('Create Team', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 15px;'])}}
 				<a href="{{ route('dashboards.index') }}" class="btn btn-success" style="margin-top: 15px;">Back</a>
 	 		{!! Form::close() !!}
 	 	</div>

@@ -52,7 +52,7 @@ class FollowController extends Controller
 
         \FeedManager::followUser($request->user()->id, $request->follow_id);
 
-        return redirect('/users');
+            return redirect('/users');                
     }
 
     /**

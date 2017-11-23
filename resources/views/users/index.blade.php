@@ -42,7 +42,7 @@
                                                 {{ method_field('DELETE') }}
 
                                                 <button type="submit" id="delete-follow-{{ $user->follow_id }}" class="btn btn-danger">
-                                                    <i class="fa fa-btn fa-trash"></i>Unfollow
+                                                    <i class="fa fa-btn fa-trash"></i> Unfollow
                                                 </button>
                                             </form>
                                         </td>
@@ -77,14 +77,14 @@
                                                 <td clphpass="table-text"><div>{{ $user->name }}</div></td>                                                
                                                 <!-- User Follow Button -->
                                                 <td>
-                                                    <form action="{{url('follow') }}" method="POST">
+                                                    <form action="{{ url('follow') }}" method="POST">
                                                         {{ csrf_field() }}
                                                         {{ method_field('POST') }}
 
                                                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
                                                         <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                                                            <i class="fa fa-btn fa-user"></i>Follow
+                                                            <i class="fa fa-btn fa-user"></i> Follow
                                                         </button>
                                                     </form>
                                                 </td>
