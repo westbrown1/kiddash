@@ -39,22 +39,25 @@
 								</td>
 					 		 </tr> 
 				 		@endif
-			 		@endforeach
-			 				 	
+			 		@endforeach			 				 	
 			 	 </tbody> 
 		 	</table>
 		</div>
 	</div>
+
 	<br><br>
+
+	<!-- row -->
 	<div class="row">
-		<div class="col-md-12 col-md-offset-1">
+		<div class="col-md-4 col-md-offset-1">
 			<a href="{{ route('dashboards.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Create Link</a>
 			<a href="{{ route('dashboards.links') }}" class="btn btn-warning" style="margin-bottom: 15px;">Edit Links</a>
 		</div>
-	</div>	 			
-		
+	</div><!-- /row -->
+
+	<!-- row -->
 	<div class="row">
-		<div class="col-md-4 col-md-offset-1">
+		 <div class="col-md-4 col-md-offset-1">
 			<table class="table">
 				<tbody> 				
 			 		@foreach($dashboards as $dashboard)
@@ -69,44 +72,39 @@
 			 		@endforeach
 			 				 	
 			 	 </tbody> 
-		 	</table>  
-		
-	</div>
-
-		<div class="col-md-6">
-			<!-- Current Tasks -->
-        @if (count($activities) > 0)
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    News Feed
-                </div>
-
-                <div class="panel-body">
-                    <table class="table table-striped task-table">
-                        <thead>
-                            <th>Time</th>
-                            <th>Member</th>
-                            <th>News</th>
-                        </thead>
-                        <tbody>
-                            @foreach ($activities as $activity)
-                                <tr>
-                                    <td class="table-text">
-                                        <div>{{ date('F j, Y, g:i a', strtotime($activity['time'])) }}</div>
-                                    </td>
-                                    <td class="table-text"><div>{{ $activity['display_name'] }}</div></td>
-                                    <td class="table-text"><div>{{ $activity['name'] }}</div></td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        @endif
+		 	</table>	
 		</div>
 
-	</div><br>
-
+	<div class="col-md-7">
+		<!-- Current Tasks -->
+        @if (count($activities) > 0)
+            <div class="panel panel-default">
+                <div class="panel-heading">News Feed</div>
+	                <div class="panel-body">
+	                    <table class="table table-striped task-table">
+	                        <thead>
+	                            <th>Time</th>
+	                            <th>Member</th>
+	                            <th>News</th>
+	                        </thead>
+	                        <tbody>
+	                            @foreach ($activities as $activity)
+	                                <tr>
+	                                    <td class="table-text">
+	                                        <div>{{ date('F j, Y, g:i a', strtotime($activity['time'])) }}</div>
+	                                    </td>
+	                                    <td class="table-text"><div>{{ $activity['display_name'] }}</div></td>
+	                                    <td class="table-text"><div>{{ $activity['name'] }}</div></td>
+	                                </tr>
+	                            @endforeach
+	                        </tbody>
+	                    </table>
+	                </div>
+            	</div>		
+            </div>
+        @endif
+	</div><!-- /row -->
+<br>
 	<div class="row">
 		<div class='col-md-12'>
 			<a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Upload Image</a>
@@ -130,7 +128,7 @@
 								@endif								
 
 								@if(!empty($photo->image))
-									<img src="{{asset('/images/' . $photo->image)}}" id="myImg" width="300" height="200" data-target="myModal-myImg" modal/>
+									<img src="{{asset('/images/' . $photo->image)}}" id="myImg" width="300" height="200"/>
 								@endif
 
 								<br><br>
@@ -150,6 +148,7 @@
 		<div class="col-xs-12">
 			<div class="table-responsive">
 				<tbody>
+
 					<h3 class="text-center">Your Videos</h3>
 
 					@foreach($videos as $video)
@@ -163,7 +162,7 @@
 									<video width="320" height="auto" style='margin-bottom: 10px;' controls>
 										<source src="{{ asset('images/' . $video->file) }}" type="video/mp4">
 									</video><br>
-									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a>								
+									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a>			
 								@endif
 								</td>
 							</tr>

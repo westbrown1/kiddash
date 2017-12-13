@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h3 class="text-center">Create a New Message</h3>
-    <form action="{{ route('messages.store') }}" method="post">
+    <form action="{{ route('messages.store') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
             <!-- Subject Form Input -->
@@ -23,7 +23,9 @@
                 <textarea name="message" class="form-control">{{ old('message') }}</textarea>
             </div>
             
-
+            <div class="form-group">
+                <input type="file" name="featured_img">
+            </div>
 
            @if($users->count() > 0) 
 

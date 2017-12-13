@@ -45,6 +45,7 @@ class TaskController extends Controller
 
         // Get your timeline:
         $feed = \FeedManager::getNewsFeeds($request->user()->id)['timeline'];
+        
 
         // Get your timeline activities from Stream:
         $activities = $feed->getActivities(0,25)['results'];

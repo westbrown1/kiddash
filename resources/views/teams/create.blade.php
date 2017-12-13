@@ -26,7 +26,7 @@
 				{{ Form::text('sport', null, ['class' => 'form-control']) }}
 
 				{{Form::submit('Create Team', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 15px;'])}}
-				<a href="{{ route('dashboards.index') }}" class="btn btn-success" style="margin-top: 15px;">Back</a>
+				<a href="{{ route('dashboards.index') }}" class="btn btn-success btn-block" style="margin-top: 15px;">Back</a>
 	 		{!! Form::close() !!}
 	 	</div>
 	 </div>

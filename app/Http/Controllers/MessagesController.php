@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Image;
 use App\User;
 use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
@@ -86,8 +88,9 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function store()
+    public function store(Request $request)
     {
+      $message = New Message;
         $input = Input::all();
 
         $thread = Thread::create(
@@ -102,7 +105,7 @@ class MessagesController extends Controller
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
-                'file'      => $input['message'],
+                'photo'      => $input['featured_img'],
             ]
         );
 
@@ -120,7 +123,17 @@ class MessagesController extends Controller
             $thread->addParticipant($input['recipients']);
         }
 
-        return redirect('messages');
+          if ($request->hasFile('featured_img')) {
+          $image = $request->file('featured_img');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path().'/images/';
+          $image->move($location, $filename);
+          /*Image::make($image)->resize(300, 200)->save($location);*/       
+          $message->photo = $filename;
+          $message->save();
+        }
+
+        return redirect('messages')->withMessage($message);
     }
 
     /**
@@ -147,6 +160,7 @@ class MessagesController extends Controller
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::id(),
                 'body'      => Input::get('message'),
+                'photo'     => Input::get('featured_img'),
             ]
         );
 
