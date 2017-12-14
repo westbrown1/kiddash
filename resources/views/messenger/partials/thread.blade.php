@@ -6,11 +6,7 @@
         ({{ $thread->userUnreadMessagesCount(Auth::id()) }} unread)</h4>
     <p>
          {{ $thread->latestMessage->body }} 
-    </p>
-
-                                @if(!empty($message->photo))
-                                    <img src="{{ asset('/images/' . $message->photo) }}" id="myImg" width="300" height="200"/>
-                                @endif
+    </p>                                                              
 
     <p>
         <small><strong>Creator:</strong>  {{ $thread->creator()->name }} </small>

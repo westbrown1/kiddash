@@ -93,6 +93,27 @@ class MessagesController extends Controller
       $message = New Message;
         $input = Input::all();
 
+          if ($request->hasFile('featured_vid')) {
+          $file = $request->file('featured_vid');
+          $filename = time() . '.' . $file->getClientOriginalExtension();
+          $location = public_path().'/images/';
+          $file->move($location, $filename);
+          /*Image::make($image)->resize(300, 200)->save($location);*/
+          $message->vid = $filename;
+          }
+
+
+         if ($request->hasFile('featured_img')) {
+          $image = $request->file('featured_img');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path().'/images/';
+          $image->move($location, $filename);
+          /*Image::make($image)->resize(300, 200)->save($location);*/    
+          $message->photo = $filename;         
+          }
+
+          
+
         $thread = Thread::create(
             [
                 'subject' => $input['subject'],
@@ -105,7 +126,9 @@ class MessagesController extends Controller
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
-                'photo'      => $input['featured_img'],
+                'photo'     => $message->photo,
+                'vid'      => $message->vid, 
+                /*'photo'      => $input['featured_img'],*/               
             ]
         );
 
@@ -115,22 +138,13 @@ class MessagesController extends Controller
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
                 'last_read' => new Carbon,
+                
             ]
         );
 
         // Recipients
         if (Input::has('recipients')) {
             $thread->addParticipant($input['recipients']);
-        }
-
-          if ($request->hasFile('featured_img')) {
-          $image = $request->file('featured_img');
-          $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path().'/images/';
-          $image->move($location, $filename);
-          /*Image::make($image)->resize(300, 200)->save($location);*/       
-          $message->photo = $filename;
-          $message->save();
         }
 
         return redirect('messages')->withMessage($message);
@@ -161,6 +175,7 @@ class MessagesController extends Controller
                 'user_id'   => Auth::id(),
                 'body'      => Input::get('message'),
                 'photo'     => Input::get('featured_img'),
+                'vid'      => Input::get('featured_vid'),
             ]
         );
 

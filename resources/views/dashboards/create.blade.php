@@ -14,10 +14,10 @@
 	 		{!! Form::open(['route' => ['dashboards.store', $user->id], 'method' => 'post', 'files' => true]) !!}
 
 				{{ Form::label('name', 'Name of Link:') }}
-				{{ Form::text('name', null, ['class' => 'form-control']) }}
+				{{ Form::text('name', null, ['class' => 'form-control', 'required' => '']) }}
 
 				{{ Form::label('url', 'Url link:') }}
-				{{ Form::text('url', null, ['class' => 'form-control']) }}
+				{{ Form::text('url', null, ['class' => 'form-control', 'required' => '']) }}
 
 				{{ Form::submit('Create Link', ['class' => 'btn btn-success', 'style' => 'margin-top: 15px;']) }}
 				<a href="{{ route('dashboards.index') }}" class="btn btn-success" style="margin-top: 15px;">Back</a>

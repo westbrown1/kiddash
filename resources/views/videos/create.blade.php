@@ -13,7 +13,7 @@
 				{{ Form::label('name', 'Name of Video:') }}
 				{{ Form::text('name', null, ['class' => 'form-control']) }}
 
-				{{ Form::file('file', null, ['class' => 'form-control']) }}
+				{{ Form::file('file', ['required' => '', 'class' => 'form-control']) }}
 
 				{{ Form::submit('Upload Video', ['class' => 'btn btn-success', 'style' => 'margin-top: 15px;']) }}
 	 		{!! Form::close() !!}
