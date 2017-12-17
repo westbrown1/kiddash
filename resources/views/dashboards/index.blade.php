@@ -18,38 +18,36 @@
 <!-- container -->
 <div class="container">
 
-	<div class="row">
-		<div class="col-md-12">
-			<h2 class="text-center">{{ $user->name }}'s Dashboard</h2>
-		</div>
-	</div>
 		<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<table class="table">
-				<tbody> 				
-			 		@foreach($joins as $join)
-				 		@if($user->id == $join->user_id)
-				 			 <tr> 
-				 			 @if(!empty($join->team))		 		
-				 				<td class="text-center"><a href="{{ route('joins.index') }}" name="team"><h4>{{ $join->team }}</h4></a></td>
-				 				<td><a href="{{ route('joins.destroy', $join->id) }}" class="btn btn-danger btn-xs" style="margin-top: 9px;">Delete Team</a></td>
-				 			 @endif
-					 				{{-- <td><a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
-					 				<td><a href="{{ route('teams.destroy', $team->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td> --}}
-								</td>
-					 		 </tr> 
-				 		@endif
-			 		@endforeach			 				 	
-			 	 </tbody> 
-		 	</table>
+			<div class="col-md-12">
+				<h2 class="text-center">{{ $user->name }}'s Dashboard</h2>
+			</div>
 		</div>
-	</div>
-
-	<br><br>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<table class="table">
+					<tbody> 				
+				 		@foreach($joins as $join)
+					 		@if($user->id == $join->user_id)
+					 			 <tr> 
+					 			 @if(!empty($join->team))		 		
+					 				<td class="text-center"><a href="{{ route('joins.index') }}" name="team"><h4>{{ $join->team }}</h4></a></td>
+					 				<td><a href="{{ route('joins.destroy', $join->id) }}" class="btn btn-danger btn-xs" style="margin-top: 9px;">Delete Team</a></td>
+					 			 @endif
+						 				{{-- <td><a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
+						 				<td><a href="{{ route('teams.destroy', $team->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td> --}}
+									</td>
+						 		 </tr> 
+					 		@endif
+				 		@endforeach			 				 	
+				 	 </tbody> 
+			 	</table>
+			</div>
+		</div>
 
 	<!-- row -->
 	<div class="row">
-		<div class="col-md-4 col-md-offset-1">
+		<div class="col-md-4">
 			<a href="{{ route('dashboards.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Create Link</a>
 			<a href="{{ route('dashboards.links') }}" class="btn btn-warning" style="margin-bottom: 15px;">Edit Links</a>
 		</div>
@@ -57,7 +55,7 @@
 
 	<!-- row -->
 	<div class="row">
-		 <div class="col-md-4 col-md-offset-1">
+		 <div class="col-md-4">
 			<table class="table">
 				<tbody> 				
 			 		@foreach($dashboards as $dashboard)
@@ -75,7 +73,7 @@
 		 	</table>	
 		</div>
 
-	<div class="col-md-7">
+	<div class="col-md-7 col-md-offset-1">
 		<!-- Current Tasks -->
         @if (count($activities) > 0)
             <div class="panel panel-default">
@@ -104,7 +102,7 @@
             </div>
         @endif
 	</div><!-- /row -->
-<br>
+
 	<div class="row">
 		<div class='col-md-12'>
 			<a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Upload Image</a>
@@ -116,12 +114,13 @@
 	<div class="row">
 		 <!-- col-md-12 -->
 		 <div class="col-md-12">
-		 	<table class="table">
-	</tbody>
-		 	<h3 class="text-center">Your Images</h3>
+		 	<table class="table table-responsive">
+				<tbody>
+			 	<h3 class="text-center">Your Images</h3>
 
-				@foreach($photos as $photo)
-					@if($user->id == $photo->user_id)
+					@foreach($photos as $photo)
+						@if($user->id == $photo->user_id)
+						<tr>
 				 			<td>
 				 				@if(!empty($photo->name))
 									<h4>{{ $photo->name }}</h4>
@@ -134,19 +133,19 @@
 								<br><br>
 								<a href="{{ route('photos.destroy', $photo->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Photo</a>	
 				 			</td>
+				 		</tr>	
+					 	@endif
+					@endforeach
 
-				 	@endif
-				@endforeach
+				</tbody>
+			</table>		
 
-<tbody>
-</table>		
-
- </div><!-- /col-md-12 -->
+ 		</div><!-- /col-md-12 -->
 	</div><!-- /row -->
 
 	<div class="row">
 		<div class="col-xs-12">
-			<div class="table-responsive">
+			<table class="table table-responsive">
 				<tbody>
 
 					<h3 class="text-center">Your Videos</h3>
@@ -159,17 +158,18 @@
 									<h4>{{ $video->name }}</h4>
 								@endif
 								@if(!empty($video->file))
+
 									<video width="320" height="auto" style='margin-bottom: 10px;' controls>
 										<source src="{{ asset('images/' . $video->file) }}" type="video/mp4">
-									</video><br>
-									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a>			
+									</video><br><br>
+									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a>
 								@endif
 								</td>
-							</tr>
+							</tr>						
 						@endif
 					@endforeach
 				</tbody>
-			</div>
+			</table>
 		</div>
 	</div>
 

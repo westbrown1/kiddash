@@ -7,9 +7,9 @@
         <div class="col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    News to Add
+                    News to Add - All News is Public
                 </div>
-
+                
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
                     @include('common.errors')
@@ -21,7 +21,7 @@
                         <!-- Task Name -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">News</label>
-
+                            
                             <div class="col-sm-6">
                                 <textarea type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}"></textarea>                                
                             </div>

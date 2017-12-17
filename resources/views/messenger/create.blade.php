@@ -4,9 +4,12 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ url()->previous() }}" class="btn btn-success">Back</a><br>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
+
             <h3 class="text-center">Create a New Message</h3>
+            <h5 class="text-center">All Messages are Private</h5>
             <form action="{{ route('messages.store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
 

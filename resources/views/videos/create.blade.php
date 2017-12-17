@@ -11,9 +11,9 @@
 			{!! Form::open(['route' => ['videos.store', $user->id], 'method' => 'post', 'files' => true]) !!}
 
 				{{ Form::label('name', 'Name of Video:') }}
-				{{ Form::text('name', null, ['class' => 'form-control']) }}
+				{{ Form::text('name', null, ['class' => 'form-control']) }}<br>
 
-				{{ Form::file('file', ['required' => '', 'class' => 'form-control']) }}
+				{{ Form::file('file', ['required' => '']) }}
 
 				{{ Form::submit('Upload Video', ['class' => 'btn btn-success', 'style' => 'margin-top: 15px;']) }}
 	 		{!! Form::close() !!}

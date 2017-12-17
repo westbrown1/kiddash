@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
+                <a href="{{ url()->previous() }}" class="btn btn-success">Back</a>
             </div>
         </div>
 

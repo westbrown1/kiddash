@@ -72,7 +72,7 @@
 </head>
 <body> 
 
-    <h1 class="flex-center my-font">Kiddash</h1>
+    <h1 class="flex-center my-font">Swimdash</h1>
 
     @if (Route::has('login'))
                 <div class="top-right links">

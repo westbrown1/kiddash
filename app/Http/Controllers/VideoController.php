@@ -24,9 +24,7 @@ class VideoController extends Controller
 
 	public function index()
 	{
-		$videos = Video::all();
-		$user = Auth::user();
-		return view('videos.index')->withUser($user)->withVideos($videos);
+
 	}
 
 	public function store(Request $request, $user_id)
@@ -51,9 +49,7 @@ class VideoController extends Controller
 
 	public function show($id)
 	{
-		$user = Auth::user();
-		$video = Video::find($id);
-		return view('videos.show')->withVideo($video);
+
 	}
 
 	public function create()

@@ -61,8 +61,6 @@ Route::group(['prefix' => 'messages'], function () {
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 
-Auth::routes();
-
 Route::get('teams', ['uses' => 'TeamController@index', 'as' => 'teams.index']);
 Route::get('teams/create', ['uses' => 'TeamController@create', 'as' => 'teams.create']);
 Route::post('teams/{user_id}', ['uses' => 'TeamController@store', 'as' => 'teams.store']);
@@ -79,6 +77,8 @@ Route::get('joins/{id}/edit', ['uses' => 'JoinController@edit', 'as' => 'joins.e
 Route::get('joins/{id}', ['uses' => 'JoinController@show', 'as' => 'joins.show']);
 Route::get('joins/{id}/delete', ['uses' => 'JoinController@destroy', 'as' => 'joins.destroy']);
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+

@@ -10,10 +10,9 @@ use App\Task;
 use App\Photo;
 use App\Team;
 use App\Join;
-use Auth;
 use App\Video;
 use Storage;
-
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -41,7 +40,6 @@ class DashboardController extends Controller
 
         // Get your timeline activities from Stream:
         $activities = $feed->getActivities(0,25)['results'];
-
 
         $videos = Video::all();
         $photos = Photo::all();

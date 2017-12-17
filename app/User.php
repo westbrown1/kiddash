@@ -78,6 +78,11 @@ class User extends Authenticatable
 
     public function joins()
     {
-        return $this->hasMany('App\Join');
+        return $this->hasMany(Join::class);
+    }
+
+    public function myimages()
+    {
+        return $this->hasMany(Myimage::class);
     }
 }

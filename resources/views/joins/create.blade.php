@@ -7,6 +7,7 @@
 
 <!-- container -->
 <div class="container">
+	
 	 <div class="row">
 	 <h3 class="text-center">Join The Team</h3>
 	 	<div class="col-md-6 col-md-offset-3">
@@ -22,8 +23,8 @@
                     @endforeach
                 </select>
 
-				{{Form::submit('Join Team', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;'])}}
-				<a href="{{ route('teams.index') }}" class="btn btn-success" style="margin-top: 15px;">Back</a>
+				{{Form::submit('Join Team', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 15px;'])}}
+				<a href="{{ url()->previous() }}" class="btn btn-success btn-block" style="margin-top: 10px;">Back</a>
 	 		{!! Form::close() !!}
 	 	</div>
 	 </div>
