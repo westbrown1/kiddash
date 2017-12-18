@@ -41,6 +41,7 @@ class DashboardController extends Controller
         // Get your timeline activities from Stream:
         $activities = $feed->getActivities(0,25)['results'];
 
+        $tasks = Task::all();
         $videos = Video::all();
         $photos = Photo::all();
         $teams = Team::all();
@@ -49,7 +50,7 @@ class DashboardController extends Controller
 
         return view('dashboards.index', [
             'activities' => $activities,
-        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos)->withTeams($teams)->withJoins($joins);
+        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos)->withTeams($teams)->withJoins($joins)->withTasks($tasks);
     }
     /**
      * Display a listing of the resource.
@@ -125,6 +126,25 @@ class DashboardController extends Controller
 
         $dashboard->save();
         return redirect()->route('dashboards.index', $dashboard->user->id);
+    }
+
+    public function photo(Request $request)
+    {     
+        $user = Auth::user(); 
+        // Get your timeline:
+        $feed = \FeedManager::getNewsFeeds($request->user()->id)['timeline'];
+
+        // Get your timeline activities from Stream:
+        $activities = $feed->getActivities(0,25)['results'];
+        return view('dashboards.photo', [
+            'activities' => $activities,
+        ])->withUser($user);
+    }
+
+    public function dashphotos()
+    {      
+        $photos = Photo::all();
+        return view('dashboards.dashphotos')->withPhotos($photos);
     }
 
     public function links()

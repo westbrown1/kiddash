@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Image;
+use App\NewsFeed;
 use App\Task;
 use App\Repositories\TaskRepository;
 use Auth;
@@ -52,7 +53,7 @@ class TaskController extends Controller
 
         return view('tasks.index', [
             'tasks' => $this->tasks->forUser($request->user()),
-            'activities' => $activities
+            'activities' => $activities,            
         ]);
     }
 
@@ -70,31 +71,50 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
         $task = new Task;
+        $tasks = Task::all();
         $this->validate($request, [
             'name' => 'required|max:255',            
-        ]);
-
-
-        $request->user()->tasks()->create([
-            'name' => $request->name,
-            'photo' => $request->photo,
-            'url' => $request->url,
-            'display_name' => $request->user()->name,
         ]);
 
         if ($request->hasFile('photo')) {
           $image = $request->file('photo');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/' . $filename);
-          Image::make($image)->resize(300, 200)->save($location);
+          $location = public_path('/images/');
+          $image->move($location, $filename);
+          /*Image::make($image)->resize(300, 200)->save($location);*/
 
           $task->photo = $filename;
-          $task->save();
         }
 
+        if ($request->hasFile('video')) {
+          $image = $request->file('video');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path('/images/');
+          $image->move($location, $filename);
+          /*Image::make($image)->resize(300, 200)->save($location);*/
+
+          $task->video = $filename;
+        }
+
+         $request->user()->tasks()->create([
+            'name' => $request->name,
+            'photo' => $task->photo,
+            'video' => $task->video,
+            'display_name' => $request->user()->name,
+        ]);
+         
+/*        $task->name = $request->name;
+        $task->photo = $request->photo;
+        $task->video = $request->video;
+        $task->display_name = $request->display_name;*/
+
+
+
+
         //$task->save();
-        return redirect('/tasks');
+        return redirect('/tasks')->withTask($task);
     }
 
 

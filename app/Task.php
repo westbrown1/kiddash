@@ -16,7 +16,7 @@ class Task extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'display_name'];
+    protected $fillable = ['name', 'display_name', 'photo', 'video',];
     
     /**
      * The attributes that should be cast to native types.
@@ -40,7 +40,7 @@ class Task extends Model
          */
         public function activityExtraData()
         {
-            return array('name'=>$this->name, 'display_name' => $this->display_name, 'photo'=>$this->photo);
+            return array('name'=> $this->name, 'display_name' => $this->display_name, 'photo' => $this->photo, 'video' => $this->video,);
     }
 
 
@@ -51,7 +51,6 @@ class Task extends Model
     {
         return 'created';
     }
-
-
-
 }
+
+

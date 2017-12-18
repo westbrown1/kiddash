@@ -10,11 +10,11 @@
         <p>{{ $message->body }}</p>
         
         @if(!empty($message->photo))
-            <img src="{{ asset('/images/' . $message->photo) }}" width="100%" height="auto"/>
+            <img src="{{ asset('/images/' . $message->photo) }}" width="300px" height="auto" />
         @endif
 
         @if(!empty($message->vid))
-            <video width="100%" height="auto" style='margin-bottom: 10px;' controls>
+            <video width="300px" height="auto" style='margin-bottom: 10px;' controls>
                 <source src="{{ asset('/images/' . $message->vid) }}" type="video/mp4">
             </video>             
         @endif 

@@ -25,6 +25,9 @@ Route::put('dashboards/{id}', ['uses' => 'DashboardController@update', 'as' => '
 Route::get('dashboards/{id}/edit', ['uses' => 'DashboardController@edit', 'as' => 'dashboards.edit']);
 Route::get('dashboards/{id}/delete', ['uses' => 'DashboardController@destroy', 'as' => 'dashboards.destroy']);
 Route::get('links', ['uses' => 'DashboardController@links', 'as' => 'dashboards.links']);
+Route::get('photo', ['uses' => 'DashboardController@photo', 'as' => 'dashboards.photo']);
+Route::get('dash-photos', ['uses' => 'DashboardController@dashphotos', 'as' => 'dashboards.dashphotos']);
+
 
 Route::get('photos', ['uses' => 'PhotoController@index', 'as' => 'photos.index']);
 Route::get('photos/create', ['uses' => 'PhotoController@create', 'as' => 'photos.create']);

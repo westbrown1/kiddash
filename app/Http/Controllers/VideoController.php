@@ -69,4 +69,3 @@ class VideoController extends Controller
         return redirect()->route('dashboards.index', [$user->id]);
     }
 }
-

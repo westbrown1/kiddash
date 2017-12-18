@@ -27,6 +27,19 @@
                             </div>
                         </div>
 
+                        <!-- form-group -->
+                        <div class="form-group">
+                            <label for="photo">Add Photo</label>
+                             <input type="file" name="photo">
+                        </div><!-- /form-group --> 
+
+                        <!-- form-group -->
+                        <div class="form-group">
+                            <label for="video">Add Video</label>
+                             <input type="file" name="video">
+                        </div><!-- /form-group -->                  
+
+                           
                         <!-- Add Task Button -->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
@@ -55,7 +68,22 @@
                                 @foreach ($tasks as $task)
                                     <tr>
                                         <td class="table-text"><div>{{ $task->name }}</div></td>
-
+                                        @if(!empty($task->photo))
+                                        <td class="table-text">
+                                            <div>
+                                                <img src="{{ asset('/images/' . $task->photo) }}" width="100px" height="auto"/>
+                                            </div>
+                                        </td>
+                                        @endif
+                                        @if(!empty($task->video))
+                                        <td class="table-text">
+                                            <div>
+                                        <video width="100px" height="auto" style='margin-bottom: 10px;' controls>
+                                            <source src="{{ asset('/images/' . $task->video) }}" type="video/mp4">
+                                        </video>  
+                                            </div>
+                                        </td>
+                                        @endif
                                         <!-- Task Delete Button -->
                                         <td>
                                             <form action="{{url('task/' . $task->id)}}" method="POST">
@@ -91,15 +119,27 @@
                             <th>News</th>
                         </thead>
                         <tbody>
-                            @foreach ($activities as $activity)
+                            @foreach ($tasks as $task)
                                 <tr>
-                                   <td class="table-text"><div>{{ $activity['display_name'] }}</div></td>
-                                    <td class="table-text"><div>{{ $activity['name'] }}</div></td>
+                                   <td class="table-text"><div>{{ $task->display_name }}</div></td>
+                                    <td class="table-text"><div>{{ $task->name }}</div></td>
+                                   @if(!empty($task->photo))
+                                       <td class="table-text"><div><img src="{{ asset('/images/' . $task->photo) }}" width="100px" height="auto"/></div></td>                        
+                                   @endif  
+                                   @if(!empty($task->video))
+                                        <td class="table-text">
+                                            <div>
+                                        <video width="100px" height="auto" style='margin-bottom: 10px;' controls>
+                                            <source src="{{ asset('/images/' . $task->video) }}" type="video/mp4">
+                                        </video>  
+                                            </div>
+                                        </td>
+                                   @endif                                                                   
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    @if (count($activities) < 1)
+                    @if (count($tasks) < 1)
                     <p>Get started by <a href="/users">following users</a>!</p>
                     @endif
                 </div>

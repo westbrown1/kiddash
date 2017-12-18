@@ -93,6 +93,22 @@
 	                                    </td>
 	                                    <td class="table-text"><div>{{ $activity['display_name'] }}</div></td>
 	                                    <td class="table-text"><div>{{ $activity['name'] }}</div></td>
+	                                    @if(!empty($activity['photo']))
+	                                    <td class="table-text">
+	                                    	<div>
+	                                    		<a href="{{ route('dashboards.photo') }}"><img src="../images/{{ $activity['photo'] }}" alt="" width="70px" height="auto"></a>
+	                                    	</div>
+	                                    </td>
+										@endif
+										@if(!empty($activity['video']))
+                                        <td class="table-text">
+                                            <div>	                                         
+		                                        <a href="{{ route('dashboards.photo') }}"><video width="70px" height="auto" controls>
+		                                            <source src="../images/{{ $activity['video'] }}" type="video/mp4">
+		                                        </video></a> 	                                          
+                                            </div>
+                                        </td>
+                                    	@endif
 	                                </tr>
 	                            @endforeach
 	                        </tbody>
@@ -127,7 +143,7 @@
 								@endif								
 
 								@if(!empty($photo->image))
-									<img src="{{asset('/images/' . $photo->image)}}" id="myImg" width="300" height="200"/>
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" id="myImg" width="300" height="200"/></a>
 								@endif
 
 								<br><br>
