@@ -67,11 +67,11 @@ class PictureController extends Controller
           $location = public_path().'/images/';
           $image->move($location, $filename);
           /*Image::make($picture)->resize(300, 200)->save($location);*/       
-          $picture->picture = $filename;
-          $task->dash = $filename;
+          $picture->picture = $filename;          
         }
+        
         $picture->save();
-        $task->save();
+
         return redirect()->route('dashboards.index');
     }
 
