@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\News_Feed;
 use App\Dashboard;
 use App\User;
+use App\Picture;
 use App\Task;
 use App\Photo;
 use App\Team;
@@ -13,6 +14,7 @@ use App\Join;
 use App\Video;
 use Storage;
 use Auth;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -44,13 +46,14 @@ class DashboardController extends Controller
         $tasks = Task::all();
         $videos = Video::all();
         $photos = Photo::all();
+        $pictures = Picture::all();
         $teams = Team::all();
         $joins = Join::all();
         $dashboards = Dashboard::all();
 
         return view('dashboards.index', [
             'activities' => $activities,
-        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos)->withTeams($teams)->withJoins($joins)->withTasks($tasks);
+        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos)->withTeams($teams)->withJoins($joins)->withPictures($pictures)->withTasks($tasks);
     }
     /**
      * Display a listing of the resource.
@@ -142,9 +145,12 @@ class DashboardController extends Controller
     }
 
     public function dashphotos()
-    {      
+    {     
+        $user = Auth::user(); 
+        $videos = Video::all(); 
         $photos = Photo::all();
-        return view('dashboards.dashphotos')->withPhotos($photos);
+        return view('dashboards.dashphotos')->withUser($user)->withPhotos($photos)->withVideos($videos);
+
     }
 
     public function links()
@@ -154,6 +160,13 @@ class DashboardController extends Controller
         return view('dashboards.links')->withDashboards($dashboards)->withUser($user);
     }
 
+    public function uploads()
+    {
+        $user = Auth::user();
+        $photos = Photo::all();
+        $videos = Video::all();
+        return view('dashboards.uploads')->withUser($user)->withPhotos($photos)->withVideos($videos);
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -162,6 +175,7 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
+        $videos = Video::all();
         $photos = Photo::all();
         $user = Auth::user();
         $dashboard = Dashboard::find($id);
@@ -171,6 +185,6 @@ class DashboardController extends Controller
 
         $dashboard->delete();
 
-        return redirect()->route('dashboards.links', [$user->id])->withDashboards($dashboards)->withPhotos($photos);
+        return redirect()->route('dashboards.links', [$user->id])->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos);
     }
 }

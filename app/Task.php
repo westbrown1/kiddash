@@ -16,7 +16,7 @@ class Task extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'display_name', 'photo', 'video',];
+    protected $fillable = ['name', 'display_name', 'photo', 'video'];
     
     /**
      * The attributes that should be cast to native types.
@@ -50,6 +50,11 @@ class Task extends Model
     public function activityVerb()
     {
         return 'created';
+    }
+
+    public function pictures()
+    {
+        return $this->hasOne(Picture::class);
     }
 }
 

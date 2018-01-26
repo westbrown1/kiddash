@@ -25,7 +25,7 @@
                         <table class="table table-striped task-table">
                             <thead>
                                 <th>User</th>
-                                <th>Member Url</th>
+                                <th>Teams</th>
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
@@ -33,8 +33,10 @@
                                 @foreach ($users['following'] as $user)
                                     <tr>
                                     <td clphpass="table-text">{{ $user->name }}</td> 
-                                    <td clphpass="table-text"><a href="{{ $user->email }}" target="_blank">{{ $user->email }}</a></td>
-
+                                    {{-- <td clphpass="table-text"><a href="{{ $user->email }}" target="_blank">{{ $user->email }}</a></td> --}}
+                                   
+                                    <td clphpass="table-text">{{ $user->team }} &nbsp; {{ $user->team2 }} &nbsp; {{ $user->team3 }}</td>
+                                    
                                         <!-- Unfollow Button -->
                                         <td>
                                             <form action="{{url('follow/' . $user->follow_id)}}" method="POST">

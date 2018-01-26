@@ -27,7 +27,15 @@ Route::get('dashboards/{id}/delete', ['uses' => 'DashboardController@destroy', '
 Route::get('links', ['uses' => 'DashboardController@links', 'as' => 'dashboards.links']);
 Route::get('photo', ['uses' => 'DashboardController@photo', 'as' => 'dashboards.photo']);
 Route::get('dash-photos', ['uses' => 'DashboardController@dashphotos', 'as' => 'dashboards.dashphotos']);
+Route::get('upload', ['uses' => 'DashboardController@uploads', 'as' => 'dashboards.uploads']);
 
+Route::get('pictures', ['uses' => 'PictureController@index', 'as' => 'pictures.index']);
+Route::get('pictures/create', ['uses' => 'PictureController@create', 'as' => 'pictures.create']);
+Route::post('pictures/{user_id}', ['uses' => 'PictureController@store', 'as' => 'pictures.store']);
+Route::put('pictures/{id}', ['uses' => 'PictureController@update', 'as' => 'pictures.update']);
+Route::get('pictures/{id}/edit', ['uses' => 'PictureController@edit', 'as' => 'pictures.edit']);
+Route::get('pictures/{id}', ['uses' => 'PictureController@show', 'as' => 'pictures.show']);
+Route::get('pictures/{id}/delete', ['uses' => 'PictureController@destroy', 'as' => 'pictures.destroy']);
 
 Route::get('photos', ['uses' => 'PhotoController@index', 'as' => 'photos.index']);
 Route::get('photos/create', ['uses' => 'PhotoController@create', 'as' => 'photos.create']);
@@ -81,7 +89,5 @@ Route::get('joins/{id}', ['uses' => 'JoinController@show', 'as' => 'joins.show']
 Route::get('joins/{id}/delete', ['uses' => 'JoinController@destroy', 'as' => 'joins.destroy']);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
 
 

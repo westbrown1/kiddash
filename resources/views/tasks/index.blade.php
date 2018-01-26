@@ -7,7 +7,7 @@
         <div class="col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    News to Add - All News is Public
+                    Add Some News - <b>Remember, All News is Public</b>   
                 </div>
                 
                 <div class="panel-body">
@@ -29,21 +29,21 @@
 
                         <!-- form-group -->
                         <div class="form-group">
-                            <label for="photo">Add Photo</label>
-                             <input type="file" name="photo">
+                            <label for="photo" style="margin-left:20px;">Add Photo</label>
+                             <input type="file" name="photo" style="margin-left:20px;">
                         </div><!-- /form-group --> 
 
                         <!-- form-group -->
                         <div class="form-group">
-                            <label for="video">Add Video</label>
-                             <input type="file" name="video">
+                            <label for="video" style="margin-left:20px;">Add Video</label>
+                             <input type="file" name="video" style="margin-left:20px;">
                         </div><!-- /form-group -->                  
 
                            
                         <!-- Add Task Button -->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
-                                <button type="submit" class="btn btn-success">
+                                <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-plus"></i>Add News
                                 </button><br>   
                             </div>
@@ -71,14 +71,14 @@
                                         @if(!empty($task->photo))
                                         <td class="table-text">
                                             <div>
-                                                <img src="{{ asset('/images/' . $task->photo) }}" width="100px" height="auto"/>
+                                                <img src="{{ asset('/images/' . $task->photo) }}" class="img-thumbnail" width="100px" height="auto"/>
                                             </div>
                                         </td>
                                         @endif
                                         @if(!empty($task->video))
                                         <td class="table-text">
                                             <div>
-                                        <video width="100px" height="auto" style='margin-bottom: 10px;' controls>
+                                        <video width="100px" height="auto" style='margin-bottom: 10px;' class="img-thumbnail" controls>
                                             <source src="{{ asset('/images/' . $task->video) }}" type="video/mp4">
                                         </video>  
                                             </div>
@@ -117,6 +117,7 @@
                         <thead>
                             <th>Member</th>
                             <th>News</th>
+                            <th>Attachment</th>
                         </thead>
                         <tbody>
                             @foreach ($tasks as $task)
@@ -124,12 +125,12 @@
                                    <td class="table-text"><div>{{ $task->display_name }}</div></td>
                                     <td class="table-text"><div>{{ $task->name }}</div></td>
                                    @if(!empty($task->photo))
-                                       <td class="table-text"><div><img src="{{ asset('/images/' . $task->photo) }}" width="100px" height="auto"/></div></td>                        
+                                       <td class="table-text"><div><img src="{{ asset('/images/' . $task->photo) }}" class="img-thumbnail" width="100px" height="auto"/></div></td>                        
                                    @endif  
                                    @if(!empty($task->video))
                                         <td class="table-text">
                                             <div>
-                                        <video width="100px" height="auto" style='margin-bottom: 10px;' controls>
+                                        <video width="100px" height="auto" style='margin-bottom: 10px;' class="img-thumbnail" controls>
                                             <source src="{{ asset('/images/' . $task->video) }}" type="video/mp4">
                                         </video>  
                                             </div>

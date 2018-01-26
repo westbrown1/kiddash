@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'name', 'email', 'password', 'site', 'contact', 'team',
+       'name', 'contact', 'email', 'team', 'team2', 'team3',
     ];
 
     /**
@@ -84,5 +84,10 @@ class User extends Authenticatable
     public function myimages()
     {
         return $this->hasMany(Myimage::class);
+    }
+
+    public function pictures()
+    {
+        return $this->hasOne(Picture::class);
     }
 }

@@ -4,14 +4,21 @@
 
 @section('content')
 
+<script src="https://use.fontawesome.com/242766c07a.js"></script>
+
 <div class="container">
 	<div class="row">
+		<!-- col-md-12 -->
+		<div class="col-md-12">
+			 <h3 class="text-center">Others On Your Team</h3>
+		</div><!-- /col-md-12 -->
 		<div class="col-md-8 col-md-offset-2">
 
 		<table class="table">
 			<thead>
 				<td>Member</td>
 				<td>Team</td>
+				<td>&nbsp;</td>
 			</thead>
 			<tbody>	
 
@@ -28,10 +35,11 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+                </tr>
 					
 					@endif
 	     		@endforeach
@@ -52,11 +60,10 @@
 
 	                        <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-	                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-	                            <i class="fa fa-btn fa-user"></i>Follow
+	                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+	                            <i class="fa fa-btn fa-user"></i> Follow
 	                        </button>
 	                    </form></td>
-
 	                	</tr>
 					@endif
 	     		@endforeach
@@ -75,10 +82,11 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+                </tr>
 					@endif
 	     		@endforeach
 	     	@endif	
@@ -96,10 +104,11 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+                </tr>
 					@endif
 	     		@endforeach
 	     	@endif	
@@ -118,10 +127,12 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+
+                </tr>
 					@endif
 	     		@endforeach
 	     	@endif
@@ -140,10 +151,12 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+
+                </tr>
 					@endif
 	     		@endforeach
 	     	@endif
@@ -161,10 +174,12 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+
+                </tr>
 					@endif
 	     		@endforeach
 	     	@endif	
@@ -183,10 +198,11 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+                </tr>
 					@endif
 	     		@endforeach
 	     	@endif
@@ -205,10 +221,11 @@
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                            <i class="fa fa-btn fa-user"></i>Follow
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                            <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td></tr>
+                    </form></td>
+                </tr>
 					@endif
 	     		@endforeach
 	     	@endif		
@@ -217,7 +234,6 @@
 		</table>
 
 		</div>
-	</div>
+	</div>	
 </div>
-
 @stop

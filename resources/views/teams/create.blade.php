@@ -7,20 +7,22 @@
 
 <!-- container -->
 <div class="container">
-
-	<a href="{{ url()->previous() }}" class="btn btn-success" style="margin-top: 15px;">Back</a>
-
-	 <div class="row">	 
-	 <h3 class="text-center">Create a New Team</h3>
+	
+<a href="{{ url()->previous() }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>
+	 <div class="row"> 
+	 
 	 	<div class="col-md-6 col-md-offset-3">
-	 		{!! Form::open(['route' => ['teams.store', $user->id], 'method' => 'post']) !!}
+	 		
+	 			 	 <h3 class="text-center">Create a New Team</h3>
+
+	 			 	 {!! Form::open(['route' => ['teams.store', $user->id], 'method' => 'post']) !!}
 				{{ Form::label('name', 'Team Name') }}
 				{{ Form::text('name', null, ['class' => 'form-control', 'required' => '']) }}
 
 				{{ Form::label('city', 'City Name', ['style' => 'margin-top: 10px;']) }}
 				{{ Form::text('city', null, ['class' => 'form-control', 'required' => '']) }}
 
-				{{ Form::label('state', 'State Name', ['style' => 'margin-top: 10px;']) }}
+				{{ Form::label('state', 'State Name (USA only)', ['style' => 'margin-top: 10px;']) }}
 				{{ Form::text('state', null, ['class' => 'form-control', 'required' => '']) }}
 				
 				{{ Form::label('country', 'Country Name', ['style' => 'margin-top: 10px;']) }}
@@ -32,6 +34,7 @@
 				{{Form::submit('Create Team', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 15px;'])}}
 				
 	 		{!! Form::close() !!}
+ 		
 	 	</div>
 	 </div>
 </div><!-- /container -->

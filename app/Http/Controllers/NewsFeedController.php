@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Picture;
 
 class NewsFeedController extends Controller
 {
@@ -25,7 +26,7 @@ class NewsFeedController extends Controller
      */
     public function index(Request $request)
     {
-
+        $pictures = Picture::all();
         // Get your timeline:
         $feed = \FeedManager::getNewsFeeds($request->user()->id)['timeline'];
 
@@ -34,6 +35,6 @@ class NewsFeedController extends Controller
 
         return view('news_feed.index', [
             'activities' => $activities,
-        ]);
+        ])->withPictures($pictures);
     }
 }

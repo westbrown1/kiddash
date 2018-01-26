@@ -1,16 +1,18 @@
 
 @extends('layouts.app')
 
-@section('title', 'Create a Team')
+@section('title', 'Join a Team')
 
 @section('content')
 
 <!-- container -->
 <div class="container">
-	
+	<a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
 	 <div class="row">
-	 <h3 class="text-center">Join The Team</h3>
+	 
 	 	<div class="col-md-6 col-md-offset-3">
+	 		
+	 		<h3 class="text-center">Join The Team</h3>
 	 		{!! Form::open(['route' => ['joins.store', $user->id], 'method' => 'post']) !!}
 				
 				{{ Form::label('name', 'Username:') }}
@@ -24,7 +26,7 @@
                 </select>
 
 				{{Form::submit('Join Team', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 15px;'])}}
-				<a href="{{ url()->previous() }}" class="btn btn-success btn-block" style="margin-top: 10px;">Back</a>
+				
 	 		{!! Form::close() !!}
 	 	</div>
 	 </div>

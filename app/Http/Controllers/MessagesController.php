@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Image;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MessageReceived;
 use App\User;
 use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
@@ -90,6 +92,7 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+      $users = User::all();
       $message = New Message;
         $input = Input::all();
 
@@ -102,8 +105,7 @@ class MessagesController extends Controller
           $message->vid = $filename;
           }
 
-
-         if ($request->hasFile('featured_img')) {
+          if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path().'/images/';
@@ -126,7 +128,7 @@ class MessagesController extends Controller
                 'body'      => $input['message'],
                 'photo'     => $message->photo,
                 'vid'      => $message->vid, 
-                /*'photo'      => $input['featured_img'],*/               
+            
             ]
         );
 
@@ -136,7 +138,6 @@ class MessagesController extends Controller
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
                 'last_read' => new Carbon,
-                
             ]
         );
 
@@ -144,6 +145,12 @@ class MessagesController extends Controller
         if (Input::has('recipients')) {
             $thread->addParticipant($input['recipients']);
         }
+
+        foreach ($users as $user) {
+          if (strpos($thread->participantsString(Auth::id()), $user->name) !== false) { 
+            Mail::to($user->contact)->send(new MessageReceived());
+          }
+        }        
 
         return redirect('messages')->withMessage($message);
     }
@@ -156,6 +163,7 @@ class MessagesController extends Controller
      */
     public function update($id)
     {
+      $users = User::all();
         try {
             $thread = Thread::findOrFail($id);
         } catch (ModelNotFoundException $e) {
@@ -191,6 +199,12 @@ class MessagesController extends Controller
         if (Input::has('recipients')) {
             $thread->addParticipant(Input::get('recipients'));
         }
+
+        foreach ($users as $user) {
+          if (strpos($thread->participantsString(Auth::id()), $user->name) !== false) { 
+            Mail::to($user->contact)->send(new MessageReceived());
+          }
+        }  
 
         return redirect('messages/' . $id);
     }

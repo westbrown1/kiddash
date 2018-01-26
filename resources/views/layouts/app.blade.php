@@ -7,8 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{ asset('images/1502495512.JPG') }}">
-    <title>Kiddash | @yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('images/1513883823.JPG') }}" class="img-thumbnail">
+    <title>Swimdash | @yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Kiddash
+                        Swimdash
                     </a>
                 </div>
 
@@ -69,6 +69,7 @@
                                         <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
                                         <li><a href="/messages/create">Create New Message</a></li>
                                         <li><a href="{{ route('teams.create') }}">Create New Team</a></li>
+                                        <li><a href="{{ route('pictures.create') }}">Add a Dashboard Photo</a></li>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}

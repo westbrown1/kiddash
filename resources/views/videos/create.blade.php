@@ -15,9 +15,10 @@
 
 				{{ Form::file('file', ['required' => '']) }}
 
-				{{ Form::submit('Upload Video', ['class' => 'btn btn-success', 'style' => 'margin-top: 15px;']) }}
+				{{ Form::submit('Upload Video', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;']) }}
+				<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>
 	 		{!! Form::close() !!}
-			<a href="{{ route('dashboards.index') }}" class="btn btn-success" style="margin-top: 15px;">Back</a>
+			
 		</div>
 	</div>
 </div>

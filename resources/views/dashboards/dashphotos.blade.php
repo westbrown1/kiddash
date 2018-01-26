@@ -10,8 +10,22 @@
 <div class="w3-content w3-display-container">
 
   @foreach($photos as $photo)
-    	<center><img src="../images/{{ $photo->image }}" class="mySlides"  alt="" width="700px" height="auto">
-  @endforeach 
+  @if($user->id == $photo->user_id)
+  @if(!empty($photo->image))
+      <center><img src="../images/{{ $photo->image }}" class="mySlides img-thumbnail"  alt="" width="700px" height="auto">
+  @endif
+  @endif
+  @endforeach
+
+  @foreach($videos as $video)
+  @if($user->id == $video->user_id)
+  @if(!empty($video->file))
+      <video width="330" height="auto" style='margin-bottom: 10px;' class="mySlides img-thumbnail" controls>
+        <source src="{{ asset('images/' . $video->file) }}" type="video/mp4">
+      </video>
+  @endif
+  @endif
+  @endforeach  
 
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
@@ -36,7 +50,7 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";  
 }
 </script>
-
-
-
 @stop
+
+
+

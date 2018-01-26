@@ -6,7 +6,9 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12"><h1>Edit Links</h1><a href="{{ route('dashboards.index') }}" class="btn btn-success" style="margin-bottom: 15px;">Back</a><br>
+			<div class="col-md-12">
+				<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-bottom: 10px;">Back</a>
+				<h1>Edit Links</h1>
 				<table class="table">
 					 <tbody>					 
 					 	@foreach($dashboards as $dashboard)

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Follow;
+use App\Task;
 use App\Join;
 use App\Team;
 use App\User;
@@ -81,7 +83,7 @@ class JoinController extends Controller
         $join->team = $request->team;
         $join->user_id = $request->user_id;        
         if(!empty($user->team) && !empty($user->team2) && !empty($user->team3)) {
-            Session::flash('sorry', 'Sorry you may only join 3 teams');
+            Session::flash('sorry', 'you may only join 3 teams');
             return redirect()->route('dashboards.index');
         }
         if(empty($user->team)) {
@@ -92,17 +94,12 @@ class JoinController extends Controller
         }        
         else {
            $user->team3 = $request->team; 
-        }         
-
-
-
+        } 
         $join->save();
 
         $user->save();
 
-        return redirect()->route('dashboards.index')->withJoin($join);        
-
-
+        return redirect()->route('dashboards.index')->withJoin($join); 
     }
 
     /**

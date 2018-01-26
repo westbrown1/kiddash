@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Image;
 use App\NewsFeed;
 use App\Task;
+use App\Picture;
 use App\Repositories\TaskRepository;
 use Auth;
 use App\User;
@@ -73,7 +74,9 @@ class TaskController extends Controller
     {
 
         $task = new Task;
+
         $tasks = Task::all();
+        $pictures = Picture::all();
         $this->validate($request, [
             'name' => 'required|max:255',            
         ]);
@@ -103,6 +106,7 @@ class TaskController extends Controller
             'photo' => $task->photo,
             'video' => $task->video,
             'display_name' => $request->user()->name,
+            'dash' => $task->dash,
         ]);
          
 /*        $task->name = $request->name;
@@ -114,7 +118,7 @@ class TaskController extends Controller
 
 
         //$task->save();
-        return redirect('/tasks')->withTask($task);
+        return redirect('/tasks')->withTask($task)->withPictures($pictures);
     }
 
 

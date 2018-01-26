@@ -17,7 +17,7 @@
 				{{ Form::file('featured_img', ['required' => ''])}}
  
 				{{Form::submit('Upload Image', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;'])}}
-				<a href="{{ route('dashboards.index') }}" class="btn btn-success" style="margin-top: 15px;">Back</a>
+				<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>
 	 		{!! Form::close() !!}
 	 	</div>
 	 </div>

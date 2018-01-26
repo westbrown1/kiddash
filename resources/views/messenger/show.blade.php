@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="container">
-	<a href="{{ url()->previous() }}" class="btn btn-success">Back</a><br>
+	<a href="/messages" class="btn btn-primary">Back</a>
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
+		<div class="col-md-6 col-md-offset-3">			
 
 		<h1>{{ $thread->subject }}</h1>
         @each('messenger.partials.messages', $thread->messages, 'message')
@@ -15,7 +15,5 @@
 		</div>
 	</div>
 </div>
-
-
 
 @stop
