@@ -13,7 +13,6 @@
 			 <h3 class="text-center">Others On Your Team</h3>
 		</div><!-- /col-md-12 -->
 		<div class="col-md-8 col-md-offset-2">
-
 		<table class="table">
 			<thead>
 				<td>Member</td>
@@ -21,14 +20,13 @@
 				<td>&nbsp;</td>
 			</thead>
 			<tbody>	
-
 			@if(!empty($member->team))		
 				@foreach($users as $user)
 					@if($user->id != Auth::user()->id)
 
 					<tr><td><h4>{{ $user->name }}</h4></td>
-					<td><h4>{{ $user->team }}</h4></td>										
-									                                                    
+					<td><h4>{{ $user->team }}</h4></td>					
+		                                                    
 					<td><form action="{{url('follow') }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('POST') }}
@@ -39,11 +37,13 @@
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
-                </tr>
-					
+	     	        
+                </tr>					
 					@endif
 	     		@endforeach
-	     	@endif	
+
+	     	@endif
+
 
 
 	     	@if(!empty($member->team))		
@@ -131,7 +131,6 @@
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
-
                 </tr>
 					@endif
 	     		@endforeach
@@ -155,7 +154,6 @@
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
-
                 </tr>
 					@endif
 	     		@endforeach
@@ -178,7 +176,6 @@
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
-
                 </tr>
 					@endif
 	     		@endforeach

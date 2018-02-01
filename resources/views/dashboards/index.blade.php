@@ -196,7 +196,7 @@
 	                                    @if(!empty($activity['photo']))
 		                                    <td class="table-text">
 		                                    	<div>
-		                                    		<a href="{{ route('dashboards.photo') }}"><img src="../images/{{ $activity['photo'] }}" class="img-thumbnail" alt="" width="70px" height="auto"></a>
+		                                    		<a href="{{ route('dashboards.photo') }}"><img src="../images/{{ $activity['photo'] }}" class="img-thumbnail" alt="" width="90px" height="auto"></a>
 		                                    	</div>
 		                                    </td>
 										@endif
@@ -204,7 +204,7 @@
 										@if(!empty($activity['video']))
 	                                        <td class="table-text">
 	                                            <div>	                                         
-			                                        <a href="{{ route('dashboards.photo') }}"><video width="70px" height="auto" class="img-thumbnail" controls>
+			                                        <a href="{{ route('dashboards.photo') }}"><video width="90px" height="auto" class="img-thumbnail" controls>
 			                                            <source src="../images/{{ $activity['video'] }}" type="video/mp4"> 
 			                                        </video></a>
 			                                    </div>                                            

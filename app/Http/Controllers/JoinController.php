@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Follow;
@@ -17,14 +18,16 @@ use Session;
 
 class JoinController extends Controller
 {
+    protected $users;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepository $users)
     {
         $this->middleware('auth');
+        $this->users = $users;
     }
 
     /**
@@ -35,8 +38,6 @@ class JoinController extends Controller
     public function index()
     {
         $member = Auth::user();
-
-        /*$users = User::where('team', '=', Auth::user()->team)->get();*/   //Eloquent
 
         $users = DB::table('users')->where('team', [$member->team])->get();
         $users2 = DB::table('users')->where('team', [$member->team2])->get();

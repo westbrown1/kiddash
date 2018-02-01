@@ -8,6 +8,7 @@ use App\Dashboard;
 use App\User;
 use App\Picture;
 use App\Task;
+use App\Follow;
 use App\Photo;
 use App\Team;
 use App\Join;

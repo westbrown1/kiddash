@@ -24,6 +24,9 @@
     				{{ Form::submit('Save Changes', ['class' => 'btn btn-primary btn-block'])}}
     				
 		{{ Form::close() }}
+		
+		<br><br>
+		<a href="{{ route('pictures.destroy', $picture->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Image</a
 	
 	</div>
 </div><!-- /row -->

@@ -148,6 +148,12 @@ class PictureController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Auth::user();
+        $picture = Picture::find($id);
+
+        Storage::delete('picture->picture');
+        $picture->delete();
+
+        return redirect()->route('dashboards.index', [$user->id]);
     }
 }

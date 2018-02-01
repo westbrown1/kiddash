@@ -51,7 +51,7 @@ class FollowController extends Controller
             'follow_id' => $request->follow_id,
         ]);        
 
-       \FeedManager::followUser($request->user()->id, $request->follow_id);
+        \FeedManager::followUser($request->user()->id, $request->follow_id);
 
         return redirect('/users');                
     }
@@ -65,6 +65,7 @@ class FollowController extends Controller
      */
     public function destroy(Request $request, Follow $follow)
     {
+        
         $this->authorize('destroy', $follow);
         $follow->delete();
 
