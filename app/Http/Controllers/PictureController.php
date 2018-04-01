@@ -84,7 +84,7 @@ class PictureController extends Controller
     public function show($id)
     {
         $user = Auth::user();
-         $picture = Picture::find($id);
+        $picture = Picture::find($id);
         return view('pictures.show')->withPicture($picture)->withUser($user);
     }
 

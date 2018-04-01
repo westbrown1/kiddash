@@ -13,6 +13,16 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- @yield('stylesheets') --}}
+
+    <style>
+    #bottom {
+        position: fixed;
+        bottom: 0;
+    }
+    .bottom2 {
+        margin-top: 50px;
+    }
+    </style> 
 </head>
 <body>
     <div id="app">
@@ -48,7 +58,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li><a href="{{ route('dashboards.index') }}">Dashboard</a></li>
-                            <li><a href="{{ route('joins.create') }}">Teams to Join</a></li>
+                            <li><a href="{{ route('joins.country') }}">Join a Team</a></li>
                             <li><a href="{{ url('users') }}">Follow</a></li>
                             <li><a href="{{ url('tasks') }}">Add News</a></li>
                             <li><a href="{{ url('feed') }}">News Feed</a></li>
@@ -69,7 +79,7 @@
                                         <li><a href="/messages">Messages @include('messenger.unread-count')</a></li>
                                         <li><a href="/messages/create">Create New Message</a></li>
                                         <li><a href="{{ route('teams.create') }}">Create New Team</a></li>
-                                        <li><a href="{{ route('pictures.create') }}">Add a Dashboard Photo</a></li>
+                                        <li><a href="{{ route('pictures.create') }}">Add a Dashboard Photo/Image</a></li>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -82,12 +92,22 @@
                 </div>
             </div>
         </nav>
-@include('partials._messages')
+        @include('partials._messages')
         @yield('content')
-    </div>
+    </div>   
+
+    <footer>
+        <div class="col-md-2 col-md-offset-5 bottom2">
+            <p class="text-center" id="bottom">
+                Copyright &copy; - Swimdash {{ date('Y') }}
+            </p>        
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     {{-- @yield('scripts') --}}
+
 </body>
+
 </html>

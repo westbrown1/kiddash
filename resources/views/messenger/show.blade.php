@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">			
 
-		<h1>{{ $thread->subject }}</h1>
+		<h2>{{ $thread->subject }}</h2>
         @each('messenger.partials.messages', $thread->messages, 'message')
 
         @include('messenger.partials.form-message')

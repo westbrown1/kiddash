@@ -13,7 +13,7 @@ class Follow extends Model
      *
      * @var array
      */
-    protected $fillable = ['follow_id'];
+    protected $fillable = ['follow_id', 'check'];
 
 
     /**
@@ -24,4 +24,8 @@ class Follow extends Model
         return $this->belongsTo(User::class);
     }
 
+        public function join()
+    {
+        return $this->belongsTo(Join::class);
+    }
 }

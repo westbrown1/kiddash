@@ -18,6 +18,7 @@
 				<td>Member</td>
 				<td>Team</td>
 				<td>&nbsp;</td>
+			
 			</thead>
 			<tbody>	
 			@if(!empty($member->team))		
@@ -25,26 +26,26 @@
 					@if($user->id != Auth::user()->id)
 
 					<tr><td><h4>{{ $user->name }}</h4></td>
-					<td><h4>{{ $user->team }}</h4></td>					
-		                                                    
+					<td><h4>{{ $user->team }}</h4></td>	
+
 					<td><form action="{{url('follow') }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+						<input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td>
-	     	        
+                    </form></td>                    
+                    <td>
+                    	<div id="me" style="display:none;">yes</div>
+                    </td>                    	     	        
                 </tr>					
 					@endif
 	     		@endforeach
-
 	     	@endif
-
-
 
 	     	@if(!empty($member->team))		
 				@foreach($users2 as $user)
@@ -59,8 +60,9 @@
 	                        {{ method_field('POST') }}
 
 	                        <input type="hidden" name="follow_id" value="{{ $user->id }}">
+	                        <input type="hidden" name="check" value="Yes">
 
-	                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+	                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
 	                            <i class="fa fa-btn fa-user"></i> Follow
 	                        </button>
 	                    </form></td>
@@ -74,15 +76,16 @@
 					@if($user->id != Auth::user()->id)
 
 					<tr><td><h4>{{ $user->name }}</h4></td>
-					<td><h4>{{ $user->team }}</h4></td>										
+					<td><h4>{{ $user->team }}</h4></td>				
 									                                                    
 					<td><form action="{{url('follow') }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                        <input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
@@ -103,8 +106,9 @@
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                        <input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
@@ -126,8 +130,9 @@
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                        <input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
@@ -149,8 +154,9 @@
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                        <input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
@@ -171,8 +177,9 @@
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                        <input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
@@ -194,8 +201,9 @@
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                        <input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
                     </form></td>
@@ -217,11 +225,12 @@
                         {{ method_field('POST') }}
 
                         <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                        <input type="hidden" name="check" value="Yes">
 
-                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-primary">
+                        <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                             <i class="fa fa-btn fa-user"></i> Follow
                         </button>
-                    </form></td>
+                    </form> </td><td>{{ $user->id }}</td>
                 </tr>
 					@endif
 	     		@endforeach

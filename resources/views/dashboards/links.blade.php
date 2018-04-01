@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-bottom: 10px;">Back</a>
-				<h1>Edit Links</h1>
+				<h3>Edit Links</h3>
 				<table class="table">
 					 <tbody>					 
 					 	@foreach($dashboards as $dashboard)

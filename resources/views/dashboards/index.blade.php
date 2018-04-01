@@ -127,10 +127,13 @@
 			 		@foreach($joins as $join)
 				 		@if($user->id == $join->user_id)
 				 			 <tr> 
-				 			 @if(!empty($join->team))		 		
-				 				<td class="text-center"><a href="{{ route('joins.index') }}" name="team"><h4>{{ $join->team }}</h4></a></td>
+				 			 @if(!empty($join->team))
+				 				<td class="text-center"><a href="{{ url('users') }}" name="team"><h4>{{ $join->team }}</h4></a></td>
+								
 				 				<td><a href="{{ route('joins.destroy', $join->id) }}" class="btn btn-danger btn-xs" style="margin-top: 9px;">Delete Team</a></td>
 				 			 @endif
+
+
 					 				{{-- <td><a href="{{ route('teams.edit', $team->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
 					 				<td><a href="{{ route('teams.destroy', $team->id) }}" class="btn btn-sm btn-danger">Delete Link</a></td> --}}
 								</td>
@@ -196,7 +199,7 @@
 	                                    @if(!empty($activity['photo']))
 		                                    <td class="table-text">
 		                                    	<div>
-		                                    		<a href="{{ route('dashboards.photo') }}"><img src="../images/{{ $activity['photo'] }}" class="img-thumbnail" alt="" width="90px" height="auto"></a>
+		                                    		<a href="{{ route('dashboards.photo') }}"><img src="../images/{{ $activity['photo'] }}" class="img-thumbnail" alt="" width="120px" height="auto"></a>
 		                                    	</div>
 		                                    </td>
 										@endif
@@ -204,7 +207,7 @@
 										@if(!empty($activity['video']))
 	                                        <td class="table-text">
 	                                            <div>	                                         
-			                                        <a href="{{ route('dashboards.photo') }}"><video width="90px" height="auto" class="img-thumbnail" controls>
+			                                        <a href="{{ route('dashboards.photo') }}"><video width="120px" height="auto" class="img-thumbnail" controls>
 			                                            <source src="../images/{{ $activity['video'] }}" type="video/mp4"> 
 			                                        </video></a>
 			                                    </div>                                            

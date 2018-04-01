@@ -20,4 +20,13 @@ class Join extends Model
     	return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function follows()
+    {
+        return $this->belongsTo('App\Follow', 'follow_id');
+    }
+
+    public function teams()
+    {
+        return $this->belongsTo('App\Team');
+    }
 }

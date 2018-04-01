@@ -80,6 +80,10 @@ Route::get('teams/{id}/edit', ['uses' => 'TeamController@edit', 'as' => 'teams.e
 Route::get('teams/{id}', ['uses' => 'TeamController@show', 'as' => 'teams.show']);
 Route::get('teams/{id}/delete', ['uses' => 'TeamController@destroy', 'as' => 'teams.destroy']);
 
+Route::get('joins/country', ['uses' => 'JoinController@country', 'as' => 'joins.country']);
+Route::get('joins/display', ['uses' => 'JoinController@display', 'as' => 'joins.display']);
+Route::get('joins/state', ['uses' => 'JoinController@state', 'as' => 'joins.state']);
+Route::get('joins/local', ['uses' => 'JoinController@local', 'as' => 'joins.local']);
 Route::get('joins', ['uses' => 'JoinController@index', 'as' => 'joins.index']);
 Route::get('joins/create', ['uses' => 'JoinController@create', 'as' => 'joins.create']);
 Route::post('joins/{user_id}', ['uses' => 'JoinController@store', 'as' => 'joins.store']);
@@ -87,6 +91,14 @@ Route::put('joins/{id}', ['uses' => 'JoinController@update', 'as' => 'joins.upda
 Route::get('joins/{id}/edit', ['uses' => 'JoinController@edit', 'as' => 'joins.edit']);
 Route::get('joins/{id}', ['uses' => 'JoinController@show', 'as' => 'joins.show']);
 Route::get('joins/{id}/delete', ['uses' => 'JoinController@destroy', 'as' => 'joins.destroy']);
+
+Route::get('country', function() {
+	return view('joins.country');
+});
+
+Route::get('example', function() {
+	return view('example');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 

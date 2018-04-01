@@ -52,6 +52,10 @@ class TeamController extends Controller
      */
     public function store(Request $request, $user_id)
     {
+        $this->validate($request, [
+                'name' => 'required|unique:teams,name|max:255',
+            ]);
+
         $user = Auth::user();
         $team = new Team;
 
@@ -66,6 +70,7 @@ class TeamController extends Controller
 
         return redirect()->route('joins.index')->withTeam($team);
     }
+
 
     /**
      * Display the specified resource.
@@ -86,7 +91,7 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -110,5 +115,17 @@ class TeamController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+        /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.unique:teams,name' => 'This team name has been taken',
+        ];
     }
 }

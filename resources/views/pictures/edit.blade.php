@@ -15,7 +15,7 @@
 
 			 	 {{ Form::model($picture, ['route' => ['pictures.update', $picture->id], 'method' => 'PUT', 'files' => true])}} 			 
 
-				 	{{ Form::label('name', 'Image Name') }}<br>
+				 	{{ Form::label('name', 'Username') }}<br>
 				 	{{ Form::text('name', null, ['class' => 'form-control']) }}<br>
    				
     				{{Form::label('picture', 'Update Dashboard Image')}}<br>

@@ -50,11 +50,12 @@ class DashboardController extends Controller
         $pictures = Picture::all();
         $teams = Team::all();
         $joins = Join::all();
+
         $dashboards = Dashboard::all();
 
         return view('dashboards.index', [
             'activities' => $activities,
-        ])->withUser($user)->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos)->withTeams($teams)->withJoins($joins)->withPictures($pictures)->withTasks($tasks);
+        ])->withUser($user)->withDashboards($dashboards)->withJoins($joins)->withPhotos($photos)->withVideos($videos)->withTeams($teams)->withPictures($pictures)->withTasks($tasks);
     }
     /**
      * Display a listing of the resource.

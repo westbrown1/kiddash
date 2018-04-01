@@ -20,4 +20,9 @@ class Team extends Model
         return $this->belongsToMany('App\User');
     }
 
+    public function joins()
+    {
+        return $this->hasMany('App\Join');
+    }
+
 }

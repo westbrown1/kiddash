@@ -15,6 +15,7 @@ use Auth;
 use DB;
 use App\Repositories\UserRepository;
 use Session;
+use Illuminate\Support\Facades\Input;
 
 class JoinController extends Controller
 {
@@ -74,33 +75,50 @@ class JoinController extends Controller
      */
     public function store(Request $request, $user_id)
     {
+        $this->validate($request, [
+                'team' => 'required|max:255',
+            ]);
+
         $user = Auth::user();
  
         $join = new Join;
 
-        $result = value($request->team);
+        /*$result = value($request->team);*/
 
         $join->name = $request->name;
         $join->team = $request->team;
         $join->user_id = $request->user_id;        
-        if(!empty($user->team) && !empty($user->team2) && !empty($user->team3)) {
-            Session::flash('sorry', 'you may only join 3 teams');
+        if(!empty($user->team) && !empty($user->team2) && !empty($user->team3) && !empty($user->team4) && !empty($user->team5)) {
+            Session::flash('sorry', 'You may only join 5 teams');
+            return redirect()->route('dashboards.index');
+        } 
+
+        if(empty($user->team)  && ($request->team !== $user->team2) && ($request->team !== $user->team3) && ($request->team !== $user->team4) && ($request->team !== $user->team5)) {
+            $user->team = $request->team;
+            $join->save();
+        } elseif(empty($user->team2) && ($request->team !== $user->team) && ($request->team !== $user->team3) && ($request->team !== $user->team4) && ($request->team !== $user->team5)) {
+            $user->team2 = $request->team;
+            $join->save();
+        }        
+        elseif (empty($user->team3) && ($request->team !== $user->team) && ($request->team !== $user->team2) && ($request->team !== $user->team4) && ($request->team !== $user->team5)) {
+           $user->team3 = $request->team;
+           $join->save(); 
+        }
+        elseif (empty($user->team4) && ($request->team !== $user->team ) && ($request->team !== $user->team2) && ($request->team !== $user->team3) && ($request->team !== $user->team5)) {
+           $user->team4 = $request->team;
+           $join->save(); 
+        }
+        elseif (empty($user->team5) && ($request->team !== $user->team) && ($request->team !== $user->team2) && ($request->team !== $user->team3) && ($request->team !== $user->team4)) {
+            $user->team5 = $request->team;
+            $join->save();
+        } else {
+            Session::flash('sorry', 'No duplication of teams joined');
             return redirect()->route('dashboards.index');
         }
-        if(empty($user->team)) {
-            $user->team = $request->team;
-        }        
-        elseif(empty($user->team2)) {
-            $user->team2 = $request->team;
-        }        
-        else {
-           $user->team3 = $request->team; 
-        } 
-        $join->save();
 
         $user->save();
 
-        return redirect()->route('dashboards.index')->withJoin($join); 
+        return redirect()->route('dashboards.index')->withJoin($join);         
     }
 
     /**
@@ -122,7 +140,7 @@ class JoinController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -137,6 +155,47 @@ class JoinController extends Controller
         //
     }
 
+    public function country()
+    {
+        $teams = Team::distinct()->get(['country']);
+        
+        return view('joins.country')->withTeams($teams);
+    }
+
+    public function display(Request $request)
+    {
+        $user = Auth::user();
+        
+        $country = $request->input('which');              
+        
+        $teams = DB::table('teams')->where('country', $country)->get(); 
+
+        if($country == "United States") {
+
+            return redirect()->route('joins.state');
+        }
+
+        return view('joins.display')->withTeams($teams)->withUser($user);
+                
+    }
+
+    public function state()
+    {
+        $teams = Team::distinct()->get(['state']);
+ 
+        return view('joins.state')->withTeams($teams);
+    }
+
+    public function local(Request $request)
+    {
+        $user = Auth::user();
+
+        $state = $request->input('teams');
+
+        $teams = DB::table('teams')->where('state', $state)->get();
+
+        return view('joins.local')->withTeams($teams)->withUser($user);
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -160,8 +219,15 @@ class JoinController extends Controller
         if($join->team == $user->team3)
         $user->team3 = null;
 
+        if($join->team == $user->team4)
+        $user->team4 = null;
+
+        if($join->team == $user->team5)
+        $user->team5 = null;
+
         $user->save();
 
         return redirect()->route('dashboards.index', [$user->id]);
     }
+
 }
