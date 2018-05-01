@@ -15,7 +15,7 @@
                             @foreach($users1 as $user)
 
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -26,7 +26,7 @@
                         <div class="checkbox">                            
                             @foreach($users2 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -37,7 +37,7 @@
                         <div class="checkbox">                            
                             @foreach($users3 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -48,7 +48,7 @@
                         <div class="checkbox">                            
                             @foreach($users4 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -59,7 +59,7 @@
                         <div class="checkbox">                            
                             @foreach($users5 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -70,7 +70,7 @@
                         <div class="checkbox">                            
                             @foreach($users6 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team2 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -81,7 +81,7 @@
                         <div class="checkbox">                            
                             @foreach($users7 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team2 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -92,7 +92,7 @@
                         <div class="checkbox">                            
                             @foreach($users8 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team2 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -103,7 +103,7 @@
                         <div class="checkbox">                            
                             @foreach($users9 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team2 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -114,7 +114,7 @@
                         <div class="checkbox">                            
                             @foreach($users10 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team2 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -125,7 +125,7 @@
                         <div class="checkbox">                            
                             @foreach($users11 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team3 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -136,7 +136,7 @@
                         <div class="checkbox">                            
                             @foreach($users12 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team3 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -147,7 +147,7 @@
                         <div class="checkbox">                            
                             @foreach($users13 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team3 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -158,7 +158,7 @@
                         <div class="checkbox">                            
                             @foreach($users14 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team3 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -169,7 +169,7 @@
                         <div class="checkbox">                            
                             @foreach($users15 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team3 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -180,7 +180,7 @@
                         <div class="checkbox">                            
                             @foreach($users16 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team4 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -191,7 +191,7 @@
                         <div class="checkbox">                            
                             @foreach($users17 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team4 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -202,7 +202,7 @@
                         <div class="checkbox">                            
                             @foreach($users18 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team4 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -213,7 +213,7 @@
                         <div class="checkbox">                            
                             @foreach($users19 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team4 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -224,7 +224,7 @@
                         <div class="checkbox">                            
                             @foreach($users20 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team4 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -235,7 +235,7 @@
                         <div class="checkbox">                            
                             @foreach($users21 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team5 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -246,29 +246,40 @@
                         <div class="checkbox">                            
                             @foreach($users22 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team5 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
                     @endif
 
-                                       @if($users23->count() > 0)
-                                       @if(!is_null($users23))
+                   @if($users23->count() > 0)
+                   @if(!is_null($users23))
                         <div class="checkbox">                            
                             @foreach($users23 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team5 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
                     @endif
 
-                                       @if($users24->count() > 0)
-                                       @if(!is_null($users24))
+                   @if($users24->count() > 0)
+                   @if(!is_null($users24))
                         <div class="checkbox">                            
                             @foreach($users24 as $user)
                                 <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
-                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team5 !!}) &nbsp; &nbsp; &nbsp;</label>
+                            @endforeach
+                        </div>
+                    @endif
+                    @endif
+
+                    @if($users25->count() > 0)
+                    @if(!is_null($users25))
+                        <div class="checkbox">                            
+                            @foreach($users25 as $user)
+                                <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
+                                value="{{ $user->id }}">{!!$user->name!!} - ({!! $user->team5 !!}) &nbsp; &nbsp; &nbsp;</label>
                             @endforeach
                         </div>
                     @endif
@@ -281,15 +292,14 @@
 
     <h4 class="text-center">All Swimdash Members</h4>
 
-    @if($users->count() > 0)
-    @if(!is_null($users))
-        <div class="checkbox">
-            @foreach($users as $user)
-                <label title="{{ $user->name }}">
-                    <input type="checkbox" name="recipients[]" value="{{ $user->id }}">{!! $user->name !!}
-                </label>
-            @endforeach
-        </div>
-    @endif
-    @endif
+                    @if($users->count() > 0)
+                    @if(!is_null($users))
+                        <div class="checkbox" style="margin-bottom: 60px;">                            
+                            @foreach($users as $user)
+                                <label title="{{ $user->name }}"><input type="checkbox" name="recipients[]"
+                                value="{{ $user->id }}">{!!$user->name!!}</label>
+                            @endforeach
+                        </div>
+                    @endif
+                    @endif
 </form>

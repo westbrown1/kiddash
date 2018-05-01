@@ -87,7 +87,7 @@ class FollowController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Follow $follow)
     {
         $member = Auth::user();
 
@@ -119,15 +119,15 @@ class FollowController extends Controller
         $users22 = DB::table('users')->where('team5', [$member->team2])->get();
         $users23 = DB::table('users')->where('team5', [$member->team3])->get();
         $users24 = DB::table('users')->where('team5', [$member->team4])->get();
-        $users25 = DB::table('users')->where('team5', [$member->team5])->get();       
+        $users25 = DB::table('users')->where('team5', [$member->team5])->get();
+                       
 
         return view('users.index', [
             'users' => $this->users->forUser($request->user()),
-    ])->withUsers1($users1)->withUsers2($users2)->withUsers3($users3)->withUsers4($users4)->withUsers5($users5)->withUsers6($users6)->withUsers7($users7)->withUsers8($users8)->withUsers9($users9)->withUsers10($users10)->withUsers11($users11)->withUsers12($users12)->withUsers13($users13)->withUsers14($users14)->withUsers15($users15)->withUsers16($users16)->withUsers17($users17)->withUsers18($users18)->withUsers19($users19)->withUsers20($users20)->withUsers21($users21)->withUsers22($users22)->withUsers23($users23)->withUsers24($users24)->withUsers25($users25)->withMember($member);
+
+        ])->withUsers1($users1)->withUsers2($users2)->withUsers3($users3)->withUsers4($users4)->withUsers5($users5)->withUsers6($users6)->withUsers7($users7)->withUsers8($users8)->withUsers9($users9)->withUsers10($users10)->withUsers11($users11)->withUsers12($users12)->withUsers13($users13)->withUsers14($users14)->withUsers15($users15)->withUsers16($users16)->withUsers17($users17)->withUsers18($users18)->withUsers19($users19)->withUsers20($users20)->withUsers21($users21)->withUsers22($users22)->withUsers23($users23)->withUsers24($users24)->withUsers25($users25)->withMember($member);
         
     }
 }
-
-
 
 

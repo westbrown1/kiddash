@@ -5,10 +5,10 @@
 @section('content')
 <!-- container -->
 <div class="container">
-	 
+	 <a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>
 	 <div class="row">
 	 	<div class="col-md-6 col-md-offset-3">	
-	 		<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>
+	 		
 	 		<h2 class="text-center">Edit Your Link</h2>	
 			{!! Form::model($dashboard, ['route' => ['dashboards.update', $dashboard->id], 'method' => 'PUT', 'files' => true]) !!}
 				{{Form::label('name', 'Name of Link:')}}

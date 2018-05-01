@@ -10,8 +10,8 @@
 }
 
 [class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
+    margin-bottom: -1px;
+    padding-bottom: 1px;
 }
 
 #myImg {
@@ -225,9 +225,9 @@
 
 	<div class="row">
 		<div class='col-md-12'>
-			<center><a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 15px;">Upload Image</a>
-			<a href="{{ route('videos.create') }}" class="btn btn-warning" style="margin-bottom: 15px;">Upload Video</a>
-			<a href="{{ route('dashboards.uploads') }}" class="btn btn-danger" style="margin-bottom: 15px;">Delete Upload</a></center>
+			<center><a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 20px;">Upload Image</a>
+			<a href="{{ route('videos.create') }}" class="btn btn-warning" style="margin-bottom: 20px;">Upload Video</a>
+			<a href="{{ route('dashboards.uploads') }}" class="btn btn-danger" style="margin-bottom: 20px;">Delete Upload</a></center>
 		</div>
 	</div>
 

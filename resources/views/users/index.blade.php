@@ -20,7 +20,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading" style="padding-top: 3px; padding-bottom: 3px;">
-                <h5>Members On Your Team</h5>
+                <h5>Members On Your Team (Not Following)</h5>
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -32,10 +32,13 @@
                     </thead>
                     <tbody> 
 
-                    @if(!empty($member->team))      
+                        @if(!empty($member->team)) 
                         @foreach($users1 as $user)
-                            @if($user->id != Auth::user()->id)
-
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        
+                        @if($user->id != Auth::user()->id)
+                            
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team }}</h4></td> 
 
@@ -49,38 +52,44 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td> 
-
-                        </tr>                   
-                            @endif
+                            </tr>  
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
-
-                    @if(!empty($member->team)) 
+                        @endif 
+                
+                        @if(!empty($member->team)) 
                         @foreach($users2 as $user)
-                            @if($user->id != Auth::user()->id)
-                                <tr>
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
+                            <tr>
+                            <td><h4 class="size">{{ $user->name }}</h4></td>
+                            <td><h4 class="size">{{ $user->team }}</h4></td>                                     
+                                                                                                
+                            <td><form action="{{url('follow') }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('POST') }}
 
-                                <td><h4 class="size">{{ $user->name }}</h4></td>
-                                <td><h4 class="size">{{ $user->team }}</h4></td>                                     
-                                                                                                    
-                                <td><form action="{{url('follow') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('POST') }}
+                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
 
-                                    <input type="hidden" name="follow_id" value="{{ $user->id }}">
-
-                                    <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                                        <i class="fa fa-btn fa-user"></i> Follow
-                                    </button>
-                                </form></td>
-                                </tr>
-                            @endif
+                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
+                                    <i class="fa fa-btn fa-user"></i> Follow
+                                </button>
+                            </form></td>
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users3 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team }}</h4></td>             
@@ -95,55 +104,70 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
-                        @endforeach
-                    @endif
-                    @if(!empty($member->team)) 
-                        @foreach($users4 as $user)
-                            @if($user->id != Auth::user()->id)
-
-                            <tr><td><h4 class="size">{{ $user->name }}</h4></td>
-                            <td><h4 class="size">{{ $user->team }}</h4></td>                                        
-                                                                                                
-                            <td><form action="{{url('follow') }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('POST') }}
-
-                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
-
-                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                                    <i class="fa fa-btn fa-user"></i> Follow
-                                </button>
-                            </form></td>
-                        </tr>
-                            @endif
-                        @endforeach
-                    @endif
-                    @if(!empty($member->team)) 
-                        @foreach($users5 as $user)
-                            @if($user->id != Auth::user()->id)
-
-                            <tr><td><h4 class="size">{{ $user->name }}</h4></td>
-                            <td><h4 class="size">{{ $user->team }}</h4></td>                                        
-                                                                                                
-                            <td><form action="{{url('follow') }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('POST') }}
-
-                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
-
-                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                                    <i class="fa fa-btn fa-user"></i> Follow
-                                </button>
-                            </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
                         @endif
-                    @if(!empty($member->team)) 
+
+                        @if(!empty($member->team)) 
+                        @foreach($users4 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
+
+                            <tr><td><h4 class="size">{{ $user->name }}</h4></td>
+                            <td><h4 class="size">{{ $user->team }}</h4></td>                                        
+                                                                                                
+                            <td><form action="{{url('follow') }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('POST') }}
+
+                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
+
+                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
+                                    <i class="fa fa-btn fa-user"></i> Follow
+                                </button>
+                            </form></td>
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
+                        @endforeach
+                        @endif
+
+                        @if(!empty($member->team)) 
+                        @foreach($users5 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
+
+                            <tr><td><h4 class="size">{{ $user->name }}</h4></td>
+                            <td><h4 class="size">{{ $user->team }}</h4></td>                                        
+                                                                                                
+                            <td><form action="{{url('follow') }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('POST') }}
+
+                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
+
+                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
+                                    <i class="fa fa-btn fa-user"></i> Follow
+                                </button>
+                            </form></td>
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
+                        @endforeach
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users6 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team2 }}</h4></td>                                        
@@ -158,13 +182,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
-                    @if(!empty($member->team)) 
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users7 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team2 }}</h4></td>                                        
@@ -179,13 +208,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
-                    @if(!empty($member->team)) 
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users8 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team2 }}</h4></td>                                        
@@ -200,13 +234,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                   @endif
-                    @if(!empty($member->team)) 
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users9 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team2 }}</h4></td>                                        
@@ -221,13 +260,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> </td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
-                    @if(!empty($member->team)) 
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users10 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team2 }}</h4></td> 
@@ -242,36 +286,44 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>     
-                        </tr>                   
-                            @endif
+                            </tr>                   
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                   @endif
-                    @if(!empty($member->team)) 
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users11 as $user)
-                            @if($user->id != Auth::user()->id)
-                                <tr>
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
+                            <tr>
+                            <td><h4 class="size">{{ $user->name }}</h4></td>
+                            <td><h4 class="size">{{ $user->team3 }}</h4></td>                                   
+                                                                                                
+                            <td><form action="{{url('follow') }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('POST') }}
 
-                                <td><h4 class="size">{{ $user->name }}</h4></td>
-                                <td><h4 class="size">{{ $user->team3 }}</h4></td>                                     
-                                                                                                    
-                                <td><form action="{{url('follow') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('POST') }}
-
-                                    <input type="hidden" name="follow_id" value="{{ $user->id }}">
-                                    
-                                    <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                                        <i class="fa fa-btn fa-user"></i> Follow
-                                    </button>
-                                </form></td>
-                                </tr>
-                            @endif
+                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                                
+                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
+                                    <i class="fa fa-btn fa-user"></i> Follow
+                                </button>
+                            </form></td>
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
+                        @endif
   
                         @if(!empty($member->team)) 
                         @foreach($users12 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team3 }}</h4></td>             
@@ -286,14 +338,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                      @endif
+                        @endif
 
                         @if(!empty($member->team))      
                         @foreach($users13 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team3 }}</h4></td>                                        
@@ -308,14 +364,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                     @endif
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users14 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team3 }}</h4></td>                                        
@@ -330,14 +390,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users15 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team3 }}</h4></td>                                        
@@ -352,14 +416,18 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                  
-                    @endif
-                    @if(!empty($member->team)) 
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users16 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team4 }}</h4></td>                                        
@@ -374,35 +442,44 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form></td>
-                        </tr>
-                            @endif
-                        @endforeach     
-
-                    @endif
-                    @if(!empty($member->team)) 
-                        @foreach($users17 as $user)
-                            @if($user->id != Auth::user()->id)
-
-                            <tr><td><h4 class="size">{{ $user->name }}</h4></td>
-                            <td><h4 class="size">{{ $user->team4 }}</h4></td>                                        
-                                                                                                
-                            <td><form action="{{url('follow') }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('POST') }}
-
-                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
-                               
-                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
-                                    <i class="fa fa-btn fa-user"></i> Follow
-                                </button>
-                            </form></td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
-                    @if(!empty($member->team)) 
+                        @endif
+
+                        @if(!empty($member->team)) 
+                        @foreach($users17 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
+
+                            <tr><td><h4 class="size">{{ $user->name }}</h4></td>
+                            <td><h4 class="size">{{ $user->team4 }}</h4></td>                                        
+                                                                                                
+                            <td><form action="{{url('follow') }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('POST') }}
+
+                                <input type="hidden" name="follow_id" value="{{ $user->id }}">
+                               
+                                <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
+                                    <i class="fa fa-btn fa-user"></i> Follow
+                                </button>
+                            </form></td>
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
+                        @endforeach
+                        @endif
+
+                        @if(!empty($member->team)) 
                         @foreach($users18 as $user)
-                            @if($user->id != Auth::user()->id)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team4 }}</h4></td>                                        
@@ -417,12 +494,17 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> </td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
                         @endif
+
                         @if(!empty($member->team)) 
                         @foreach($users19 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -438,13 +520,17 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> </td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif  
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users20 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -460,13 +546,17 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> 
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif 
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users21 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -482,13 +572,17 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> </td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif  
+                        @endif 
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users22 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -504,13 +598,17 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> </td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif  
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users23 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -526,13 +624,17 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> </td>
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif  
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users24 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -548,13 +650,17 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> 
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif  
+                        @endif
 
-                    @if(!empty($member->team)) 
+                        @if(!empty($member->team)) 
                         @foreach($users25 as $user)
+                        @foreach ($users['not_following'] as $sub)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -570,10 +676,12 @@
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>
                             </form> 
-                        </tr>
-                            @endif
+                            </tr>
+                        @endif                                   
+                        @endif   
+                        @endforeach                   
                         @endforeach
-                    @endif
+                        @endif
 
                     </tbody>
                     </td>
@@ -636,7 +744,7 @@
                     @if (count($users['not_following']) > 0)
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Not Following (All Swimdash Members)
+                                All Swimdash Members (Not Following)
                             </div>
 
                             <div class="panel-body">
@@ -676,7 +784,6 @@
                 </div>
     </div>
 @endsection
-
 
 
 

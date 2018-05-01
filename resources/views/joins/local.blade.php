@@ -9,7 +9,7 @@
 	<a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
 	<div class="row">
 		 	<div class="col-md-6 col-md-offset-3">
-
+<br>
 			@if ($errors->any())
 			    <div class="alert alert-danger">
 			        <ul>
@@ -22,8 +22,9 @@
 
 		 	{!! Form::open(['route' => ['joins.store', $user->id], 'method' => 'post']) !!}
 				
-				{{ Form::label('name', 'Username') }}
-				{{ Form::text('name', $user->name, ['class' => 'form-control']) }}<br>
+				{{-- {{ Form::label('name', 'Username') }}
+				{{ Form::text('name', $user->name, ['class' => 'form-control']) }}<br> --}}
+				<input type="hidden" name="name" class="form-control" value="{{ $user->name }}">
 
 	 			{{ Form::label('name', 'Team Name') }}
                 <select class="form-control" name="team">

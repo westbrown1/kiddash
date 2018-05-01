@@ -15,8 +15,9 @@
 
 	 		{!! Form::open(['route' => ['pictures.store', $user->id], 'method' => 'post', 'files' => true]) !!}
 
-	 			{{ Form::label('name', 'Username') }}
-	 			{{ Form::text('name', $user->name, ['class' => 'form-control']) }}
+	 			{{-- {{ Form::label('name', 'Username') }} --}}
+	 			{{-- {{ Form::text('name', $user->name, ['class' => 'form-control', 'type' => 'hidden']) }} --}}
+	 			<input type="hidden" name="name" class="form-control" value="{{ $user->name }}">
 
 				{{ Form::label('picture', 'Upload Dashboard Image', ['style' => 'margin-top: 20px;']) }}
 				{{ Form::file('picture', ['required' => ''])}}

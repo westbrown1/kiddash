@@ -273,7 +273,7 @@
 					    <option value="Zimbabwe">Zimbabwe</option>
 					</select>
 
-			<label for="state" style="margin-top: 10px;">State (USA)</label>
+			<label for="state" style="margin-top: 10px;">State (USA only)</label>
 
 				<select class="form-control" id="state" name="state">
 					<option value=""></option>
@@ -365,7 +365,7 @@
 						<option value="dog breeding">dog breeding</option>
 						<option value="drama">drama</option>
 						<option value="equestrian">equestrian</option>
-						<option value="fashion">fashion/option>
+						<option value="fashion">fashion</option>
 						<option value="fishing">fishing</option>
 						<option value="flag football">flag football</option>
 						<option value="football">football</option>
@@ -373,6 +373,7 @@
 						<option value="gaming (video)">gaming (video)</option>
 						<option value="gardening">gardening</option>
 						<option value="golf">golf</option>
+						<option value="gossip">gossip</option>
 						<option value="gymnastics">gymnastics</option>
 						<option value="hand radio">hand radio</option>
 						<option value="handball">handball</option>
@@ -427,6 +428,7 @@
 						<option value="volleyball">volleyball</option>
 						<option value="wakeboarding">wakeboarding</option>
 						<option value="walking">walking</option>
+						<option value="web design">web design</option>
 						<option value="weightlifting">weightlifting</option>
 						<option value="wine">wine</option>
 						<option value="woodworking">woodworking</option>

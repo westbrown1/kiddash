@@ -209,7 +209,7 @@ class MessagesController extends Controller
 
         foreach ($users as $user) {
           if (strpos($thread->participantsString(Auth::id()), $user->name) !== false) { 
-            Mail::to($user->contact)->send(new MessageReceived());
+            Mail::to($user->email)->send(new MessageReceived());
           }
         }        
 
@@ -225,6 +225,7 @@ class MessagesController extends Controller
     public function update($id)
     {
       $member = Auth::user();
+      $users = User::all();
 
         $users1 = User::where('id', '!=', Auth::user()->id)->where('team', '=', [$member->team])->get();
         $users2 = User::where('id', '!=', Auth::user()->id)->where('team', '=', [$member->team2])->get();
@@ -295,7 +296,7 @@ class MessagesController extends Controller
 
         foreach ($users as $user) {
           if (strpos($thread->participantsString(Auth::id()), $user->name) !== false) { 
-            Mail::to($user->contact)->send(new MessageReceived());
+            Mail::to($user->email)->send(new MessageReceived());
           }
         }  
 

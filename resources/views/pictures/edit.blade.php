@@ -12,11 +12,12 @@
 	<div class="col-md-8 col-md-offset-2">
 			
 			 	 <h3 class="text-center">Change Your Dashboard Image</h3>
-
+				 <br>
 			 	 {{ Form::model($picture, ['route' => ['pictures.update', $picture->id], 'method' => 'PUT', 'files' => true])}} 			 
 
-				 	{{ Form::label('name', 'Username') }}<br>
-				 	{{ Form::text('name', null, ['class' => 'form-control']) }}<br>
+				 	{{-- {{ Form::label('name', 'Username') }}<br>
+				 	{{ Form::text('name', null, ['class' => 'form-control']) }} --}}
+				 	<input type="hidden" name="name" class="form-control">
    				
     				{{Form::label('picture', 'Update Dashboard Image')}}<br>
     				{{Form::file('picture')}}<br>

@@ -10,10 +10,13 @@
 				<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-bottom: 10px;">Back</a>
 				<h3>Edit Links</h3>
 				<table class="table">
-					 <tbody>					 
+					 <tbody>					 					 						 
 					 	@foreach($dashboards as $dashboard)
+
 					 		@if($user->id == $dashboard->user_id)
-					 			 <tr> 		 		
+
+					 			 <tr> 	
+
 					 				<td><h4><a href="{{ $dashboard->url }}" target="_blank">{{ $dashboard->name }}</a></h4>
 					 				</td>
 						 				<td><a href="{{ route('dashboards.edit', $dashboard->id) }}" class="btn btn-sm btn-warning">Edit Link</a></td>
@@ -21,7 +24,8 @@
 									</td>
 						 		 </tr> 
 					 		@endif
-			 			@endforeach		
+			 			@endforeach	
+			 				
 				 	 </tbody> 
 		 		</table>  
 			</div>

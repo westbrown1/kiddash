@@ -26,7 +26,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Swimdash
+                        swim-dash
                     </a>
                 </div>
 
