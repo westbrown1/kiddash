@@ -3,7 +3,16 @@
 @section('title', 'Example Dashboard Page')
 
 @section('content')
-
-<img src="{{ asset('/img/Screen Shot 2018-03-06 at 12.24.03 PM.png') }}" alt="example dashboard" style="margin-bottom: 70px; margin-top: 60px;">
-
+<style>
+	img {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+</style>
+<div class="container">
+	<a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
+	<br><br>
+<img src="{{ asset('/img/Screen Shot 2018-05-04 at 2.34.06 PM.png') }}" class="img-thumbnail" alt="example dashboard" style="width: 90%;">
+</div>
 @stop

@@ -9,6 +9,7 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<form action="{{ route('joins.local') }}" method="get">
+				{{ csrf_field() }}
 			<label for="state" style="margin-top: 10px;">State (USA)</label>
 
 	        <select class="form-control" name="teams">

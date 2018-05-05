@@ -26,6 +26,7 @@
 				@endif
 
 	 			{!! Form::open(['route' => ['teams.store', $user->id], 'method' => 'post']) !!}
+	 				{{ csrf_field() }}
 				{{ Form::label('name', 'Team Name') }}
 				{{ Form::text('name', null, ['class' => 'form-control', 'required' => '']) }}
 

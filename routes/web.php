@@ -28,6 +28,7 @@ Route::get('links', ['uses' => 'DashboardController@links', 'as' => 'dashboards.
 Route::get('photo', ['uses' => 'DashboardController@photo', 'as' => 'dashboards.photo']);
 Route::get('dash-photos', ['uses' => 'DashboardController@dashphotos', 'as' => 'dashboards.dashphotos']);
 Route::get('upload', ['uses' => 'DashboardController@uploads', 'as' => 'dashboards.uploads']);
+/*Route::get('calendar', ['uses' => 'DashboardController@calendar', 'as' => 'dashboards.calendar']);*/
 
 Route::get('pictures', ['uses' => 'PictureController@index', 'as' => 'pictures.index']);
 Route::get('pictures/create', ['uses' => 'PictureController@create', 'as' => 'pictures.create']);

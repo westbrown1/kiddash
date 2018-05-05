@@ -108,6 +108,9 @@
 			<div class="col-md-4">
 				<h2>{{ $user->name }}'s Dashboard</h2>
 			</div>
+			{{-- <div class="col-md-3 col-md-offset-5">
+				<a href="{{ route('dashboards.calendar') }}" class="btn btn-primary">My Calendar<br>{{ date('F-d-Y') }}</a>
+			</div> --}}
 		</div>	
 
 	<div class="row">	 	 	 

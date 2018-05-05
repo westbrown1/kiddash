@@ -97,26 +97,10 @@ h3 {
 
 @include('partials._nav')
 
-<div class=bgimg-1> <div class=caption> {{-- <span class=border>SCROLL DOWN</span> --}} </div> </div> <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;"> <h3 style=text-align:center;
->Parallax Demo</h3> <p>Parallax scrolling is a web site trend where the background content is moved at a different speed than the foreground content while scrolling. Nascetur per nec posuere turpis,
-lectus nec libero turpis nunc at,
-sed posuere mollis ullamcorper libero ante lectus,
-blandit pellentesque a,
-magna turpis est sapien duis blandit dignissim. Viverra interdum mi magna mi,
-morbi sociis. Condimentum dui ipsum consequat morbi,
-curabitur aliquam pede,
-nullam vitae eu placerat eget et vehicula. Varius quisque non molestie dolor,
-nunc nisl dapibus vestibulum at,
-sodales tincidunt mauris ullamcorper,
-dapibus pulvinar,
-in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend,
-aenean maecenas vulputate,
-non id vehicula lorem mattis,
-ratione interdum sociis ornare. Suscipit proin magna cras vel,
-non sit platea sit,
-maecenas ante augue etiam maecenas,
-porta porttitor placerat leo.</p> </div> <div class="bgimg-2"></div> <div class=caption> <span class=border style="background-color:transparent;font-size:25px;color: #f7f7f7;"></span> </div> </div> <div style=position:relative;
-> <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;"> <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p> </div> </div> <div class=bgimg-3> <div class=caption> {{-- <span class=border style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span> --}} </div> </div> <div style=position:relative;
-> <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;"> <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p> </div> </div> <div class=bgimg-1> <div class=caption> {{-- <span class=border>COOL!</span> --}} </div> </div>
+<div class=bgimg-1> <div class=caption> {{-- <span class=border>SCROLL DOWN</span> --}} </div> </div> <div style="color: #777;background-color:white;text-align:center;padding:30px 80px;text-align: justify;"> <h2 style=text-align:center;
+>swim-dash</h2> <h4 class="text-center">It's a great way to communicate among teammates, team families and friends on your very own created team.</h4></center>
+                    <p>Swim-dash is a social website <b>everyone may join</b>. Originally designed to unite families, friends and kids who are on the same sports team. Of course, you don't have to be on a sports team to join.  You're welcome to join if you're not on any team at all.  You may join if you want to start an existing or new club, social group or any type team.  Or you can just join.<br><br><b>Anyone may join</b>. After joining you will be taken to your <b>private</b> dashboard.  This dashboard makes a great homepage.  There you can create links to your favorite team/group websites or any websites you frequently use for that matter (trust us, you can do a better job than Google on this one).  You may create a "team".  Once the team is created, it will be included on the team to join list. Then just join the team you created and it will appear on your dashboard. You may join up to 5 teams.  If you click on the dashboard link of the joined team, you'll be taken to the follow page with others on the same team or teams.  If you want to follow news they post, just click the follow button. Their added news will be displayed on your dashboard news feed from then on.  You can unfollow anyone by clicking Follow from the top menu and then the unfollow button by their name.  <br><br>You may publish your own news on the News Feed.  Just click Add News from the top menu.  But remember, it will be public.  Other members on the same team or any members who follow you will be able to read all your news.  You don't have to join a team to follow someone's news.  There is a Follow link on the top menu where all members are listed. <br><br>You may also send a private message and image/video attachment to other members by using the dashboard dropdown menu on the top right.  Of course, you may receive private messages as well. You will be notified on the username dropdown menu and by email when a message arrives.  You can save photos and videos others have posted on the News Feed (just right click the image and save).  You may upload a dashboard image from your computer or smart phone by dropdown menu also.  Click the upload buttons to upload several photos and videos from your computer or smart phone to your dashboard for viewing. <br><br>Additionally, you have your own <b>private</b> calender page to set and check upcoming events and appointments.  So please register today and tell all your family and friends to join our site.  Then they can join you on your team!</p> </div> <div class="bgimg-2"></div> <div class=caption> <span class=border style="background-color:transparent;font-size:25px;color: #f7f7f7;"></span> </div> </div> <div style=position:relative;
+> <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;"> <p>To see an example dashboard and calender page, just click <a href="{{ url('/example') }}">here</a></p> </div> </div> <div class=bgimg-3> <div class=caption> {{-- <span class=border style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span> --}} </div> </div> <div style=position:relative;
+> <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;"> <p>If you would like to contact swim-dash.com, click <a href="">here.</a></p> <p class="pull-right">Copyright &copy; - Swimdash {{ date('Y') }}</p> </div> </div> <div class=bgimg-1> <div class=caption> {{-- <span class=border>COOL!</span> --}} </div> </div>
 </body>
 </html>

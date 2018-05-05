@@ -169,12 +169,20 @@ class DashboardController extends Controller
         $videos = Video::all();
         return view('dashboards.uploads')->withUser($user)->withPhotos($photos)->withVideos($videos);
     }
+
+    public function calendar()
+    {
+        $user = Auth::user();
+        return view('dashboards.calendar')->withUser($user);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         $videos = Video::all();

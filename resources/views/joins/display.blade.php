@@ -19,7 +19,7 @@
 		@endif
 <br>
 	 		{!! Form::open(['route' => ['joins.store', $user->id], 'method' => 'post']) !!}
-				
+				{{ csrf_field() }}
 				{{-- {{ Form::label('name', 'Username') }}
 				{{ Form::text('name', $user->name, ['class' => 'form-control']) }}<br> --}}
 				<input type="hidden" name="name" class="form-control" value="{{ $user->name }}">

@@ -14,7 +14,7 @@
 	 		
 	 		<h3 class="text-center">Join The Team</h3>
 	 		{!! Form::open(['route' => ['joins.store', $user->id], 'method' => 'post']) !!}
-				
+				{{ csrf_field() }}
 				{{ Form::label('name', 'Username') }}
 				{{ Form::text('name', $user->name, ['class' => 'form-control']) }}<br>
 

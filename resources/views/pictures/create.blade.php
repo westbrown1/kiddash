@@ -14,7 +14,7 @@
 	 <h3 class="text-center">Upload a Dashboard Image</h3>
 
 	 		{!! Form::open(['route' => ['pictures.store', $user->id], 'method' => 'post', 'files' => true]) !!}
-
+					{{ csrf_field() }}
 	 			{{-- {{ Form::label('name', 'Username') }} --}}
 	 			{{-- {{ Form::text('name', $user->name, ['class' => 'form-control', 'type' => 'hidden']) }} --}}
 	 			<input type="hidden" name="name" class="form-control" value="{{ $user->name }}">

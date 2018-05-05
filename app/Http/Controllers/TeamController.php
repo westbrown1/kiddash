@@ -68,7 +68,7 @@ class TeamController extends Controller
 
         $team->save();
 
-        return redirect()->route('joins.index')->withTeam($team);
+        return redirect()->route('joins.country')->withUser($user)->withTeam($team);
     }
 
 
