@@ -6,6 +6,7 @@
 <!-- container -->
 <div class="container">
 	<a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
+	<br>
 	 <div class="row">
 	 
 	 	<div class="col-md-6 col-md-offset-3">
