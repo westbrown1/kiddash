@@ -13,6 +13,7 @@ class CreateDashboardsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('dashboards');
         Schema::create('dashboards', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
