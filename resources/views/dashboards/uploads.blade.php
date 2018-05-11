@@ -15,7 +15,7 @@
 	</div><!-- /row -->
 
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-6 col-md-offset-3">
 			<h3 class="text-center">Your Photos</h3>
 			<table class="table">
 				<tbody>
@@ -29,7 +29,7 @@
 							@endif								
 
 							@if(!empty($photo->image))
-								<img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="200" height="auto" />
+								<img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="630" height="auto" />
 							@endif							
 
 							<br><br>
@@ -43,7 +43,7 @@
 			</table>
 		</div>
 		<!-- col-md-5 col-md-offset-1 -->
-		<div class="col-md-5 col-md-offset-1">
+		{{-- <div class="col-md-5 col-md-offset-1">
 			<h3 class="text-center">Your Videos</h3>
 			<table class="table">
 			 	<tbody>
@@ -70,7 +70,7 @@
 
 		 	 	</tbody> 
  			</table> 
-	 	</div><!-- /col-md-5 col-md-offset-1 --> 
+	 	</div> --}} <!-- /col-md-5 col-md-offset-1 --> 
 	</div>
 </div>
 @stop

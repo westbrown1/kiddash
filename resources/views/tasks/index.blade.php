@@ -34,10 +34,10 @@
                         </div><!-- /form-group --> 
 
                         <!-- form-group -->
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="video" style="margin-left:20px;">Add Video</label>
                              <input type="file" name="video" style="margin-left:20px;">
-                        </div><!-- /form-group -->                  
+                        </div> --}}  <!-- /form-group -->                  
 
                            
                         <!-- Add Task Button -->
@@ -73,9 +73,9 @@
                                             <div>
                                                 <img src="{{ asset('/images/' . $task->photo) }}" class="img-thumbnail" width="100px" height="auto"/>
                                             </div>
-                                        </td>
+                                   </td>
                                         @endif
-                                        @if(!empty($task->video))
+                                   {{-- @if(!empty($task->video))
                                         <td class="table-text">
                                             <div>
                                         <video width="100px" height="auto" style='margin-bottom: 10px;' class="img-thumbnail" controls>
@@ -83,9 +83,9 @@
                                         </video>  
                                             </div>
                                         </td>
-                                        @endif
+                                        @endif--}}
                                         <!-- Task Delete Button -->
-                                        <td>
+                                        <td> 
                                             <form action="{{url('task/' . $task->id)}}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}

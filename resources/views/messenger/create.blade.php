@@ -32,10 +32,10 @@
                         <input type="file" name="featured_img">
                     </div>                   
  
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label class="control-label">Upload Video</label>
                         <input type="file" name="featured_vid">
-                    </div> 
+                    </div> --}} 
 
 
 

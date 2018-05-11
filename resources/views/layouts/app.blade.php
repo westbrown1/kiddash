@@ -99,7 +99,7 @@
     <footer>
         <div class="col-md-2 col-md-offset-5 bottom2">
             <p class="text-center" id="bottom">
-                Copyright &copy; - Swimdash {{ date('Y') }}
+                Copyright &copy; {{ date('Y') }} - swim-dash.com
             </p>        
         </div>
     </footer>

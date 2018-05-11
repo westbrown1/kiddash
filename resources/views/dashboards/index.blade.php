@@ -229,7 +229,7 @@
 	<div class="row">
 		<div class='col-md-12'>
 			<center><a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 20px;">Upload Image</a>
-			<a href="{{ route('videos.create') }}" class="btn btn-warning" style="margin-bottom: 20px;">Upload Video</a>
+			{{-- <a href="{{ route('videos.create') }}" class="btn btn-warning" style="margin-bottom: 20px;">Upload Video</a> --}}
 			<a href="{{ route('dashboards.uploads') }}" class="btn btn-danger" style="margin-bottom: 20px;">Delete Upload</a></center>
 		</div>
 	</div>
@@ -237,11 +237,11 @@
 	<!-- row -->
 	<div class="row">
 		 <!-- col-md-5 -->
-		 <div class="col-md-4 col-md-offset-1">
+		 <div class="col-md-6 col-md-offset-3">
 		 	<table class="table table-responsive">
 				<tbody>
 					<h3 class="text-center">My Images</h3>
-
+<br>
 					@foreach($photos as $photo)
 
 						@if($user->id == $photo->user_id)
@@ -253,7 +253,7 @@
 								@endif								
 
 								@if(!empty($photo->image))
-									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail"   width="330" height="auto" alt="" /></a>
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail"   width="630" height="auto" alt="" /></a>
 								@endif
 	 			</td>
 				 		</tr>				 			
@@ -265,8 +265,8 @@
 
  		</div><!-- /col-md-5 -->
 
-		<div class="col-md-4 col-md-offset-2">
-			<table class="table table-responsive">
+		{{-- <div class="col-md-4 col-md-offset-2">
+			 <table class="table table-responsive">
 				<tbody>
 
 					<h3 class="text-center">My Videos</h3>
@@ -283,7 +283,7 @@
 									<a href="{{ route('dashboards.dashphotos') }}"><video width="330" height="auto" style='margin-bottom: 10px;' class="img-thumbnail" controls>
 										<source src="{{ asset('images/' . $video->file) }}" type="video/mp4">
 									</video> </a> {{--<br><br>
-									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a> --}}
+									<a href="{{ route('videos.destroy', $video->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Video</a> 
 								@endif
 
 								</td>
@@ -291,8 +291,8 @@
 						@endif
 					@endforeach
 				</tbody>
-			</table>
-		</div>
+			</table> 
+		</div> --}}
 	</div>
 
 @stop
