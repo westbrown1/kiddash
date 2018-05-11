@@ -32,10 +32,10 @@
                     </thead>
                     <tbody> 
 
-                        @if(!empty($member->team)) 
+                         
                         @foreach($users1 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         
                         @if($user->id != Auth::user()->id)
                             
@@ -57,12 +57,12 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif 
-                
-                        @if(!empty($member->team)) 
+                        
+
+                         
                         @foreach($users2 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
                             <tr>
                             <td><h4 class="size">{{ $user->name }}</h4></td>
@@ -83,12 +83,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users3 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -109,12 +108,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users4 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -135,12 +133,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users5 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -161,12 +158,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users6 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -187,12 +183,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users7 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -213,12 +208,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users8 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -239,12 +233,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users9 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -265,12 +258,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users10 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -291,12 +283,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users11 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
                             <tr>
                             <td><h4 class="size">{{ $user->name }}</h4></td>
@@ -317,12 +308,12 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
-  
-                        @if(!empty($member->team)) 
+                        
+
+                         
                         @foreach($users12 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -343,12 +334,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team))      
                         @foreach($users13 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -369,12 +359,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users14 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -395,12 +384,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users15 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -421,12 +409,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users16 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -447,12 +434,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users17 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -473,12 +459,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users18 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                         @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -499,12 +484,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users19 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -525,12 +509,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users20 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -551,12 +534,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users21 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -577,12 +559,12 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif 
+                        
 
-                        @if(!empty($member->team)) 
+                         
                         @foreach($users22 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -603,12 +585,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users23 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -629,12 +610,11 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users24 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
+                        @if($user->id == $sub->id)
                             @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
@@ -655,13 +635,12 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
+                        
 
-                        @if(!empty($member->team)) 
                         @foreach($users25 as $user)
                         @foreach ($users['not_following'] as $sub)
-                        @if($user->id === $sub->id)
-                            @if($user->id != Auth::user()->id)
+                        @if($user->id == $sub->id)
+                        @if($user->id != Auth::user()->id)
 
                             <tr><td><h4 class="size">{{ $user->name }}</h4></td>
                             <td><h4 class="size">{{ $user->team5 }}</h4></td>                                        
@@ -681,9 +660,8 @@
                         @endif   
                         @endforeach                   
                         @endforeach
-                        @endif
-
-                    </tbody>
+                        
+                        </tbody>
                     </td>
                 </table>
             </div>
