@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bc16ad698aff2c9d9814b68de50db22",
+    "content-hash": "dea3d94acea2336aeef3d396d49feaa0",
     "packages": [
         {
             "name": "cmgmyr/messenger",

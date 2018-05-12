@@ -5,10 +5,11 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.0",
         "cmgmyr/messenger": "~2.0",
         "get-stream/stream-laravel": "~2.2.6",
         "google/apiclient": "^2.0",
+        "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
