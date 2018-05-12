@@ -1,1 +1,1 @@
-<h4>Hi, you have a new message at <a href="http://swim-dash.com">swim-dash.com</a></h4>
+<h4>Hi, you have a new message at <a href="http://swim-dash.com/welcome">swim-dash.com</a></h4>
