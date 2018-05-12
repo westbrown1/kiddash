@@ -1,12 +1,17 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>swim-dash.com | welcome</title>
+
+    <link rel="canonical" href="http://swim-dash.com/" />
+    <meta name="description" content="We have what you want!  Swim-dash is a team or club based social website everyone may join. Where teammates, family and friends can communicate and share photos.  You create your own team.  It can be new or already existing.  After joining you will be taken to your private Dashboard page.  You'll have a News Feed, private messaging with email notification, photo uploading, link creation to your kids team website or any websites you like.  Access to follow your teammates.">
+
     {{-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> --}}
 
-    <title>swim-dash</title>
 <style amp-custom> a {
     color: #fff;
 }

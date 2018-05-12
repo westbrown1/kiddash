@@ -18,7 +18,7 @@
 			{!! Form::close() !!}
 
 			@if(!empty($photo->image))
-				<img src="{{asset('/images/' . $photo->image)}}" width="400" height="250" />
+				<img src="{{asset('/images/' . $photo->image)}}" width="400" height="250"  alt="photos and images to edit" />
 			@endif
 	 	</div>
 	 </div>

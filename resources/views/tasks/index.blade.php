@@ -71,7 +71,7 @@
                                         @if(!empty($task->photo))
                                         <td class="table-text">
                                             <div>
-                                                <img src="{{ asset('/images/' . $task->photo) }}" class="img-thumbnail" width="100px" height="auto"/>
+                                                <img src="{{ asset('/images/' . $task->photo) }}" class="img-thumbnail" width="100px" height="auto" alt="image or photo in news feed table" />
                                             </div>
                                    </td>
                                         @endif

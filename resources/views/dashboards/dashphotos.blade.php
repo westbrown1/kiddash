@@ -12,12 +12,12 @@
   @foreach($photos as $photo)
   @if($user->id == $photo->user_id)
   @if(!empty($photo->image))
-      <center><img src="../images/{{ $photo->image }}" class="mySlides img-thumbnail"  alt="" width="700px" height="auto">
+      <center><img src="../images/{{ $photo->image }}" class="mySlides img-thumbnail"  alt="photos and images" width="700px" height="auto">
   @endif
   @endif
   @endforeach
 
-  @foreach($videos as $video)
+{{--   @foreach($videos as $video)
   @if($user->id == $video->user_id)
   @if(!empty($video->file))
       <video width="330" height="auto" style='margin-bottom: 10px;' class="mySlides img-thumbnail" controls>
@@ -25,7 +25,7 @@
       </video>
   @endif
   @endif
-  @endforeach  
+  @endforeach --}}  
 
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>

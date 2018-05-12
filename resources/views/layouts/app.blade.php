@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>swim-dash | @yield('title')</title>
+    <link rel="canonical" href="http://swim-dash.com/" />
+    <meta name="description" content="We have what you want!  Swim-dash is a team or club based social website everyone may join. Where teammates, family and friends can communicate and share photos.  You create your own team.  It can be new or already existing.  After joining you will be taken to your private Dashboard page.  You'll have a News Feed, private messaging with email notification, photo uploading, link creation to your kids team website or any websites you like.  Access to follow your teammates.">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{ asset('images/1513883823.JPG') }}" class="img-thumbnail">
-    <title>swim-dash | @yield('title')</title>
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- @yield('stylesheets') --}}

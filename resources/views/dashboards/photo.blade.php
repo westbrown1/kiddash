@@ -12,14 +12,14 @@
 @foreach ($activities as $activity)
 
 @if(!empty($activity['photo']))
-      	<center><img src="../images/{{ $activity['photo'] }}" class="mySlides img-thumbnail"  alt="" width="700" height="auto"></center>
+      	<center><img src="../images/{{ $activity['photo'] }}" class="mySlides img-thumbnail"  alt="photos and images as slides" width="700" height="auto"></center>
 @endif
 
-@if(!empty($activity['video']))
+{{-- @if(!empty($activity['video']))
         <center><video width="700" height="auto" style='margin-bottom: 10px;' class="mySlides img-thumbnail" controls>
             <source src="../images/{{ $activity['video'] }}" type="video/mp4">
         </video></center>
-@endif  
+@endif --}}  
 
   @endforeach
   @endif 

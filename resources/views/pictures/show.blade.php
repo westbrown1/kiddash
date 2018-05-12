@@ -10,7 +10,7 @@
 		<h3>Show Page</h3>
 			@if(!empty($picture->picture))
 
-			<img src="{{ asset('/images/' . $picture->picture) }}" alt="" width="200" height="auto">
+			<img src="{{ asset('/images/' . $picture->picture) }}" alt="show page dashboard photo or image" width="200" height="auto">
 
 			@endif
 	</div><!-- /col-md-8 col-md-offset-2 -->
