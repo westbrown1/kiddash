@@ -62,17 +62,17 @@ class PhotoController extends Controller
         $photo = new Photo;
         $photo->name = $request->name;
         $photo->user()->associate($user);
-        
-        if ($request->hasFile('featured_img')) {
+
+   
+if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          /*$location = public_path().'/images/';*/
-          $location = public_path('images/' . $filename);
-          Image::make($image)->resize(500, 400)->orientate()->save($location);
-          /*$image->move($location, $filename);*/
-                
+          $location = public_path().'/images/' . $filename;
+          
+          Image::make($image)->resize(500, 400)->orientate()->save($location);       
           $photo->image = $filename;
         }
+
         $photo->save();
         return redirect()->route('dashboards.index');
     }
