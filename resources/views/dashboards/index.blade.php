@@ -101,6 +101,7 @@
 }
 
 </style>
+
 <!-- container -->
 <div class="container">
 
@@ -113,7 +114,7 @@
 			</div> --}}
 		</div>	
 
-	<div class="row">	 	 	 
+	<div class="row justify-content-around">	 	 	 
 	 	<!-- col-md-5 -->
 		<div class="col-md-6">	
 			 @foreach($pictures as $picture)
@@ -123,7 +124,7 @@
 			@endforeach
 		</div><!-- /col-md-5 -->
 
-		<div class="col-md-4">
+		<div class="col-md-5">
 			<table class="table">
 				<h3 class="text-center">Teams</h3>
 				<tbody>						
@@ -237,7 +238,7 @@
 	<!-- row -->
 	<div class="row">
 		 <!-- col-md-5 -->
-		 <div class="col-md-6 col-md-offset-3">
+		 <div class="col-md-4 col-md-offset-4">
 		 	<table class="table table-responsive">
 				<tbody>
 					<h3 class="text-center">My Images</h3>
@@ -253,7 +254,7 @@
 								@endif								
 
 								@if(!empty($photo->image))
-									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail"   width="630" height="auto" alt="photos and images" /></a>
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="400px" height="auto" alt="photos and images" /></a>
 								@endif
 	 			</td>
 				 		</tr>				 			
@@ -294,5 +295,4 @@
 			</table> 
 		</div> --}}
 	</div>
-
 @stop

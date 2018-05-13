@@ -19,8 +19,8 @@
 	 			{{-- {{ Form::text('name', $user->name, ['class' => 'form-control', 'type' => 'hidden']) }} --}}
 	 			<input type="hidden" name="name" class="form-control" value="{{ $user->name }}">
 
-				{{ Form::label('picture', 'Upload Dashboard Image', ['style' => 'margin-top: 20px;']) }}
-				{{ Form::file('picture', ['required' => ''])}}
+				{{ Form::label('featured_img', 'Upload Dashboard Image', ['style' => 'margin-top: 20px;']) }}
+				{{ Form::file('featured_img', ['required' => ''])}}
  
 				{{Form::submit('Upload Image', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 15px;'])}}
 				

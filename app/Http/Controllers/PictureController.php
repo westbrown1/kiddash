@@ -57,19 +57,19 @@ class PictureController extends Controller
     public function store(Request $request, $user_id)
     { 
         $user = Auth::user(); 
-        $picture = new Picture;
-        $picture->user()->associate($user); 
-        $picture->name = $request->name;     
+        $picture = new Picture;         
+        $picture->name = $request->name;
+        $picture->user()->associate($user);
 
-        if ($request->hasFile('picture')) {
-          $image = $request->file('picture');
+        if ($request->hasFile('featured_img')) {
+          $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path().'/images/';
           $image->move($location, $filename);
           /*Image::make($picture)->resize(300, 200)->save($location);*/       
           $picture->picture = $filename;          
         }
-        
+       
         $picture->save();
 
         return redirect()->route('dashboards.index');
@@ -112,15 +112,15 @@ class PictureController extends Controller
     {
         $user = Auth::user();
         $picture = Picture::find($id);
-
+       
        if ($request->hasFile('picture')) {
             // add the new photo
           $image = $request->file('picture');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path().('/images/');
-          $image->move($location, $filename);
+          $oldFilename = $image->move($location, $filename);
           /*Image::make($image)->resize(800, 400)->save($location);*/
-          $oldFilename = $picture->picture;
+          
           // update the database
           $picture->picture = $filename;
          

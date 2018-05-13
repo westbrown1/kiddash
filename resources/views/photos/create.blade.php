@@ -14,7 +14,8 @@
 				{{ Form::text('name', null, ['class' => 'form-control']) }}
 
 				{{ Form::label('featured_img', 'Upload Image', ['style' => 'margin-top: 20px;']) }}
-				{{ Form::file('featured_img', ['required' => ''])}}
+				<input type="file" id="file-input" name="featured_img" required>
+				{{-- {{ Form::file('featured_img', ['required' => ''])}} --}}
  
 				{{Form::submit('Upload Image', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;'])}}
 				<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>

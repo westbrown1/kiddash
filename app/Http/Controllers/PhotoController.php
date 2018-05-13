@@ -66,9 +66,11 @@ class PhotoController extends Controller
         if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path().'/images/';
-          $image->move($location, $filename);
-          /*Image::make($image)->resize(300, 200)->save($location);*/       
+          /*$location = public_path().'/images/';*/
+          $location = public_path('images/' . $filename);
+          Image::make($image)->resize(500, 400)->orientate()->save($location);
+          /*$image->move($location, $filename);*/
+                
           $photo->image = $filename;
         }
         $photo->save();
