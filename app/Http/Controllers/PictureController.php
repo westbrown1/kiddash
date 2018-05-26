@@ -7,10 +7,11 @@ use App\User;
 use App\Picture;
 use App\Dashboard;
 use App\Task;
+use Image;
 use Auth;
 use Storage;
 use Session;
-use Image;
+
 
 
 class PictureController extends Controller
@@ -64,13 +65,12 @@ class PictureController extends Controller
         if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path().'/images/';
-          $image->move($location, $filename);
-          /*Image::make($picture)->resize(300, 200)->save($location);*/       
-          $picture->picture = $filename;          
-        }
-       
-        $picture->save();
+          $location = public_path('images/' . $filename);
+          
+          Image::make($image)->resize(500, 400)->orientate()->save($location);       
+          $picture->picture = $filename;
+          $picture->save();
+        }        
 
         return redirect()->route('dashboards.index');
     }
@@ -81,12 +81,6 @@ class PictureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $user = Auth::user();
-        $picture = Picture::find($id);
-        return view('pictures.show')->withPicture($picture)->withUser($user);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -112,31 +106,24 @@ class PictureController extends Controller
     {
         $user = Auth::user();
         $picture = Picture::find($id);
-       
        if ($request->hasFile('picture')) {
             // add the new photo
           $image = $request->file('picture');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path().('/images/');
-          $oldFilename = $image->move($location, $filename);
-          /*Image::make($image)->resize(800, 400)->save($location);*/
-          
+          $location = public_path('/images/' . $filename);
+          Image::make($image)->resize(500, 400)->orientate()->save($location);
+          $oldFilename = $picture->picture;
           // update the database
           $picture->picture = $filename;
          
           // Delete the old photo
           Storage::delete($oldFilename);
         }
-
         // Save the data to the database
         $picture->save();
-
         $picture = Picture::find($id);
-
         $picture->name = $request->input('name');
-
         $picture->save();
-
         return redirect()->route('dashboards.index', $picture->id);
     }
 
@@ -152,6 +139,7 @@ class PictureController extends Controller
         $picture = Picture::find($id);
 
         Storage::delete('picture->picture');
+
         $picture->delete();
 
         return redirect()->route('dashboards.index', [$user->id]);
