@@ -126,6 +126,7 @@ if ($request->hasFile('featured_img')) {
     {
         $user = Auth::user();
         $photo = Photo::find($id);
+        
         Storage::delete('photo->image');
 
         $photo->delete();
