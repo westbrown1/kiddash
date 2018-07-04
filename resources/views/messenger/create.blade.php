@@ -18,13 +18,13 @@
                     <div class="form-group">
                         <label class="control-label">Subject</label>
                         <input type="text" class="form-control" name="subject" placeholder="Subject"
-                               value="{{ old('subject') }}">
+                               value="{{ old('subject') }}" required>
                     </div>
 
                     <!-- Message Form Input -->
                     <div class="form-group">
                         <label class="control-label">Message</label>
-                        <textarea name="message" class="form-control">{{ old('message') }}</textarea>
+                        <textarea name="message" class="form-control" required>{{ old('message') }}</textarea>
                     </div>
 
                     <div class="form-group">
