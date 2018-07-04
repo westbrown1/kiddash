@@ -18,7 +18,7 @@
 		<img src="{{ asset('/img/Screen Shot 2018-05-11 at 4.23.11 PM.png') }}" alt="example dashboard" style="width: 90%;" alt="example dashboard page">
 	</col-md-12>
 </div>
-
+<br>
 <hr>
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">

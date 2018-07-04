@@ -100,6 +100,10 @@
     }
 }
 
+.glyphicon-none:before {
+    content: "\2122";
+    color: transparent !important;
+}
 </style>
 
 <!-- container -->
@@ -114,9 +118,10 @@
 			</div> --}}
 		</div>	
 
-	<div class="row justify-content-around">	 	 	 
+	 	<div class="row justify-content-around">	 	 	 
 	 	<!-- col-md-5 -->
-		<div class="col-md-6">	
+		<div class="col-md-6">
+		<i class="glyphicon glyphicon-none"></i>	
 			 @foreach($pictures as $picture)
 			 	 @if(Auth::user()->id == $picture->user_id)				 	
 					<a href="{{ route('pictures.edit', $picture->id) }}"><img src="{{ asset('images/' . $picture->picture) }}" class="img-thumbnail" alt="" width="200px" height="auto" style="margin: 40px 0 40px 15px;"></a>
@@ -163,6 +168,7 @@
 		 <div class="col-md-4">
 			<table class="table" style="margin-bottom: 40px">
 				<tbody> 
+
 				{{-- <h4 style="margin-left:8px;">My Links</h4> --}}				
 			 		@foreach($dashboards as $dashboard)
 				 		@if($user->id == $dashboard->user_id)
@@ -179,7 +185,7 @@
 		 	</table>	
 		</div>
 
-	<div class="col-md-7 col-md-offset-1">
+	<div class="col-md-7 col-md-offset-1">		
 		<!-- Current Tasks -->
         @if (count($activities) > 0)
             <div class="panel panel-default" style="margin-bottom: 40px;">
@@ -226,9 +232,9 @@
             </div>
         @endif
 	</div><!-- /row -->
-
+<hr>
 	<div class="row">
-		<div class='col-md-12'>
+		<div class='col-md-12'>			
 			<center><a href="{{ route('photos.create') }}" class="btn btn-primary" style="margin-bottom: 20px;">Upload Image</a>
 			{{-- <a href="{{ route('videos.create') }}" class="btn btn-warning" style="margin-bottom: 20px;">Upload Video</a> --}}
 			<a href="{{ route('dashboards.uploads') }}" class="btn btn-danger" style="margin-bottom: 20px;">Delete Upload</a></center>
