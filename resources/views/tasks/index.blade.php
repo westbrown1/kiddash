@@ -23,7 +23,7 @@
                             <label for="task-name" class="col-sm-3 control-label">News</label>
                             
                             <div class="col-sm-6">
-                                <textarea type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}"></textarea>                                
+                                <textarea type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}" required></textarea>                                
                             </div>
                         </div>
 
