@@ -58,13 +58,16 @@ class PhotoController extends Controller
 
     public function store(Request $request, $user_id)
     {
+        $this->validate($request, [
+                'image' => 'required|image',               
+            ]);
         $user = Auth::user();
         $photo = new Photo;
         $photo->name = $request->name;
         $photo->user()->associate($user);
 
    
-if ($request->hasFile('featured_img')) {
+        if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('images/' . $filename);

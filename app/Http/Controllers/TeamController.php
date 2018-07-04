@@ -54,6 +54,7 @@ class TeamController extends Controller
     {
         $this->validate($request, [
                 'name' => 'required|unique:teams,name|max:255',
+                'city' => 'required|max:255',                
             ]);
 
         $user = Auth::user();

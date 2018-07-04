@@ -81,6 +81,10 @@ class DashboardController extends Controller
      */
     public function store(Request $request, $user_id)
     {
+        $this->validate($request, [
+                'name' => 'required|max:255',
+                'url' => 'required|url',                
+            ]);
         $dashboards = Dashboard::all();
         $user = Auth::user();
         $dashboard = new Dashboard;
