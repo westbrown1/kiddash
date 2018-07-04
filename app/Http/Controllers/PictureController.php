@@ -57,9 +57,6 @@ class PictureController extends Controller
      */
     public function store(Request $request, $user_id)
     { 
-            $this->validate($request, [
-                'picture' => 'required|image',          
-            ]);
         $user = Auth::user(); 
         $picture = new Picture;         
         $picture->name = $request->name;
