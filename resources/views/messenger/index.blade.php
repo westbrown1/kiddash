@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container">
+	<a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
 	<div class="row">
 		<div class="col-md-3 col-md-offset-4">
 			@include('messenger.partials.flash')

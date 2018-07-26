@@ -96,19 +96,17 @@ img {vertical-align: middle;}
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="{{ asset('img/photo-1508802307509-c4ac773a14d5.jpeg') }}" alt="Chania">
+      <img src="{{ asset('img/photo-1503564996084-7acb58ec325c.jpeg') }}" alt="Work Group">
       <div class="carousel-caption">
       </div>
     </div>
-
     <div class="item">
-      <img src="{{ asset('img/photo-1503564996084-7acb58ec325c.jpeg') }}" alt="Chicago">
+      <img src="{{ asset('img/photo-1508802307509-c4ac773a14d5.jpeg') }}" alt="little league baseball">
       <div class="carousel-caption">
       </div>
     </div>
-
     <div class="item">
-      <img src="{{ asset('img/Swim Team page - Dolphins_2011_0041.jpg') }}" alt="New York">
+      <img src="{{ asset('img/Swim Team page - Dolphins_2011_0041.jpg') }}" alt="Swim Team">
       <div class="carousel-caption">
       </div>
     </div>

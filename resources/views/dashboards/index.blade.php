@@ -109,10 +109,15 @@
 <!-- container -->
 <div class="container">
 
-		<div class="row">
+		<div class="row">			
+			<!-- col-md-3 col-md-offset-10 -->
+			<div class="col-md-3 col-md-offset-10">
+				 <a href="/messages/create" class="btn btn-primary" title="">Send a Message <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+			</div><!-- /col-md-3 col-md-offset-10 -->
 			<div class="col-md-4">
 				<h2>{{ $user->name }}'s Dashboard</h2>
 			</div>
+
 			{{-- <div class="col-md-3 col-md-offset-5">
 				<a href="{{ route('dashboards.calendar') }}" class="btn btn-primary">My Calendar<br>{{ date('F-d-Y') }}</a>
 			</div> --}}
@@ -188,9 +193,10 @@
 	<div class="col-md-7 col-md-offset-1">		
 		<!-- Current Tasks -->
         @if (count($activities) > 0)
-            <div class="panel panel-default" style="margin-bottom: 40px;">
-                <div class="panel-heading">News Feed</div>
-	                <div class="panel-body">
+            <div class="panel panel-primary" style="margin-bottom: 40px;">
+                <div class="panel-heading"><h4 class="text-center">News Feed</h4></div>
+	                <div class="panel-body">	                	     		 
+	                	
 	                    <table class="table table-striped task-table">
 	                        <thead>
 	                            <th>Time</th>
@@ -227,6 +233,7 @@
 	                            @endforeach
 	                        </tbody>
 	                    </table>
+
 	                </div>
             	</div>		
             </div>
@@ -245,15 +252,13 @@
 	<div class="row">
 		 <!-- col-md-5 -->
 		 <div class="col-md-4 col-md-offset-4">
-		 	<table class="table table-responsive">
-				<tbody>
+
 					<h3 class="text-center">My Images</h3>
 <br>
 					@foreach($photos as $photo)
 
 						@if($user->id == $photo->user_id)
-						<tr>
-				 			<td>				 				
+			 				
 				 					
 				 				@if(!empty($photo->name))
 									<h4>{{ $photo->name }}</h4>
@@ -262,13 +267,11 @@
 								@if(!empty($photo->image))
 									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="400px" height="auto" alt="photos and images" /></a>
 								@endif
-	 			</td>
-				 		</tr>				 			
+			 			
 					 	@endif
 					@endforeach
 
-				</tbody>
-			</table>		
+	
 
  		</div><!-- /col-md-5 -->
 
