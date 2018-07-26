@@ -251,7 +251,7 @@
 	<!-- row -->
 	<div class="row">
 		 <!-- col-md-5 -->
-		 <div class="col-md-4 col-md-offset-4">
+		 <div class="col-md-12">
 
 					<h3 class="text-center">My Images</h3>
 <br>
@@ -265,7 +265,7 @@
 								@endif								
 
 								@if(!empty($photo->image))
-									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="400px" height="auto" alt="photos and images" /></a>
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="375px" height="auto" alt="photos and images" /></a>
 								@endif
 			 			
 					 	@endif
