@@ -153,11 +153,9 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-      $user = Auth::user();
       $users = User::all();
       $message = New Message;
         $input = Input::all();
-        $message->user()->associate($user);
 
           if ($request->hasFile('featured_vid')) {
           $file = $request->file('featured_vid');
