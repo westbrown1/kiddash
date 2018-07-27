@@ -99,7 +99,8 @@ class PhotoController extends Controller
 
     public function edit($id)
     {
-        //
+        $photo = Photo::find($id);
+        return view('photos.edit')->withPhoto($photo);
     }
 
     /**
@@ -112,7 +113,7 @@ class PhotoController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

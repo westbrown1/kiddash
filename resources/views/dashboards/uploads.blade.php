@@ -33,7 +33,8 @@
 							@endif							
 
 							<br><br>
-							<a href="{{ route('photos.destroy', $photo->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Photo</a>				 				
+							<a href="{{ route('photos.destroy', $photo->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Photo</a>
+							
 			 			</td>
 			 			</tr>
 				 	@endif

@@ -5,7 +5,8 @@
 @section('content')
 
 <!-- container -->
-<div class="container">
+<div class="container">				
+	<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>
 	 <div class="row">
 	 <h3 class="text-center">Upload an Image</h3>
 	 	<div class="col-md-6 col-md-offset-3">
@@ -18,7 +19,7 @@
 				{{-- {{ Form::file('featured_img', ['required' => ''])}} --}}
  
 				{{Form::submit('Upload Image', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;'])}}
-				<a href="{{ route('dashboards.index') }}" class="btn btn-primary" style="margin-top: 15px;">Back</a>
+
 	 		{!! Form::close() !!}
 	 	</div>
 	 </div>

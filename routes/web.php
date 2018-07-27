@@ -43,6 +43,7 @@ Route::get('photos/create', ['uses' => 'PhotoController@create', 'as' => 'photos
 Route::post('photos/{user_id}', ['uses' => 'PhotoController@store', 'as' => 'photos.store']);
 Route::put('photos/{id}', ['uses' => 'PhotoController@update', 'as' => 'photos.update']);
 Route::get('photos/{id}/edit', ['uses' => 'PhotoController@edit', 'as' => 'photos.edit']);
+Route::get('photos/change', ['uses' => 'PhotoController@change', 'as' => 'photos.change']);
 /*Route::get('photos/{id}', ['uses' => 'PhotoController@show', 'as' => 'photos.show']);*/
 Route::get('photos/{id}/delete', ['uses' => 'PhotoController@destroy', 'as' => 'photos.destroy']);
 

@@ -11,15 +11,14 @@
 	 <div class="row">
 	 	<div class="col-md-6 col-md-offset-3">	
 			{!! Form::model($dashboard, ['route' => ['photos.update', $photo->id], 'method' => 'PUT', 'files' => true]) !!}
-				{{ Form::label('featured_img', 'Update Featured Image') }}
-				{{ Form::file('featured_img') }}
+				{{ Form::text('name', null, ['class' => 'form-control']) }}
 
-				{{Form::submit('Edit Image', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;'])}}
+				{{Form::submit('Edit Name', ['class' => 'btn btn-primary', 'style' => 'margin-top: 15px;'])}}
 			{!! Form::close() !!}
 
-			@if(!empty($photo->image))
+			{{-- @if(!empty($photo->image))
 				<img src="{{asset('/images/' . $photo->image)}}" width="400" height="250"  alt="photos and images to edit" />
-			@endif
+			@endif --}}
 	 	</div>
 	 </div>
 </div><!-- /container -->

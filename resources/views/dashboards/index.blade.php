@@ -254,27 +254,28 @@
 		 <div class="col-md-12">
 
 					<h3 class="text-center">My Images</h3>
+		</div>
+	</div>
 <br>
-					@foreach($photos as $photo)
+	<!-- row -->
+	<div class="row">
+		 <!-- col-md-12 -->
+		 <div class="col-md-6 col-md-offset-3">
+		 	 @foreach($photos as $photo)
 
-						@if($user->id == $photo->user_id)
-			 				
-				 					
+						@if($user->id == $photo->user_id) 					
 				 				@if(!empty($photo->name))
-									<h4 width="360px">{{ $photo->name }}</h4>
-								@endif								
-
+									<h4 width="360px">{{ $photo->name }}</h4>								
+								@endif							
 								@if(!empty($photo->image))
-									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="360px" height="auto" alt="photos and images" /></a>
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="630px" height="auto" alt="photos and images" /></a>
 								@endif
 			 			
 					 	@endif
 					@endforeach
-
-	
-
- 		</div><!-- /col-md-5 -->
-
+		 </div><!-- /col-md-12 -->
+	</div><!-- /row -->
+					
 		{{-- <div class="col-md-4 col-md-offset-2">
 			 <table class="table table-responsive">
 				<tbody>
