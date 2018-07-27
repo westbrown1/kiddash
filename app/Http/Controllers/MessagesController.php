@@ -153,16 +153,18 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+      $user = Auth::user();
       $users = User::all();
       $message = New Message;
         $input = Input::all();
+        $message->user()->associate($user);
 
           if ($request->hasFile('featured_vid')) {
           $file = $request->file('featured_vid');
           $filename = time() . '.' . $file->getClientOriginalExtension();
           $location = public_path().'/images/';
           $file->move($location, $filename);
-          /*Image::make($image)->resize(300, 200)->save($location);*/
+          Image::make($image)->resize(300, 200)->save($location);
           $message->vid = $filename;
           }
 
@@ -184,7 +186,7 @@ class MessagesController extends Controller
           $message->photo = $filename;
         }    
 
-        $message->save();    
+           $message->save();
 
         $thread = Thread::create(
             [
@@ -199,8 +201,7 @@ class MessagesController extends Controller
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
                 'photo'     => $message->photo,
-                'vid'      => $message->vid, 
-            
+                'vid'      => $message->vid,            
             ]
         );
 
