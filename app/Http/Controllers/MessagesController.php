@@ -162,7 +162,7 @@ class MessagesController extends Controller
           $filename = time() . '.' . $file->getClientOriginalExtension();
           $location = public_path().'/images/';
           $file->move($location, $filename);
-          Image::make($image)->resize(300, 200)->save($location);
+          /*Image::make($image)->resize(300, 200)->save($location);*/
           $message->vid = $filename;
           }
 
@@ -182,9 +182,7 @@ class MessagesController extends Controller
           
           Image::make($image)->resize(500, 400)->orientate()->save($location);       
           $message->photo = $filename;
-        }    
-
-           $message->save();
+        }        
 
         $thread = Thread::create(
             [
@@ -199,7 +197,8 @@ class MessagesController extends Controller
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
                 'photo'     => $message->photo,
-                'vid'      => $message->vid,            
+                'vid'      => $message->vid, 
+            
             ]
         );
 
