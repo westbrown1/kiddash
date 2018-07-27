@@ -166,14 +166,23 @@ class MessagesController extends Controller
           $message->vid = $filename;
           }
 
-          if ($request->hasFile('featured_img')) {
+          /*if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path().'/images/';
           $image->move($location, $filename);
-          /*Image::make($image)->resize(300, 200)->save($location);*/    
+          Image::make($image)->resize(300, 200)->save($location);   
           $message->photo = $filename;         
-          }          
+          } */ 
+
+          if ($request->hasFile('featured_img')) {
+          $image = $request->file('featured_img');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path('images/' . $filename);
+          
+          Image::make($image)->resize(500, 400)->orientate()->save($location);       
+          $message->photo = $filename;
+        }        
 
         $thread = Thread::create(
             [
