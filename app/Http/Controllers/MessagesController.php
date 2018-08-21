@@ -166,19 +166,15 @@ class MessagesController extends Controller
           $message->vid = $filename;
           }
 
-
-
-
           if ($request->hasFile('featured_img')) {
-          $file = $request->file('featured_img');
-          $filename = time() . '.' . $file->getClientOriginalExtension();
+          $image = $request->file('featured_img');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path().'/images/';
-          $file->move($location, $filename);
-          /*Image::make($image)->resize(300, 200)->save($location);*/
-          $message->photo = $filename;
-        }
+          $image->move($location, $filename);
+          /*Image::make($image)->resize(300, 200)->save($location);*/    
+          $message->photo = $filename;         
+          }          
 
-          
         $thread = Thread::create(
             [
                 'subject' => $input['subject'],
@@ -226,7 +222,6 @@ class MessagesController extends Controller
      * @param $id
      * @return mixed
      */
-
     public function update($id)
     {
       $member = Auth::user();
