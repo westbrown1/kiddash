@@ -121,7 +121,7 @@
 			{{-- <div class="col-md-3 col-md-offset-5">
 				<a href="{{ route('dashboards.calendar') }}" class="btn btn-primary">My Calendar<br>{{ date('F-d-Y') }}</a>
 			</div> --}}
-		</div>	
+		</div>
 
 	 	<div class="row justify-content-around">	 	 	 
 	 	<!-- col-md-5 -->
