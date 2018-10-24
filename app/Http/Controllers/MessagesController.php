@@ -153,9 +153,6 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-
-
-
       $users = User::all();
       $message = New Message;
         $input = Input::all();
@@ -170,8 +167,8 @@ class MessagesController extends Controller
           $message->vid = $filename;
           }
 
-          if ($request->hasFile('featured_img')) {
-          $image = $request->file('featured_img');
+          if ($request->hasFile('photo')) {
+          $image = $request->file('photo');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('images/' . $filename);
           
@@ -194,7 +191,7 @@ class MessagesController extends Controller
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
                 'photo'     => $filename,
-                'vid'      => $message->vid,            
+                'vid'       => $message->vid,            
             ]
         );
 

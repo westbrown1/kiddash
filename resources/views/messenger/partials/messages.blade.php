@@ -10,7 +10,7 @@
         <p style="font-size: 18px;">{{ $message->body }}</p>
         
         @if(!empty($message->photo))
-            <img src="{{ asset('/images/' . $message->photo) }}" class="img-thumbnail" width="300px" height="auto" alt="photo or image with a message" />
+            <img src="{{ asset('/images/' . $message->photo) }}" class="img-thumbnail" width="300px" height="auto" />
         @endif
 
         <div class="text-muted">
