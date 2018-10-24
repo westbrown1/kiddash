@@ -173,9 +173,9 @@ class MessagesController extends Controller
           $location = public_path('images/' . $filename);
           
           Image::make($image)->resize(500, 400)->orientate()->save($location);       
-          $message->photo = $filename;  
-
+          $message->photo = $filename;
         }
+
         $filename = $message->photo; 
 
         $thread = Thread::create(
@@ -194,6 +194,7 @@ class MessagesController extends Controller
                 'vid'       => $message->vid,            
             ]
         );
+
 
         // Sender
         Participant::create(
@@ -215,7 +216,7 @@ class MessagesController extends Controller
           }
         }        
 
-        return redirect('messages')->withMessage($message);
+        return redirect('messages');
     }
 
     /**
