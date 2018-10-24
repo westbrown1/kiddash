@@ -173,7 +173,8 @@ class MessagesController extends Controller
           $location = public_path('images/' . $filename);
           
           Image::make($image)->resize(500, 400)->orientate()->save($location);       
-          $message->photo = $filename;
+          $message->photo = $filename;  
+          $message->save();        
         } 
 
         $filename = $message->photo;

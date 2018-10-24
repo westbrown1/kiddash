@@ -9,9 +9,9 @@
         <h5 class="media-heading" style="font-size: 15px;">From: {{ $message->user->name }}</h5>
         <p style="font-size: 18px;">{{ $message->body }}</p>
         
-        
+        @if(!empty($message->photo))
             <img src="{{ asset('/images/' . $message->photo) }}" class="img-thumbnail" width="300px" height="auto" />
-        
+        @endif
 
         <div class="text-muted">
             <small>Posted {{ $message->created_at->diffForHumans() }}</small>
