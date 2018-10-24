@@ -174,10 +174,9 @@ class MessagesController extends Controller
           
           Image::make($image)->resize(500, 400)->orientate()->save($location);       
           $message->photo = $filename;  
-          $message->save();        
-        } 
 
-        $filename = $message->photo;
+        }
+        $filename = $message->photo; 
 
         $thread = Thread::create(
             [
