@@ -13,7 +13,7 @@
 			
 			 	 <h3 class="text-center">Change Your Dashboard Image</h3>
 				 <br>
-			 	 {{ Form::model($picture, ['route' => ['pictures.update', $picture->id], 'method' => 'PUT', 'files' => true])}} 			 
+			 	 {!! Form::model($picture, ['route' => ['pictures.update', $picture->id], 'method' => 'PUT', 'files' => true]) !!} 			 
 						{{ csrf_field() }}
 				 	{{-- {{ Form::label('name', 'Username') }}<br>
 				 	{{ Form::text('name', null, ['class' => 'form-control']) }} --}}
@@ -24,7 +24,7 @@
 
     				{{ Form::submit('Save Changes', ['class' => 'btn btn-primary btn-block'])}}
     				
-		{{ Form::close() }}
+		{!! Form::close() !!}
 		
 		<br><br>
 		<a href="{{ route('pictures.destroy', $picture->id) }}" class="btn btn-danger btn-sm" style="margin-bottom: 10px;">Delete Image</a

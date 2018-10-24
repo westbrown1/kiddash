@@ -84,13 +84,12 @@ class TaskController extends Controller
         if ($request->hasFile('photo')) {
           $image = $request->file('photo');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('/images/');
-          $image->move($location, $filename);
-          /*Image::make($image)->resize(300, 200)->save($location);*/
-
+          $location = public_path('images/' . $filename);
+          
+          Image::make($image)->resize(500, 400)->orientate()->save($location);       
           $task->photo = $filename;
         }
-
+          $filename = $task->photo;
         if ($request->hasFile('video')) {
           $image = $request->file('video');
           $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -103,21 +102,12 @@ class TaskController extends Controller
 
          $request->user()->tasks()->create([
             'name' => $request->name,
-            'photo' => $task->photo,
+            'photo' => $filename,
             'video' => $task->video,
             'display_name' => $request->user()->name,
             'dash' => $task->dash,
         ]);
          
-/*        $task->name = $request->name;
-        $task->photo = $request->photo;
-        $task->video = $request->video;
-        $task->display_name = $request->display_name;*/
-
-
-
-
-        //$task->save();
         return redirect('/tasks')->withTask($task)->withPictures($pictures);
     }
 

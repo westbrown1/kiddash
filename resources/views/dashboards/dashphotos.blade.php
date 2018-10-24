@@ -12,7 +12,7 @@
   @foreach($photos as $photo)
   @if($user->id == $photo->user_id)
   @if(!empty($photo->image))
-      <center><img src="../images/{{ $photo->image }}" class="mySlides img-thumbnail"  alt="photos and images" width="700px" height="auto">
+      <center><img src="../images/{{ $photo->image }}" class="mySlides img-thumbnail"  alt="photos and images" width="600px" height="auto">
   @endif
   @endif
   @endforeach

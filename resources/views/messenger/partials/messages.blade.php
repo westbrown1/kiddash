@@ -13,16 +13,9 @@
             <img src="{{ asset('/images/' . $message->photo) }}" class="img-thumbnail" width="300px" height="auto" alt="photo or image with a message" />
         @endif
 
-       {{--  @if(!empty($message->vid))
-            <video width="300px" height="auto" style='margin-bottom: 10px;' class="img-thumbnail" controls>
-                <source src="{{ asset('/images/' . $message->vid) }}" type="video/mp4">
-            </video>             
-        @endif --}} 
-
         <div class="text-muted">
             <small>Posted {{ $message->created_at->diffForHumans() }}</small>
         </div>
     </div>
 </div>
-
 

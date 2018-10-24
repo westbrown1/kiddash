@@ -153,12 +153,16 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
       $users = User::all();
       $message = New Message;
         $input = Input::all();
 
           if ($request->hasFile('featured_vid')) {
           $file = $request->file('featured_vid');
+
           $filename = time() . '.' . $file->getClientOriginalExtension();
           $location = public_path().'/images/';
           $file->move($location, $filename);
@@ -169,11 +173,11 @@ class MessagesController extends Controller
           if ($request->hasFile('featured_img')) {
           $image = $request->file('featured_img');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path().'/images/';
-          $image->move($location, $filename);
-          /*Image::make($image)->resize(300, 200)->save($location);*/    
-          $message->photo = $filename;         
-          }          
+          $location = public_path('images/' . $filename);
+          
+          Image::make($image)->resize(500, 400)->orientate()->save($location);       
+          $message->photo = $filename;
+        } 
 
         $thread = Thread::create(
             [
@@ -187,9 +191,8 @@ class MessagesController extends Controller
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
                 'body'      => $input['message'],
-                'photo'     => $message->photo,
-                'vid'      => $message->vid, 
-            
+                'photo'     => $filename,
+                'vid'      => $message->vid,            
             ]
         );
 
@@ -206,7 +209,7 @@ class MessagesController extends Controller
         if (Input::has('recipients')) {
             $thread->addParticipant($input['recipients']);
         }
-
+         
         foreach ($users as $user) {
           if (strpos($thread->participantsString(Auth::id()), $user->name) !== false) { 
             Mail::to($user->email)->send(new MessageReceived());

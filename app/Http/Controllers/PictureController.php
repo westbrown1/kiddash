@@ -57,6 +57,11 @@ class PictureController extends Controller
      */
     public function store(Request $request, $user_id)
     { 
+        $this->validate($request, [
+                'name' => 'required|max:255',
+                'picture' => 'required|image',                
+            ]);
+
         $user = Auth::user(); 
         $picture = new Picture;         
         $picture->name = $request->name;
@@ -104,6 +109,10 @@ class PictureController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+                'name' => 'required|max:255',
+                'picture' => 'required|image',                
+            ]);
         $user = Auth::user();
         $picture = Picture::find($id);
        if ($request->hasFile('picture')) {

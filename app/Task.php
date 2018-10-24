@@ -57,5 +57,3 @@ class Task extends Model
         return $this->hasOne(Picture::class);
     }
 }
-
-

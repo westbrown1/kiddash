@@ -268,7 +268,7 @@
 									<h4 width="360px">{{ $photo->name }}</h4>								
 								@endif							
 								@if(!empty($photo->image))
-									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="630px" height="auto" alt="photos and images" /></a>
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="600px" height="auto" alt="photos and images" /></a>
 								@endif
 			 			
 					 	@endif

@@ -29,7 +29,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Upload Photo</label>
-                        <input type="file" name="featured_img">
+                        <input type="file" name="featured_img" id="file-input">
                     </div>                   
  
                     {{-- <div class="form-group">
@@ -355,5 +355,4 @@
         </div>
     </div>
 </div>
-    
 @stop
