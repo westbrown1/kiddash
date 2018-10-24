@@ -216,7 +216,7 @@ class MessagesController extends Controller
           }
         }        
 
-        return redirect('messages');
+        return redirect()->route('messages');
     }
 
     /**
