@@ -195,6 +195,7 @@ class MessagesController extends Controller
             ]
         );
 DB::table('messages')
+            ->where('thread_id', $thread->id)
             ->update(['photo' => $filename]);
 
         // Sender
