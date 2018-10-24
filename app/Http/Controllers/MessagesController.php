@@ -194,7 +194,8 @@ class MessagesController extends Controller
                 'vid'       => $message->vid,            
             ]
         );
-
+DB::table('messages')
+            ->update(['photo' => $filename]);
 
         // Sender
         Participant::create(
@@ -216,7 +217,7 @@ class MessagesController extends Controller
           }
         }        
 
-        return redirect()->route('messages');
+        return redirect('messages');
     }
 
     /**
