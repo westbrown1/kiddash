@@ -57,10 +57,10 @@ class PictureController extends Controller
      */
     public function store(Request $request, $user_id)
     { 
-        $this->validate($request, [
+        /*$this->validate($request, [
                 'name' => 'required|max:255',
-                'picture' => 'required|image',                
-            ]);
+                'picture' => 'required',                
+            ]);*/
 
         $user = Auth::user(); 
         $picture = new Picture;         
@@ -75,7 +75,7 @@ class PictureController extends Controller
           Image::make($image)->resize(500, 400)->orientate()->save($location);       
           $picture->picture = $filename;
           $picture->save();
-        }        
+         }        
 
         return redirect()->route('dashboards.index');
     }
@@ -109,10 +109,10 @@ class PictureController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        /*$this->validate($request, [
                 'name' => 'required|max:255',
                 'picture' => 'required|image',                
-            ]);
+            ]);*/
         $user = Auth::user();
         $picture = Picture::find($id);
        if ($request->hasFile('picture')) {
