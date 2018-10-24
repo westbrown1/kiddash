@@ -89,7 +89,9 @@ class TaskController extends Controller
           Image::make($image)->resize(500, 400)->orientate()->save($location);       
           $task->photo = $filename;
         }
+
           $filename = $task->photo;
+          
         if ($request->hasFile('video')) {
           $image = $request->file('video');
           $filename = time() . '.' . $image->getClientOriginalExtension();

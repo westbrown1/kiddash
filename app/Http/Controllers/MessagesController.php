@@ -179,6 +179,8 @@ class MessagesController extends Controller
           $message->photo = $filename;
         } 
 
+        $filename = $message->photo;
+
         $thread = Thread::create(
             [
                 'subject' => $input['subject'],
