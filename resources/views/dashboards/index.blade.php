@@ -205,7 +205,7 @@ table {
 		 	</table>	
 		</div>
 
-	<div class="col-md-7 col-md-offset-1 scrollingTable" style="margin-bottom: 40px;">		
+	<div class="col-md-7 col-md-offset-1 scrollingTable" style="margin-bottom: 30px;">		
 		<!-- Current Tasks -->
         @if (count($activities) > 0)
             {{-- <div class="panel panel-primary" style="margin-bottom: 40px;">

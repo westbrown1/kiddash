@@ -20,9 +20,9 @@
     #bottom {
         position: fixed;
         bottom: 0;
-    }
+     }
     .bottom2 {
-        margin-top: 50px;
+        margin-top: 100px;
     }
     </style> 
 </head>
@@ -99,8 +99,8 @@
 
     <footer>
         <div class="col-md-2 col-md-offset-5 bottom2">
-            <p class="text-center" id="bottom">
-                Copyright &copy; {{ date('Y') }} - swim-dash.com
+            <p id="bottom">
+                &copy; {{ date('Y') }} - swim-dash.com
             </p>        
         </div>
     </footer>
