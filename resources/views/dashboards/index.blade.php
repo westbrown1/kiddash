@@ -137,14 +137,15 @@ table {
 			</div> --}}
 		</div>
 
-	 	<div class="row justify-content-around">	 	 	 
+	 	<div class="row">	 	 	 
 	 	<!-- col-md-5 -->
 		<div class="col-md-6">
-		<i class="glyphicon glyphicon-none"></i>	
-			 @foreach($pictures as $picture)
-			 	 @if(Auth::user()->id == $picture->user_id)				 	
-					<a href="{{ route('pictures.edit', $picture->id) }}"><img src="{{ asset('images/' . $picture->picture) }}" class="img-thumbnail" alt="" width="200px" height="auto" style="margin: 40px 0 40px 15px;"></a>
-				@endif
+			@foreach($pictures as $picture)
+			    
+				 	@if(Auth::user()->id == $picture->user_id)				 	
+						<a href="{{ route('pictures.edit', $picture->id) }}"><img src="{{ asset('images/' . $picture->picture) }}" class="img-thumbnail" alt="" width="200px" height="auto" style="margin: 40px 0 40px 15px;"></a>
+					@endif
+				
 			@endforeach
 		</div><!-- /col-md-5 -->
 
@@ -204,7 +205,7 @@ table {
 		 	</table>	
 		</div>
 
-	<div class="col-md-7 col-md-offset-1 scrollingTable">		
+	<div class="col-md-7 col-md-offset-1 scrollingTable" style="margin-bottom: 40px;">		
 		<!-- Current Tasks -->
         @if (count($activities) > 0)
             {{-- <div class="panel panel-primary" style="margin-bottom: 40px;">
