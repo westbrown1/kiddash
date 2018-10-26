@@ -49,15 +49,15 @@
                                     <div><h4 class="text-center">- News -</h4> {{ $activity['name'] }}</div><br>        
                                         <div> 
                                             @if(!empty($activity['photo']))                                                  
-                                                <center><a href="{{ route('dashboards.photo') }}"><img src="../images/{{ $activity['photo'] }}" class="img-thumbnail" alt="" width="400px" height="auto"></a></center>
+                                                <center><a href="{{ route('dashboards.photo') }}"><img src="../images/{{ $activity['photo'] }}" class="img-thumbnail" alt="photo or image added to news feed" width="400px" height="auto"></a></center>
                                             @endif
 
-                                            @if(!empty($activity['video']))
+                                            {{-- @if(!empty($activity['video']))
 
                                                 <center><a href="{{ route('dashboards.photo') }}"><video width="400px" height="auto" class="img-thumbnail" controls>
                                                     <source src="../images/{{ $activity['video'] }}" type="video/mp4"> 
                                                 </video></a></center>                                                             
-                                            @endif                      
+                                            @endif --}}                      
                                         </div>
                                     </div>
                     <!-- /well -->

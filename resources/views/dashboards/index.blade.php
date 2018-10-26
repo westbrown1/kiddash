@@ -104,6 +104,20 @@
     content: "\2122";
     color: transparent !important;
 }
+
+.column {
+	float: left;
+	margin: 10px;
+}
+
+table {
+            width:  100%;
+            border-collapse: collapse;
+        }
+        .scrollingTable {
+            /*width: 30em;*/
+            overflow-y: auto;
+        }
 </style>
 
 <!-- container -->
@@ -190,14 +204,14 @@
 		 	</table>	
 		</div>
 
-	<div class="col-md-7 col-md-offset-1">		
+	<div class="col-md-7 col-md-offset-1 scrollingTable">		
 		<!-- Current Tasks -->
         @if (count($activities) > 0)
-            <div class="panel panel-primary" style="margin-bottom: 40px;">
+            {{-- <div class="panel panel-primary" style="margin-bottom: 40px;">
                 <div class="panel-heading"><h4 class="text-center">News Feed</h4></div>
-	                <div class="panel-body">	                	     		 
+	                <div class="panel-body"> --}}	                	     		 
 	                	
-	                    <table class="table table-striped task-table">
+	                    <table class="table table-striped task-table" id="myTable">
 	                        <thead>
 	                            <th>Time</th>
 	                            <th>Member</th>
@@ -234,8 +248,8 @@
 	                        </tbody>
 	                    </table>
 
-	                </div>
-            	</div>		
+	                {{-- </div>
+            	</div>	 --}}	
             </div>
         @endif
 	</div><!-- /row -->
@@ -260,17 +274,16 @@
 	<!-- row -->
 	<div class="row">
 		 <!-- col-md-12 -->
-		 <div class="col-md-6 col-md-offset-3">
+		 <div class="col-md-12 column">
 		 	 @foreach($photos as $photo)
 
 						@if($user->id == $photo->user_id) 					
-				 				@if(!empty($photo->name))
-									<h4 width="360px">{{ $photo->name }}</h4>								
-								@endif							
+				 				{{-- @if(!empty($photo->name))
+									<h4 width="350px">{{ $photo->name }}</h4>								
+								@endif --}}							
 								@if(!empty($photo->image))
-									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="600px" height="auto" alt="photos and images" /></a>
-								@endif
-			 			
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail column" width="350px" height="auto" alt="photos and images" /></a>
+								@endif			 			
 					 	@endif
 					@endforeach
 		 </div><!-- /col-md-12 -->
@@ -305,4 +318,23 @@
 			</table> 
 		</div> --}}
 	</div>
+
+
+<script type="text/javascript">
+        function makeTableScroll() {
+            // Constant retrieved from server-side via JSP
+            var maxRows = 7;
+
+            var table = document.getElementById('myTable');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        }
+    </script>
 @stop

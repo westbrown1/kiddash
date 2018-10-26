@@ -26,7 +26,7 @@
     }
     </style> 
 </head>
-<body>
+<body onload="makeTableScroll();">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
