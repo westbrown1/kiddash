@@ -199,6 +199,8 @@ class DashboardController extends Controller
 
         $dashboard->delete();
 
-        return redirect()->route('dashboards.links', [$user->id])->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos);
+        return view('dashboards.uploads')->withUser($user)->withPhotos($photos)->withVideos($videos);
+
+        /*return redirect()->route('dashboards.links', [$user->id])->withDashboards($dashboards)->withPhotos($photos)->withVideos($videos);*/
     }
 }

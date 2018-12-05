@@ -143,7 +143,7 @@ table {
 			@foreach($pictures as $picture)
 			    
 				 	@if(Auth::user()->id == $picture->user_id)				 	
-						<a href="{{ route('pictures.edit', $picture->id) }}"><img src="{{ asset('images/' . $picture->picture) }}" class="img-thumbnail" alt="" width="200px" height="auto" style="margin: 40px 0 40px 15px;"></a>
+						<a href="{{ route('pictures.edit', $picture->id) }}"><img src="{{ asset('images/' . $picture->picture) }}" class="img-thumbnail" alt="image uploaded" width="200px" height="auto" style="margin: 40px 0 40px 15px;"></a>
 					@endif
 				
 			@endforeach
@@ -185,8 +185,8 @@ table {
 
 	<!-- row -->
 	<div class="row">
-		 <div class="col-md-4">
-			<table class="table" style="margin-bottom: 40px">
+		 <div class="col-md-4 scrollingTable">
+			<table class="table" style="margin-bottom: 40px" id="yourTable">
 				<tbody> 
 
 				{{-- <h4 style="margin-left:8px;">My Links</h4> --}}				
@@ -320,11 +320,10 @@ table {
 		</div> --}}
 	</div>
 
-
 <script type="text/javascript">
         function makeTableScroll() {
             // Constant retrieved from server-side via JSP
-            var maxRows = 7;
+            var maxRows = 6;
 
             var table = document.getElementById('myTable');
             var wrapper = table.parentNode;
@@ -337,5 +336,5 @@ table {
                 wrapper.style.height = height + "px";
             }
         }
-    </script>
+</script>
 @stop

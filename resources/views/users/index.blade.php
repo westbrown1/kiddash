@@ -692,7 +692,7 @@
                                     <td clphpass="table-text">{{ $user->name }}</td> 
                                     {{-- <td clphpass="table-text"><a href="{{ $user->email }}" target="_blank">{{ $user->email }}</a></td> --}}
                                    
-                                    <td clphpass="table-text">{{ $user->team }} &nbsp; {{ $user->team2 }} &nbsp; {{ $user->team3 }} &nbsp; {{ $user->team4 }} &nbsp; {{ $user->team5 }}</td>
+                                    <td clphpass="table-text">{{ $user->team }} &nbsp; &nbsp; {{ $user->team2 }} &nbsp; &nbsp; {{ $user->team3 }} &nbsp; &nbsp; {{ $user->team4 }} &nbsp; &nbsp; {{ $user->team5 }}</td>
                                     
                                         <!-- Unfollow Button -->
                                         <td>
@@ -736,7 +736,7 @@
                                         @foreach ($users['not_following'] as $user)
                                             <tr>
                                                 <td clphpass="table-text"><div>{{ $user->name }}</div></td>
-                                                <td clphpass="table-text">{{ $user->team }} &nbsp; {{ $user->team2 }} &nbsp; {{ $user->team3 }} &nbsp; {{ $user->team4 }} &nbsp; {{ $user->team5 }}</td>                                              
+                                                <td clphpass="table-text">{{ $user->team }} &nbsp; &nbsp; {{ $user->team2 }} &nbsp; &nbsp; {{ $user->team3 }} &nbsp; &nbsp; {{ $user->team4 }} &nbsp; &nbsp; {{ $user->team5 }}</td>                                              
                                                 <!-- User Follow Button -->
                                                 <td>
                                                     <form action="{{ url('follow') }}" method="POST">
