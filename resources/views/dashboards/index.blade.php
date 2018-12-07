@@ -126,7 +126,7 @@ table {
 		<div class="row">			
 			<!-- col-md-3 col-md-offset-10 -->
 			<div class="col-md-3 col-md-offset-10">
-				 <a href="/messages/create" class="btn btn-primary" title="">Send a Message <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+				 <a href="/messages/create" class="btn btn-primary" alt="send a message button">Send a Message <span class="glyphicon glyphicon-envelope"></span></a>
 			</div><!-- /col-md-3 col-md-offset-10 -->
 			<div class="col-md-4">
 				<h2>{{ $user->name }}'s Dashboard</h2>
