@@ -101,5 +101,9 @@ Route::get('example', function() {
 	return view('example');
 });
 
+Route::get('info', function() {
+	return view('info');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 

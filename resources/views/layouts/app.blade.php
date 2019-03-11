@@ -7,10 +7,9 @@
     <meta name="robots" content="index, follow" />
 
     <title>swim-dash | @yield('title')</title>
-
     
-    <meta name="description" content="Best social site.  Swim-dash is a team or club based social website everyone may join. Where teammates, family and friends can communicate and share photos.  You create your own team.  It can be new or an already existing team.  After joining you will be taken to your private Dashboard page.  You'll have a News Feed, private messaging with email notification, photo uploading, link creation to your kids team website or any websites you like.  Access to follow your teammates.">
-    <meta name="keywords" content="Social, Networking, Team, Newsfeed, Messaging, Images, Dashboard, Join, Create, Free, Fun">
+    <meta name="description" content="Swim-dash is a team or club based social website everyone may join. Teammates, family and friends can network, communicate, message, share news, photos and more.">
+    <meta name="keywords" content="Social, Networking, Team, News Feed, Unique, New, Messaging, Photo Sharing, Private Dashboard, create, Fun, Organize">
     <meta name="author" content="West Brown">
     
     <!-- CSRF Token -->
