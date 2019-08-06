@@ -28,6 +28,7 @@
                         <td><b>User</b></td>
                         <td><b>Team</b></td>
                         <td>&nbsp;</td>
+                        <td>Photo Board</td>
                     
                     </thead>
                     <tbody> 
@@ -50,8 +51,10 @@
 
                                 <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                                     <i class="fa fa-btn fa-user"></i> Follow
-                                </button>
-                            </form></td> 
+                                </button>                
+                            @if(!empty($user->membername))
+                            </form></td> <td><a href="{{ route('profile.show', $user->membername) }}" class="btn btn-primary">{{ $user->membername }}</a></td>
+                            @endif
                             </tr>  
                         @endif                                   
                         @endif   
@@ -681,11 +684,14 @@
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
-                                <th>User</th>
-                                <th>Teams</th>
-                                <th>&nbsp;</th>
+                                <td>User</td>
+                                <td>Teams</td>
+                                <td>&nbsp;</td>
+                                <td>Photo Board</td>
                             </thead>
                             <tbody>
+
+
 
                                 @foreach ($users['following'] as $user)
                                     <tr>
@@ -693,7 +699,7 @@
                                     {{-- <td clphpass="table-text"><a href="{{ $user->email }}" target="_blank">{{ $user->email }}</a></td> --}}
                                    
                                     <td clphpass="table-text">{{ $user->team }} &nbsp; &nbsp; {{ $user->team2 }} &nbsp; &nbsp; {{ $user->team3 }} &nbsp; &nbsp; {{ $user->team4 }} &nbsp; &nbsp; {{ $user->team5 }}</td>
-                                    
+
                                         <!-- Unfollow Button -->
                                         <td>
                                             <form action="{{url('follow/' . $user->follow_id)}}" method="POST">
@@ -704,10 +710,13 @@
                                                     <i class="fa fa-btn fa-trash"></i> Unfollow
                                                 </button>
                                             </form>
-                                        </td>
-                                    </tr>                                
+                                        </td>@if(!empty($user->membername))
+                                <td><a href="{{ route('profile.show', $user->membername) }}" class="btn btn-primary">{{ $user->membername }}</a></td>
+                                    </tr> 
+                                @endif 
                                 @endforeach
-                         
+                                                              
+                                
                             </tbody>
                         </table>
                     </div>
@@ -733,8 +742,13 @@
                                         <th>&nbsp;</th>
                                     </thead>
                                     <tbody>
+                                        <tr>
+                                       
+
                                         @foreach ($users['not_following'] as $user)
-                                            <tr>
+                                             
+                                            {{-- <td>  <a href="{{ route('profile.show', $user->username) }}">{{ $user->username }}</a>  </td> --}}
+                                        
                                                 <td clphpass="table-text"><div>{{ $user->name }}</div></td>
                                                 <td clphpass="table-text">{{ $user->team }} &nbsp; &nbsp; {{ $user->team2 }} &nbsp; &nbsp; {{ $user->team3 }} &nbsp; &nbsp; {{ $user->team4 }} &nbsp; &nbsp; {{ $user->team5 }}</td>                                              
                                                 <!-- User Follow Button -->
@@ -750,8 +764,7 @@
                                                             <i class="fa fa-btn fa-user"></i> Follow
                                                         </button>
                                                     </form>
-                                                </td>
-                                                                                    
+                                                </td>                                                                                                                      
                                             </tr>
                                         @endforeach
                                     </tbody>

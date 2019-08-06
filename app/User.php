@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'name', 'email', 'password', 'team', 'team2', 'team3', 'team4', 'team5',
+       'membername', 'name', 'email', 'password', 'team', 'team2', 'team3', 'team4', 'team5',
     ];
 
     /**
@@ -61,6 +61,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+
     public function messages()
     {
       return $this->hasMany(Message::class);
@@ -81,13 +82,14 @@ class User extends Authenticatable
         return $this->hasMany(Join::class);
     }
 
-    public function myimages()
+    public function photos()
     {
-        return $this->hasMany(Myimage::class);
+        return $this->hasMany(Photo::class); 
     }
 
     public function pictures()
     {
         return $this->hasOne(Picture::class);
     }
+
 }

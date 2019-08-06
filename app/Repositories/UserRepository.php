@@ -17,7 +17,7 @@ class UserRepository
     {
 
         // Following:
-        $query = 'SELECT id, name, team, team2, team3, team4, team5 FROM users WHERE id IN (SELECT follow_id FROM follows WHERE user_id = ?)';
+        $query = 'SELECT id, membername, name, team, team2, team3, team4, team5 FROM users WHERE id IN (SELECT follow_id FROM follows WHERE user_id = ?)';
 
         $following = DB::select($query, [$user->id]);
 
@@ -27,7 +27,7 @@ class UserRepository
         }
 
         // Not Following:
-        $query = 'SELECT id, name, team, team2, team3, team4, team5 FROM users WHERE id
+        $query = 'SELECT id, membername, name, team, team2, team3, team4, team5 FROM users WHERE id
         NOT IN (SELECT follow_id FROM follows WHERE user_id = ?)';
         $not_following = DB::select($query, [$user->id]);
 

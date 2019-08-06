@@ -34,7 +34,7 @@ class PhotoController extends Controller
     
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -92,7 +92,11 @@ class PhotoController extends Controller
 
     public function show($id)
     {
-        //
+        $user = Auth::user();
+        $photos = Photo::all();
+        $photo = Photo::find($id);
+
+        return view('photos.show')->withUser($user)->withPhotos($photos)->withPhoto($photo);
     }
 
     /**
@@ -133,7 +137,7 @@ class PhotoController extends Controller
         $user = Auth::user();
         $photo = Photo::find($id);
         
-        Storage::delete('photo->image');
+        Storage::delete($photo->image);
 
         $photo->delete();
 

@@ -29,7 +29,7 @@
 							@endif								
 
 							@if(!empty($photo->image))
-								<img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="630" height="auto"  alt="photos and images uploaded" />
+								<img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" width="630px" height="100%"  alt="photos and images uploaded" />
 							@endif							
 
 							<br><br>

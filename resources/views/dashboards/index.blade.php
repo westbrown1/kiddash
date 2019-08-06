@@ -106,8 +106,9 @@
 }
 
 .column {
-	float: left;
-	margin: 10px;
+	text-align: center;
+	/*float: left;
+	margin: 10px;*/
 }
 
 table {
@@ -268,7 +269,7 @@ table {
 		 <!-- col-md-5 -->
 		 <div class="col-md-12">
 
-					<h3 class="text-center">My Images</h3>
+					<h3 class="text-center">My Images (Viewable by Those Who are on Your Team)</h3>
 		</div>
 	</div>
 <br>
@@ -283,7 +284,7 @@ table {
 									<h4 width="350px">{{ $photo->name }}</h4>								
 								@endif --}}							
 								@if(!empty($photo->image))
-									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail column" width="350px" height="auto" alt="photos and images" /></a>
+									<a href="{{ route('dashboards.dashphotos') }}"><img src="{{asset('/images/' . $photo->image)}}" class="img-thumbnail" height="auto" width="350px" alt="photos and images" /></a>
 								@endif			 			
 					 	@endif
 					@endforeach

@@ -9,7 +9,7 @@
     <title>swim-dash.com | Create your team and connect</title>
 
     <link rel="canonical" href="http://swim-dash.com/" />
-    <meta name="description" content="Swim-dash is a social network website everyone may join. Teammates, family and friends can communicate team or club information.  The site allows messaging, photo sharing, a news feed and more.">
+    <meta name="description" content="Swim-dash is a unique and original social network website everyone may join. Teammates, family and friends can communicate team or club information.  The site allows messaging, photo sharing, a news feed and more.">
     <meta name="keywords" content="Social, Networking, Team, News Feed, Unique, New, Messaging, Photo Sharing, Private Dashboard, create, Fun, Organize">
 
 </head>

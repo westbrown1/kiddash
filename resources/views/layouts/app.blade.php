@@ -8,7 +8,7 @@
 
     <title>swim-dash | @yield('title')</title>
     
-    <meta name="description" content="Swim-dash is a team or club based social website everyone may join. Teammates, family and friends can network, communicate, message, share news, photos and more.">
+    <meta name="description" content="Swim-dash is a unique and original team or club based social website everyone may join. Teammates, family and friends can network, communicate, message, share news, photos and more.">
     <meta name="keywords" content="Social, Networking, Team, News Feed, Unique, New, Messaging, Photo Sharing, Private Dashboard, create, Fun, Organize">
     <meta name="author" content="West Brown">
     
@@ -101,6 +101,8 @@
         @yield('content')
     </div>   
 
+
+</body>
     <footer>
         <div class="col-md-2 col-md-offset-5 bottom2">
             <p id="bottom">
@@ -114,6 +116,6 @@
 
     {{-- @yield('scripts') --}}
 
-</body>
+
 
 </html>

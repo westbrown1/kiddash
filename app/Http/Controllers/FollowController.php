@@ -10,6 +10,7 @@ use App\User;
 use App\Join;
 use Image;
 use App\Follow;
+use App\Profile;
 use Auth;
 use DB;
 use App\Repositories\UserRepository;
@@ -129,5 +130,4 @@ class FollowController extends Controller
         
     }
 }
-
 
