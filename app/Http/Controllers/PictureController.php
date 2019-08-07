@@ -73,10 +73,9 @@ class PictureController extends Controller
           $location = public_path('images/' . $filename);
           
           Image::make($image)->resize(500, 400)->orientate()->save($location);       
-          $picture->picture = $filename;          
-         }
-
-        $picture->save();
+          $picture->picture = $filename;  
+          $picture->save();        
+         }       
 
         return redirect()->route('dashboards.index');
     }
