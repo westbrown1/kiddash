@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Photo;
+use App\Follow;
+use App\Picture;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function show($membername)
+    public function board($username)
     {
-    	$user = User::whereMembername($membername)->first();
+    	$user = User::whereUsername($username)->first();
         $photos= Photo::all();
 
     	if($user) {

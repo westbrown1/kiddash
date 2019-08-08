@@ -52,8 +52,8 @@
                                 <button type="submit" id="follow-user-{{ $user->id }}" class="btn btn-success">
                                     <i class="fa fa-btn fa-user"></i> Follow
                                 </button>                
-                            @if(!empty($user->membername))
-                            </form></td> <td><a href="{{ route('profile.show', $user->membername) }}" class="btn btn-primary">{{ $user->membername }}</a></td>
+                            @if(!empty($user->username))
+                            </form></td> <td><a href="{{ route('profile.board', $user->username) }}" class="btn btn-primary">{{ $user->name }}</a></td>
                             @endif
                             </tr>  
                         @endif                                   
@@ -710,12 +710,11 @@
                                                     <i class="fa fa-btn fa-trash"></i> Unfollow
                                                 </button>
                                             </form>
-                                        </td>@if(!empty($user->membername))
-                                <td><a href="{{ route('profile.show', $user->membername) }}" class="btn btn-primary">{{ $user->membername }}</a></td>
+                                        </td>@if(!empty($user->username))
+                                <td><a href="{{ route('profile.board', $user->username) }}" class="btn btn-primary">{{ $user->name }}</a></td>
                                     </tr> 
                                 @endif 
-                                @endforeach
-                                                              
+                                @endforeach                                                             
                                 
                             </tbody>
                         </table>
@@ -747,7 +746,7 @@
 
                                         @foreach ($users['not_following'] as $user)
                                              
-                                            {{-- <td>  <a href="{{ route('profile.show', $user->username) }}">{{ $user->username }}</a>  </td> --}}
+                                            {{-- <td>  <a href="{{ route('profile.board', $user->username) }}">{{ $user->username }}</a>  </td> --}}
                                         
                                                 <td clphpass="table-text"><div>{{ $user->name }}</div></td>
                                                 <td clphpass="table-text">{{ $user->team }} &nbsp; &nbsp; {{ $user->team2 }} &nbsp; &nbsp; {{ $user->team3 }} &nbsp; &nbsp; {{ $user->team4 }} &nbsp; &nbsp; {{ $user->team5 }}</td>                                              

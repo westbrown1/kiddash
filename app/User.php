@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'membername', 'name', 'email', 'password', 'team', 'team2', 'team3', 'team4', 'team5',
+       'username', 'name', 'email', 'password', 'team', 'team2', 'team3', 'team4', 'team5',
     ];
 
     /**
@@ -90,6 +90,11 @@ class User extends Authenticatable
     public function pictures()
     {
         return $this->hasOne(Picture::class);
+    }
+
+    public function profiles()
+    {
+        return $this->hasOne(Profile::class);
     }
 
 }

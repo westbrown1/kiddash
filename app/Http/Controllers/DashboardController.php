@@ -47,7 +47,8 @@ class DashboardController extends Controller
         $tasks = Task::all();
         $videos = Video::all();
         $photos = Photo::all();
-        $pictures = Picture::orderBy('user_id')->take(2)->get();
+        /*$pictures = Picture::orderBy('user_id')->take(2)->get();*/
+        $pictures = Picture::all();
         $teams = Team::all();
         $joins = Join::all();
 
