@@ -12,6 +12,7 @@ use Auth;
 use Storage;
 use Response;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class PhotoController extends Controller
 {
@@ -31,6 +32,19 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'image' => 'required|image',
+        ]);
+    }
     
     public function index()
     {
@@ -59,7 +73,6 @@ class PhotoController extends Controller
     public function store(Request $request, $user_id)
     {
         /*$this->validate($request, [
-                'name' => 'max:255',
                 'image' => 'required|image',                
             ]);*/
 
