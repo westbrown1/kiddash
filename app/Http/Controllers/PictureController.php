@@ -11,6 +11,7 @@ use Image;
 use Auth;
 use Storage;
 use Session;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -32,6 +33,19 @@ class PictureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+/**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'picture' => 'required|image',
+        ]);
+    }
     public function index()
     {
         return view('pictures.index');
