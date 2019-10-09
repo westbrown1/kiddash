@@ -85,6 +85,8 @@
                                         {{-- <li><a href="/messages/create">Create New Message</a></li> --}}
                                         <li><a href="{{ route('teams.create') }}">Create New Team</a></li>
                                         <li><a href="{{ route('pictures.create') }}">Add a Dashboard Photo/Image</a></li>
+                                        <li><a href="{{ url('index') }}">Access Camera</a></li>
+
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
