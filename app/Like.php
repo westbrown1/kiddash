@@ -4,18 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class dashboard extends Model
+class Like extends Model
 {
 	/**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'url'];
+    protected $fillable = [
+       'post_id',
+    ];
 
-   public function user()
+    public function photo()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\Photo');    
     }
+    
 }
-

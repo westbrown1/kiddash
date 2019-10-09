@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//add extra extension to render pure html alongside with php
+View::addExtension('html', 'php');
+
 Route::get('dashboards', ['uses' => 'DashboardController@index', 'as' => 'dashboards.index']);
 Route::get('dashboards/create', ['uses' => 'DashboardController@create', 'as' => 'dashboards.create']);
 Route::get('dashboards/{id}', ['uses' => 'DashboardController@show', 'as' => 'dashboards.show']);
@@ -97,6 +100,10 @@ Route::get('profile/{username}', 'ProfileController@board')->name('profile.board
 
 Route::get('country', function() {
 	return view('joins.country');
+});
+
+Route::get('index', function() {
+	return view('index');
 });
 
 Route::get('example', function() {

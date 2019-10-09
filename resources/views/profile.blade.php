@@ -30,7 +30,7 @@
 <div class="row">
 	<!-- col-md-12 -->
 	<div class="col-md-12">
-		 <h3 class="text-center">{{ $user->username }}'s Image Board</h3>
+		 <h3 class="text-center">{{ $user->name }}'s Image Board</h3>
 	</div><!-- /col-md-12 -->
 </div><!-- /row -->
 
