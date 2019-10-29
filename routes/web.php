@@ -114,5 +114,32 @@ Route::get('info', function() {
 	return view('info');
 });
 
+Route::get('audio', function() {
+    return view('app-media-audio');
+});
+
+Route::get('devices', function() {
+    return view('app-media-devices');
+});
+
+Route::get('image', function() {
+    return view('app-media-image-capture');
+});
+
+Route::get('recorder', function() {
+    return view('app-media-recorder');
+});
+
+Route::get('stream', function() {
+    return view('app-media-stream');
+});
+
+Route::get('video', function() {
+    return view('app-media-video');
+});
+Route::get('waveform', function() {
+    return view('app-media-waveform');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 

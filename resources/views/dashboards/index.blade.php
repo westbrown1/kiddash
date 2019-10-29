@@ -123,6 +123,13 @@ table {
 
 <!-- container -->
 <div class="container">
+<a href="image">Image</a>
+<a href="devices">Devices</a>
+<a href="video">Video</a>
+<a href="stream">Stream</a>
+<a href="recorder">Recorder</a>
+<a href="audio">Audio</a>
+<a href="waveform">Waveform</a>
 
 		<div class="row">			
 			<!-- col-md-3 col-md-offset-10 -->

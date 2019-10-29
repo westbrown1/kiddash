@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script type="module">
+      import '@polymer/polymer/lib/elements/dom-bind.js';
+      import '@polymer/app-media/app-media-devices.js';
+      import '@polymer/app-media/app-media-stream.js';
+    </script>
+  </head>
+  <body>
+    <dom-bind>
+      <template>
+        <app-media-devices
+            kind="audioinput"
+            devices="{{microphone}}">
+        </app-media-devices>
+        <app-media-stream
+            audio-device="[[microphone]]"
+            stream="{{microphoneStream}}">
+        </app-media-stream>
+      </template>
+    </dom-bind>
+  </body>
+</html>

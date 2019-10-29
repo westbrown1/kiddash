@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="module">
+      import '@polymer/polymer/lib/elements/dom-bind.js';
+      import '@polymer/app-media/app-media-devices.js';
+      import '@polymer/app-media/app-media-stream.js';
+      import '@polymer/app-media/app-media-image-capture.js';
+    </script>
+  </head>
+  <body>
+    <dom-bind>
+      <template>
+        <app-media-devices
+            kind="videoinput"
+            devices="{{camera}}">
+        </app-media-devices>
+        <app-media-stream
+            video-device="[[camera]]"
+            stream="{{videoStream}}">
+        </app-media-stream>
+        <app-media-image-capture
+            id="imageCapture"
+            stream="[[videoStream]]"
+            focus-mode="single-shot"
+            red-eye-reduction
+            last-photo="{{photo}}">
+        </app-media-image-capture>
+      </template>
+    </dom-bind>
+    <script>
+      function takePhoto() {
+        imageCapture.takePhoto();
+      }
+    </script>
+  </body>
+</html>

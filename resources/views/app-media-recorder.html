@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script type="module">
+      import '@polymer/polymer/lib/elements/dom-bind.js';
+      import '@polymer/app-media/app-media-devices.js';
+      import '@polymer/app-media/app-media-stream.js';
+      import '@polymer/app-media/app-media-recorder.js';
+    </script>
+  </head>
+  <body>
+    <dom-bind>
+      <template>
+        <app-media-devices
+            kind="videoinput"
+            devices="{{camera}}">
+        </app-media-devices>
+        <app-media-devices
+            kind="audioinput"
+            devices="{{microphone}}">
+        </app-media-devices>
+        <app-media-stream
+            video-device="[[camera]]"
+            audio-device="[[microphone]]"
+            stream="{{cameraAndMicrophoneStream}}">
+        </app-media-stream>
+        <app-media-recorder
+            id="recorder"
+            stream="[[cameraAndMicrophoneStream]]"
+            data="{{recordedVideo}}"
+            duration="3000">
+        </app-media-recorder>
+      </template>
+    </dom-bind>
+    <script>
+      function createRecording() {
+        recorder.start();
+      }
+    </script>
+  </body>
+</html>

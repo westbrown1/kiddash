@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type="module">
+      import '@polymer/polymer/lib/elements/dom-bind.js';
+      import '@polymer/app-media/app-media-devices.js';
+      import '@polymer/app-media/app-media-stream.js';
+      import '@polymer/app-media/app-media-video.js';
+    </script>
+  </head>
+  <body>
+    <dom-bind>
+      <template>
+        <app-media-devices
+            kind="videoinput"
+            devices="{{camera}}">
+        </app-media-devices>
+        <app-media-stream
+            video-device="[[camera]]"
+            stream="{{cameraStream}}">
+        </app-media-stream>
+        <app-media-video
+            source="[[cameraStream]]"
+            autoplay>
+        </app-media-video>
+      </template>
+    </dom-bind>
+  </body>
+</html>
